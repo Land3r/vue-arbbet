@@ -1,0 +1,5 @@
+# Pour la gestion des requetes Http
+pip3 install requests
+
+# Pour la gestion des configurations
+pip3 install python-dotenv

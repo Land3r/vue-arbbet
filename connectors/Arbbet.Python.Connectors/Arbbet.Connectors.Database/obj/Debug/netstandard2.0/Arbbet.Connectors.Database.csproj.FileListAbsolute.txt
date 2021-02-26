@@ -1,0 +1,4 @@
+D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Database\obj\Debug\netstandard2.0\Arbbet.Connectors.Database.csprojAssemblyReference.cache
+D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Database\obj\Debug\netstandard2.0\Arbbet.Connectors.Database.AssemblyInfoInputs.cache
+D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Database\obj\Debug\netstandard2.0\Arbbet.Connectors.Database.AssemblyInfo.cs
+D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Database\obj\Debug\netstandard2.0\Arbbet.Connectors.Database.csproj.CoreCompileInputs.cache
