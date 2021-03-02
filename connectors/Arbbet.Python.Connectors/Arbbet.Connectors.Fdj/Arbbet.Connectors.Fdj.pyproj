@@ -22,6 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Arbbet.Connectors.Fdj.py" />
+    <Compile Include="Business\Sport.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Arbbet.Connectors\Arbbet.Connectors.pyproj">
@@ -33,6 +36,9 @@
   <ItemGroup>
     <Content Include="pip.txt" />
     <Content Include=".env" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
