@@ -19,7 +19,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                 .HasAnnotation("ProductVersion", "5.0.3")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Bets.Bet", b =>
+            modelBuilder.Entity("Arbbet.Domain.Entities.Bet", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,53 +29,20 @@ namespace Arbbet.Connectors.Dal.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("EventId")
+                    b.Property<Guid>("EventId")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("ExpiresAt")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("IdPlatform")
-                        .HasColumnType("text");
-
-                    b.Property<decimal>("Odd_Draw_A")
-                        .HasColumnType("numeric");
-
-                    b.Property<decimal>("Odd_Lose_A")
-                        .HasColumnType("numeric");
-
-                    b.Property<decimal>("Odd_Win_A")
-                        .HasColumnType("numeric");
-
-                    b.Property<Guid?>("PlatformId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Team_AId")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Team_BId")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("Url")
+                    b.Property<string>("Name")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("EventId");
 
-                    b.HasIndex("PlatformId");
-
-                    b.HasIndex("Team_AId");
-
-                    b.HasIndex("Team_BId");
-
                     b.ToTable("Bets");
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Competitions.Competition", b =>
+            modelBuilder.Entity("Arbbet.Domain.Entities.Competition", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -84,20 +51,34 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.Property<Guid?>("CountryId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("IdFdj")
+                    b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<string>("Name")
+                    b.Property<Guid?>("PlatformId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Platform_Id")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("UnifiedEntityId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UnifiedType")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
 
+                    b.HasIndex("PlatformId");
+
+                    b.HasIndex("UnifiedEntityId");
+
                     b.ToTable("Competitions");
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Countries.Country", b =>
+            modelBuilder.Entity("Arbbet.Domain.Entities.Country", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -114,7 +95,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Events.Event", b =>
+            modelBuilder.Entity("Arbbet.Domain.Entities.Event", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -123,20 +104,75 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.Property<Guid?>("CompetitionId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("IdFdj")
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("EventType")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("PlatformId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Platform_Id")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("UnifiedEntityId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UnifiedType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Url")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CompetitionId");
 
+                    b.HasIndex("PlatformId");
+
+                    b.HasIndex("UnifiedEntityId");
+
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Platforms.Platform", b =>
+            modelBuilder.Entity("Arbbet.Domain.Entities.Outcome", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("BetId")
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("Odd")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("OutcomeType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("TeamId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BetId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("Outcomes");
+                });
+
+            modelBuilder.Entity("Arbbet.Domain.Entities.Platform", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -151,9 +187,17 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Platforms");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
+                            Code = "FDJ",
+                            Name = "FDJ"
+                        });
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Sports.Sport", b =>
+            modelBuilder.Entity("Arbbet.Domain.Entities.Sport", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -162,13 +206,27 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.Property<string>("Code")
                         .HasColumnType("text");
 
-                    b.Property<string>("IdFdj")
-                        .HasColumnType("text");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("PlatformId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Platform_Id")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("UnifiedEntityId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UnifiedType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("PlatformId");
+
+                    b.HasIndex("UnifiedEntityId");
 
                     b.ToTable("Sports");
 
@@ -177,64 +235,81 @@ namespace Arbbet.Connectors.Dal.Migrations
                         {
                             Id = new Guid("0405459e-dff5-4e98-9f18-cde23fe456ae"),
                             Code = "FOO",
-                            IdFdj = "100",
-                            Name = "Football"
+                            Name = "Football",
+                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
+                            Platform_Id = "100",
+                            UnifiedType = "Master"
                         },
                         new
                         {
                             Id = new Guid("a588cc21-4797-4916-95ec-fc54e7bacd44"),
                             Code = "TEN",
-                            IdFdj = "600",
-                            Name = "Tennis"
+                            Name = "Tennis",
+                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
+                            Platform_Id = "600",
+                            UnifiedType = "Master"
                         },
                         new
                         {
                             Id = new Guid("4c855310-ec82-48dd-9ba5-9bd611804d4e"),
                             Code = "BAS",
-                            IdFdj = "601600",
-                            Name = "Basketball"
+                            Name = "Basketball",
+                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
+                            Platform_Id = "601600",
+                            UnifiedType = "Master"
                         },
                         new
                         {
                             Id = new Guid("6dc779c4-113f-4aa5-855a-65959b0426cf"),
                             Code = "RUG",
-                            IdFdj = "964500",
-                            Name = "Rugby"
+                            Name = "Rugby",
+                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
+                            Platform_Id = "964500",
+                            UnifiedType = "Master"
                         },
                         new
                         {
                             Id = new Guid("b3082cf0-1ce3-4ee0-8a2a-105055f3d851"),
                             Code = "VOL",
-                            IdFdj = "1200",
-                            Name = "Volley"
+                            Name = "Volley",
+                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
+                            Platform_Id = "1200",
+                            UnifiedType = "Master"
                         },
                         new
                         {
                             Id = new Guid("43730787-c53e-49a1-80a2-4db01d95d38a"),
                             Code = "HAN",
-                            IdFdj = "1100",
-                            Name = "Handball"
+                            Name = "Handball",
+                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
+                            Platform_Id = "1100",
+                            UnifiedType = "Master"
                         },
                         new
                         {
                             Id = new Guid("ca33fb07-fd55-4c25-8ef9-7a62e75be407"),
                             Code = "HOC",
-                            IdFdj = "2100",
-                            Name = "Hockey"
+                            Name = "Hockey",
+                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
+                            Platform_Id = "2100",
+                            UnifiedType = "Master"
                         },
                         new
                         {
                             Id = new Guid("3478ac3e-b02b-46ab-9db4-716519476f73"),
                             Code = "BOX",
-                            IdFdj = "364800",
-                            Name = "Boxe"
+                            Name = "Boxe",
+                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
+                            Platform_Id = "364800",
+                            UnifiedType = "Master"
                         });
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Teams.Team", b =>
+            modelBuilder.Entity("Arbbet.Domain.Entities.Team", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
                     b.Property<Guid?>("CountryId")
                         .HasColumnType("uuid");
@@ -242,7 +317,20 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("PlatformId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Platform_Id")
+                        .HasColumnType("text");
+
                     b.Property<string>("TeamType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("UnifiedEntityId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UnifiedType")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -250,62 +338,155 @@ namespace Arbbet.Connectors.Dal.Migrations
 
                     b.HasIndex("CountryId");
 
+                    b.HasIndex("PlatformId");
+
+                    b.HasIndex("UnifiedEntityId");
+
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Bets.Bet", b =>
+            modelBuilder.Entity("EventTeam", b =>
                 {
-                    b.HasOne("Arbbet.Connectors.Domain.Events.Event", null)
-                        .WithMany("Bets")
-                        .HasForeignKey("EventId");
+                    b.Property<Guid>("EventsId")
+                        .HasColumnType("uuid");
 
-                    b.HasOne("Arbbet.Connectors.Domain.Platforms.Platform", "Platform")
+                    b.Property<Guid>("ParticipantsId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("EventsId", "ParticipantsId");
+
+                    b.HasIndex("ParticipantsId");
+
+                    b.ToTable("EventTeam");
+                });
+
+            modelBuilder.Entity("Arbbet.Domain.Entities.Bet", b =>
+                {
+                    b.HasOne("Arbbet.Domain.Entities.Event", "Event")
+                        .WithMany("Bets")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("Arbbet.Domain.Entities.Competition", b =>
+                {
+                    b.HasOne("Arbbet.Domain.Entities.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId");
+
+                    b.HasOne("Arbbet.Domain.Entities.Platform", "Platform")
                         .WithMany()
                         .HasForeignKey("PlatformId");
 
-                    b.HasOne("Arbbet.Connectors.Domain.Teams.Team", "Team_A")
+                    b.HasOne("Arbbet.Domain.Entities.Competition", "UnifiedEntity")
                         .WithMany()
-                        .HasForeignKey("Team_AId");
+                        .HasForeignKey("UnifiedEntityId");
 
-                    b.HasOne("Arbbet.Connectors.Domain.Teams.Team", "Team_B")
-                        .WithMany()
-                        .HasForeignKey("Team_BId");
+                    b.Navigation("Country");
 
                     b.Navigation("Platform");
 
-                    b.Navigation("Team_A");
-
-                    b.Navigation("Team_B");
+                    b.Navigation("UnifiedEntity");
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Competitions.Competition", b =>
+            modelBuilder.Entity("Arbbet.Domain.Entities.Event", b =>
                 {
-                    b.HasOne("Arbbet.Connectors.Domain.Countries.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId");
-
-                    b.Navigation("Country");
-                });
-
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Events.Event", b =>
-                {
-                    b.HasOne("Arbbet.Connectors.Domain.Competitions.Competition", "Competition")
+                    b.HasOne("Arbbet.Domain.Entities.Competition", "Competition")
                         .WithMany()
                         .HasForeignKey("CompetitionId");
 
+                    b.HasOne("Arbbet.Domain.Entities.Platform", "Platform")
+                        .WithMany()
+                        .HasForeignKey("PlatformId");
+
+                    b.HasOne("Arbbet.Domain.Entities.Event", "UnifiedEntity")
+                        .WithMany()
+                        .HasForeignKey("UnifiedEntityId");
+
                     b.Navigation("Competition");
+
+                    b.Navigation("Platform");
+
+                    b.Navigation("UnifiedEntity");
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Teams.Team", b =>
+            modelBuilder.Entity("Arbbet.Domain.Entities.Outcome", b =>
                 {
-                    b.HasOne("Arbbet.Connectors.Domain.Countries.Country", "Country")
+                    b.HasOne("Arbbet.Domain.Entities.Bet", "Bet")
+                        .WithMany("Outcomes")
+                        .HasForeignKey("BetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Arbbet.Domain.Entities.Team", "Team")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.Navigation("Bet");
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("Arbbet.Domain.Entities.Sport", b =>
+                {
+                    b.HasOne("Arbbet.Domain.Entities.Platform", "Platform")
+                        .WithMany()
+                        .HasForeignKey("PlatformId");
+
+                    b.HasOne("Arbbet.Domain.Entities.Sport", "UnifiedEntity")
+                        .WithMany()
+                        .HasForeignKey("UnifiedEntityId");
+
+                    b.Navigation("Platform");
+
+                    b.Navigation("UnifiedEntity");
+                });
+
+            modelBuilder.Entity("Arbbet.Domain.Entities.Team", b =>
+                {
+                    b.HasOne("Arbbet.Domain.Entities.Country", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId");
 
+                    b.HasOne("Arbbet.Domain.Entities.Platform", "Platform")
+                        .WithMany()
+                        .HasForeignKey("PlatformId");
+
+                    b.HasOne("Arbbet.Domain.Entities.Team", "UnifiedEntity")
+                        .WithMany()
+                        .HasForeignKey("UnifiedEntityId");
+
                     b.Navigation("Country");
+
+                    b.Navigation("Platform");
+
+                    b.Navigation("UnifiedEntity");
                 });
 
-            modelBuilder.Entity("Arbbet.Connectors.Domain.Events.Event", b =>
+            modelBuilder.Entity("EventTeam", b =>
+                {
+                    b.HasOne("Arbbet.Domain.Entities.Event", null)
+                        .WithMany()
+                        .HasForeignKey("EventsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Arbbet.Domain.Entities.Team", null)
+                        .WithMany()
+                        .HasForeignKey("ParticipantsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Arbbet.Domain.Entities.Bet", b =>
+                {
+                    b.Navigation("Outcomes");
+                });
+
+            modelBuilder.Entity("Arbbet.Domain.Entities.Event", b =>
                 {
                     b.Navigation("Bets");
                 });

@@ -22,23 +22,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Arbbet.Connectors.Fdj.py" />
-    <Compile Include="Business\Sport.py">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Arbbet.Connectors\Arbbet.Connectors.pyproj">
-      <Name>Arbbet.Connectors</Name>
-      <Project>{75713d91-9a81-48f9-a748-2b41a5851cab}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="pip.txt" />
     <Content Include=".env" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\" />
+    <ProjectReference Include="..\Arbbet\Arbbet.pyproj">
+      <Name>Arbbet</Name>
+      <Project>{b3c8eac6-e848-4be9-bae6-c3fb4bba083c}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

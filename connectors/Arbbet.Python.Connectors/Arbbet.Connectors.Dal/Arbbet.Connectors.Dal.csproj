@@ -2,16 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyVersion>1.0.0.57</AssemblyVersion>
-    <FileVersion>1.0.0.57</FileVersion>
+    <AssemblyVersion>1.2021.62.62</AssemblyVersion>
+    <FileVersion>1.2021.62.62</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Arbbet.Connectors.Domain\Arbbet.Connectors.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="Database\" />
   </ItemGroup>
 
@@ -21,6 +16,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Arbbet.Domain\Arbbet.Domain.csproj" />
   </ItemGroup>
 
 </Project>

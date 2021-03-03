@@ -8,7 +8,7 @@ using Arbbet.Domain.Entities;
 
 namespace Arbbet.Domain.Seeds
 {
-  class Sports
+  public class Sports
   {
     public static IList<Sport> Data = new List<Sport>()
     {

@@ -5,13 +5,11 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Arbbet.Connectors.Fdj", "Arbbet.Connectors.Fdj\Arbbet.Connectors.Fdj.pyproj", "{F6291E0D-EEEF-4FF1-805D-F76C6B6AE8CB}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Arbbet.Connectors", "Arbbet.Connectors\Arbbet.Connectors.pyproj", "{75713D91-9A81-48F9-A748-2B41A5851CAB}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbbet.Connectors.Domain", "Arbbet.Connectors.Domain\Arbbet.Connectors.Domain.csproj", "{AF901860-29EE-4955-95F7-8450A3CEA8EF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbbet.Connectors.Dal", "Arbbet.Connectors.Dal\Arbbet.Connectors.Dal.csproj", "{C7902ACB-890B-40F8-9E0F-D8BF280614E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arbbet.Domain", "Arbbet.Domain\Arbbet.Domain.csproj", "{ABEBE6A8-29A7-4AB2-A40D-B489EC0C843A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbbet.Domain", "Arbbet.Domain\Arbbet.Domain.csproj", "{ABEBE6A8-29A7-4AB2-A40D-B489EC0C843A}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Arbbet", "Arbbet\Arbbet.pyproj", "{B3C8EAC6-E848-4BE9-BAE6-C3FB4BBA083C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,12 +19,6 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F6291E0D-EEEF-4FF1-805D-F76C6B6AE8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F6291E0D-EEEF-4FF1-805D-F76C6B6AE8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75713D91-9A81-48F9-A748-2B41A5851CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75713D91-9A81-48F9-A748-2B41A5851CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF901860-29EE-4955-95F7-8450A3CEA8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF901860-29EE-4955-95F7-8450A3CEA8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF901860-29EE-4955-95F7-8450A3CEA8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF901860-29EE-4955-95F7-8450A3CEA8EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C7902ACB-890B-40F8-9E0F-D8BF280614E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7902ACB-890B-40F8-9E0F-D8BF280614E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7902ACB-890B-40F8-9E0F-D8BF280614E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,6 +27,8 @@ Global
 		{ABEBE6A8-29A7-4AB2-A40D-B489EC0C843A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABEBE6A8-29A7-4AB2-A40D-B489EC0C843A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABEBE6A8-29A7-4AB2-A40D-B489EC0C843A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C8EAC6-E848-4BE9-BAE6-C3FB4BBA083C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C8EAC6-E848-4BE9-BAE6-C3FB4BBA083C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

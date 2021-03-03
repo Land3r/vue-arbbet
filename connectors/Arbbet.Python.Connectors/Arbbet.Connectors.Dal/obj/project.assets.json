@@ -257,17 +257,14 @@
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
-      "Arbbet.Connectors.Domain/1.0.0": {
+      "Arbbet.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.2"
-        },
         "compile": {
-          "bin/placeholder/Arbbet.Connectors.Domain.dll": {}
+          "bin/placeholder/Arbbet.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Arbbet.Connectors.Domain.dll": {}
+          "bin/placeholder/Arbbet.Domain.dll": {}
         }
       }
     }
@@ -821,34 +818,39 @@
         "version.txt"
       ]
     },
-    "Arbbet.Connectors.Domain/1.0.0": {
+    "Arbbet.Domain/1.0.0": {
       "type": "project",
-      "path": "../Arbbet.Connectors.Domain/Arbbet.Connectors.Domain.csproj",
-      "msbuildProject": "../Arbbet.Connectors.Domain/Arbbet.Connectors.Domain.csproj"
+      "path": "../Arbbet.Domain/Arbbet.Domain.csproj",
+      "msbuildProject": "../Arbbet.Domain/Arbbet.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Arbbet.Connectors.Domain >= 1.0.0",
+      "Arbbet.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nicol\\.nuget\\packages\\": {}
+    "C:\\Users\\n.gordat\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj",
+      "projectUniqueName": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj",
       "projectName": "Arbbet.Connectors.Dal",
-      "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj",
-      "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-      "outputPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\obj\\",
+      "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj",
+      "packagesPath": "C:\\Users\\n.gordat\\.nuget\\packages\\",
+      "outputPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\n.gordat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -862,8 +864,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
-              "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj"
+            "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj": {
+              "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj"
             }
           }
         }
@@ -904,7 +906,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -4,76 +4,11 @@ import requests
 import json
 from types import SimpleNamespace
 from dotenv import load_dotenv
-import psycopg2
-
-class Platform(object):
-    def __init__(self, id, code, name):
-        self.id = id
-        self.code = code
-        self.name = name
-
-    @property
-    def id(self):
-        return self._id
-
-    @id.setter
-    def id(self, value):
-        self._id = value
-
-    @property
-    def name(self):
-        return self._name
-
-    @name.setter
-    def name(self, value):
-        self._name = value
-
-    @property
-    def code(self):
-        return self._code
-
-    @code.setter
-    def code(self, value):
-        self._code = value
-
-class Sport(object):
-    def __init__(self, id, code, name, idfdj):
-        self.id = id
-        self.code = code
-        self.name = name
-        self.idfdj = idfdj
-
-    @property
-    def id(self):
-        return self._id
-
-    @id.setter
-    def id(self, value):
-        self._id = value
-
-    @property
-    def name(self):
-        return self._name
-
-    @name.setter
-    def name(self, value):
-        self._name = value
-
-    @property
-    def code(self):
-        return self._code
-
-    @code.setter
-    def code(self, value):
-        self._code = value
-
-    @property
-    def idfdj(self):
-        return self._idfdj
-
-    @idfdj.setter
-    def idfdj(self, value):
-        self._idfdj = value
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from domain import Sport
+from domain.Platform import Platform
+from domain.PlatformService import PlatformService
 
 class Competition(object):
     def __init__(self, id, name, countryid, idfdj):
@@ -277,15 +212,6 @@ def getBetsBySport(sportId):
     elif r.status_code == 400:
         return
 
-def getFdjPlatform():
-    cur.execute('SELECT "Id", "Code", "Name" FROM "Platforms" WHERE "Code"=\'FDJ\'')
-    row = cur.fetchone()
-    if (row != None):
-        return Platform(row[0], row[1], row[2])
-    else:
-        return None
-
-
 logging.info("Lauching Connector FDJ")
 
 # Configuration
@@ -294,12 +220,13 @@ load_dotenv();
 logging.debug("Using following configuration")
 logging.debug("DB_CONNECTIONSTRING: %s", os.getenv('DB_CONNECTIONSTRING'))
 
-con = psycopg2.connect(os.getenv('DB_CONNECTIONSTRING'))
-cur = con.cursor()
+sqlengine = create_engine(os.getenv('DB_CONNECTIONSTRING'), echo=True)
+Session = sessionmaker(bind=sqlengine)
+session = Session()
 logging.debug("Connected to database")
 
 # Retrieve Platform
-platform = getFdjPlatform()
+platform = PlatformService.getPlatformByCode(session, 'FDJ')
 logging.debug("Retrieved platform from database")
 
 # Getting sports

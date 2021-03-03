@@ -8,12 +8,12 @@ using Arbbet.Domain.Enums;
 
 namespace Arbbet.Domain.Interfaces
 {
-  public interface IUnifiedEntity<TEntity> : IPlatformSpecific
-  {
-    public TEntity? UnifiedEntity { get; set; }
+    public interface IUnifiedEntity<TEntity> : IPlatformSpecific<string>
+    {
+        public Guid? UnifiedEntityId { get; set; }
 
-    public Guid? UnifiedEntityId { get; set; }
+        public TEntity? UnifiedEntity { get; set; }
 
-    public UnifiedType UnifiedType { get; set; }
-  }
+        public UnifiedType UnifiedType { get; set; }
+    }
 }

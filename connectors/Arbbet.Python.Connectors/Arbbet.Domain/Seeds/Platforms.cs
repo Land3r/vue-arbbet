@@ -8,7 +8,7 @@ using Arbbet.Domain.Entities;
 
 namespace Arbbet.Domain.Seeds
 {
-  class Platforms
+  public class Platforms
   {
     public static IList<Platform> Data = new List<Platform>()
     {
