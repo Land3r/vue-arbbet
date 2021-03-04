@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 using Arbbet.Domain.Interfaces;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace Arbbet.Domain.Entities
 {
+  [Index(nameof(Code))]
   public class Platform : ICodeNamed, IIdentifiable
   {
     /// <summary>

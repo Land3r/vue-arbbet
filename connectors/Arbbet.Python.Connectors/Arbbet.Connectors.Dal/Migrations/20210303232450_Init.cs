@@ -178,18 +178,37 @@ namespace Arbbet.Connectors.Dal.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ExpiresAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     EventId = table.Column<Guid>(type: "uuid", nullable: false),
-                    BetType = table.Column<string>(type: "text", nullable: false)
+                    BetType = table.Column<string>(type: "text", nullable: false),
+                    UnifiedEntityId = table.Column<Guid>(type: "uuid", nullable: true),
+                    UnifiedType = table.Column<int>(type: "integer", nullable: false),
+                    PlatformId = table.Column<Guid>(type: "uuid", nullable: true),
+                    Platform_Id = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Bets_Bets_UnifiedEntityId",
+                        column: x => x.UnifiedEntityId,
+                        principalTable: "Bets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bets_Events_EventId",
                         column: x => x.EventId,
                         principalTable: "Events",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Bets_Platforms_PlatformId",
+                        column: x => x.PlatformId,
+                        principalTable: "Platforms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -267,6 +286,16 @@ namespace Arbbet.Connectors.Dal.Migrations
                 name: "IX_Bets_EventId",
                 table: "Bets",
                 column: "EventId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bets_PlatformId",
+                table: "Bets",
+                column: "PlatformId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bets_UnifiedEntityId",
+                table: "Bets",
+                column: "UnifiedEntityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Competitions_CountryId",

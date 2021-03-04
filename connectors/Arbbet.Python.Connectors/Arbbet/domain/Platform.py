@@ -11,3 +11,8 @@ class Platform(Base):
     Id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     Code = Column(String)
     Name = Column(String)
+
+class PlatformService(object):
+    def getPlatformByCode(session, code):
+        platform = session.query(Platform).filter_by(Code=code).one()
+        return platform

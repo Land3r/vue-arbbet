@@ -22,13 +22,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Arbbet.py" />
+    <Compile Include="domain\Bet.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\Competition.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\Event.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="domain\Outcome.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="domain\Platform.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="domain\PlatformService.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="domain\Sport.py">

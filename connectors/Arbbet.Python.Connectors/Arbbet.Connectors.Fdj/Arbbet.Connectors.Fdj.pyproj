@@ -22,6 +22,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Arbbet.Connectors.Fdj.py" />
+    <Compile Include="service\FdjService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="service\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="pip.txt" />
@@ -33,6 +39,9 @@
       <Project>{b3c8eac6-e848-4be9-bae6-c3fb4bba083c}</Project>
       <Private>True</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="service\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

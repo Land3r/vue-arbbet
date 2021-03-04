@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 using Arbbet.Domain.Enums;
 using Arbbet.Domain.Interfaces;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace Arbbet.Domain.Entities
 {
+  [Index(nameof(Name))]
     public class Team : IIdentifiable, INamed, ICountryLocalized, IUnifiedEntity<Team>
     {
         [Key]

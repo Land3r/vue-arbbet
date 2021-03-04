@@ -6,4 +6,8 @@
     <FileVersion>1.2021.62.62</FileVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
+  </ItemGroup>
+
 </Project>

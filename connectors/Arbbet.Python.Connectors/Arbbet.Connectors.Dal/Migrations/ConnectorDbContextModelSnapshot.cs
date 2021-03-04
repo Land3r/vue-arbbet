@@ -29,15 +29,40 @@ namespace Arbbet.Connectors.Dal.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<Guid>("EventId")
                         .HasColumnType("uuid");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("PlatformId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Platform_Id")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("UnifiedEntityId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("UnifiedType")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp without time zone");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EventId");
+
+                    b.HasIndex("PlatformId");
+
+                    b.HasIndex("UnifiedEntityId");
 
                     b.ToTable("Bets");
                 });
@@ -368,7 +393,19 @@ namespace Arbbet.Connectors.Dal.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Arbbet.Domain.Entities.Platform", "Platform")
+                        .WithMany()
+                        .HasForeignKey("PlatformId");
+
+                    b.HasOne("Arbbet.Domain.Entities.Bet", "UnifiedEntity")
+                        .WithMany()
+                        .HasForeignKey("UnifiedEntityId");
+
                     b.Navigation("Event");
+
+                    b.Navigation("Platform");
+
+                    b.Navigation("UnifiedEntity");
                 });
 
             modelBuilder.Entity("Arbbet.Domain.Entities.Competition", b =>

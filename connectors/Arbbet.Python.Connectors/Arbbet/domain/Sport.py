@@ -14,4 +14,9 @@ class Sport(Base):
     UnifiedEntityId = Column(UUID(as_uuid=True))
     UnifiedType = Column(String)
     PlatformId = Column(UUID(as_uuid=True))
-    Platform_id = Column(String)
+    Platform_Id = Column(String)
+
+class SportService(object):
+    def getSportsByPlatform(session, platformId):
+        sports = session.query(Sport).filter_by(PlatformId=platformId).all()
+        return sports
