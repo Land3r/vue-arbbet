@@ -6,10 +6,8 @@ from types import SimpleNamespace
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from domain.Sport import Sport, SportService
-from domain.Platform import Platform, PlatformService
-from domain.Competition import Competition, CompetitionService
-from domain.Bet import Bet, BetService
+from domain.entities import Platform, Sport, Competition, Bet
+from domain.services import PlatformService, SportService, CompetitionService, BetService
 from service.FdjService import FdjService
 
 logging.basicConfig(

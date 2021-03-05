@@ -212,6 +212,9 @@
       },
       "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
       "Arbbet.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.3"
+        },
         "runtime": {
           "Arbbet.Domain.dll": {}
         }

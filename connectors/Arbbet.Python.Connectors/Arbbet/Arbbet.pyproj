@@ -28,16 +28,13 @@
     <Compile Include="domain\Competition.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="domain\entities.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="domain\Event.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="domain\Outcome.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="domain\Platform.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="domain\Sport.py">
+    <Compile Include="domain\services.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="domain\__init__.py">
