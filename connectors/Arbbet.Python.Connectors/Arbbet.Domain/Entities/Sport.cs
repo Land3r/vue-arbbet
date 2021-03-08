@@ -23,14 +23,14 @@ namespace Arbbet.Domain.Entities
         public Guid? UnifiedEntityId { get; set; }
 
         [ForeignKey("UnifiedEntityId")]
-        public Sport UnifiedEntity { get; set; }
+        public virtual Sport UnifiedEntity { get; set; }
 
         public UnifiedType UnifiedType { get; set; }
 
         public Guid? PlatformId { get; set; }
 
         [ForeignKey("PlatformId")]
-        public Platform Platform { get; set; }
+        public virtual Platform Platform { get; set; }
 
         public string Platform_Id { get; set; }
     }

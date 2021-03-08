@@ -13,6 +13,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Arbbet", "Arbbet\Arbbet.pyp
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Arbbet.Connectors.Unibet", "Arbbet.Connectors.Unibet\Arbbet.Connectors.Unibet.pyproj", "{A25B5CBF-FFB4-4605-8927-965749F0EE00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arbbet.DataExplorer", "Arbbet.DataExplorer\Arbbet.DataExplorer.csproj", "{01B80B84-4451-4DA0-B138-5DD79D610EDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B3C8EAC6-E848-4BE9-BAE6-C3FB4BBA083C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A25B5CBF-FFB4-4605-8927-965749F0EE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A25B5CBF-FFB4-4605-8927-965749F0EE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01B80B84-4451-4DA0-B138-5DD79D610EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01B80B84-4451-4DA0-B138-5DD79D610EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01B80B84-4451-4DA0-B138-5DD79D610EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01B80B84-4451-4DA0-B138-5DD79D610EDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -41,10 +41,14 @@ namespace Arbbet.Domain.Entities
 
     [ForeignKey("UnifiedEntityId")]
     public virtual Bet UnifiedEntity { get; set; }
+
     public virtual UnifiedType UnifiedType { get; set; }
+
     public Guid? PlatformId { get; set; }
+
     [ForeignKey("PlatformId")]
     public Platform Platform { get; set; }
+
     public string Platform_Id { get; set; }
   }
 }

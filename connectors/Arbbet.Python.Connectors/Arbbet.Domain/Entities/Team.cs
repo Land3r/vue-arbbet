@@ -32,19 +32,19 @@ namespace Arbbet.Domain.Entities
     public Guid? CountryId { get; set; }
 
     [ForeignKey("CountryId")]
-    public Country Country { get; set; }
+    public virtual Country Country { get; set; }
 
     public Guid? UnifiedEntityId { get; set; }
 
     [ForeignKey("UnifiedEntityId")]
-    public Team UnifiedEntity { get; set; }
+    public virtual Team UnifiedEntity { get; set; }
 
     public UnifiedType UnifiedType { get; set; }
 
     public Guid? PlatformId { get; set; }
 
     [ForeignKey("PlatformId")]
-    public Platform Platform { get; set; }
+    public virtual Platform Platform { get; set; }
 
     public string Platform_Id { get; set; }
 

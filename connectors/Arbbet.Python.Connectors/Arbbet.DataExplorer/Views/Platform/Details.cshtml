@@ -1,0 +1,60 @@
+﻿@model Arbbet.DataExplorer.Models.Platform.PlatformViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Platform</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NbOfSports)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NbOfSports)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NbOfCompetitions)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NbOfCompetitions)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NbOfEvents)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NbOfEvents)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NbOfBets)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NbOfBets)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NbOfOutcomes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NbOfOutcomes)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
