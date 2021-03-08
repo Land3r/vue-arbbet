@@ -1,0 +1,162 @@
+
+[2021-03-07 20:53:03] Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy\__main__.py", line 45, in <module>
+    cli.main()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 267, in run_file
+    runpy.run_path(options.target, run_name=compat.force_str("__main__"))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\Arbbet.Connectors.Unibet.py", line 39, in <module>
+    sportsAncompetitions = unibetservice.getSportsAndCompetitions()
+TypeError: getSportsAndCompetitions() takes 0 positional arguments but 1 was given
+
+
+[2021-03-07 20:57:42] Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy\__main__.py", line 45, in <module>
+    cli.main()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 267, in run_file
+    runpy.run_path(options.target, run_name=compat.force_str("__main__"))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\Arbbet.Connectors.Unibet.py", line 39, in <module>
+    sportsAncompetitions = unibetservice.getSportsAndCompetitions()
+TypeError: getSportsAndCompetitions() takes 0 positional arguments but 1 was given
+
+
+[2021-03-07 21:01:09] Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy\__main__.py", line 45, in <module>
+    cli.main()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 267, in run_file
+    runpy.run_path(options.target, run_name=compat.force_str("__main__"))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\Arbbet.Connectors.Unibet.py", line 39, in <module>
+    sportsAncompetitions = unibetservice.getSportsAndCompetitions()
+TypeError: getSportsAndCompetitions() takes 0 positional arguments but 1 was given
+
+
+[2021-03-07 21:01:40] Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy\__main__.py", line 45, in <module>
+    cli.main()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 267, in run_file
+    runpy.run_path(options.target, run_name=compat.force_str("__main__"))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\Arbbet.Connectors.Unibet.py", line 39, in <module>
+    sportsAncompetitions = unibetservice.getSportsAndCompetitions()
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\service\UnibetService.py", line 45, in getSportsAndCompetitions
+    self.create_browser(browser_settings)
+NameError: name 'create_browser' is not defined
+
+
+[2021-03-07 21:02:18] Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy\__main__.py", line 45, in <module>
+    cli.main()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 267, in run_file
+    runpy.run_path(options.target, run_name=compat.force_str("__main__"))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\Arbbet.Connectors.Unibet.py", line 39, in <module>
+    sportsAncompetitions = unibetservice.getSportsAndCompetitions()
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\service\UnibetService.py", line 45, in getSportsAndCompetitions
+    self.create_browser(browser_settings)
+TypeError: create_browser() takes 1 positional argument but 2 were given
+
+
+[2021-03-07 21:03:09] Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy\__main__.py", line 45, in <module>
+    cli.main()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 267, in run_file
+    runpy.run_path(options.target, run_name=compat.force_str("__main__"))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\Arbbet.Connectors.Unibet.py", line 39, in <module>
+    sportsAncompetitions = unibetservice.getSportsAndCompetitions()
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\service\UnibetService.py", line 45, in getSportsAndCompetitions
+    self.create_browser(browser_settings, url)
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\service\UnibetService.py", line 85, in create_browser
+    url=url)
+NameError: name 'URL' is not defined
+
+
+[2021-03-07 21:15:07] Traceback (most recent call last):
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy\__main__.py", line 45, in <module>
+    cli.main()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 430, in main
+    run()
+  File "d:\setup\microsoft visual studio\2019\community\common7\ide\extensions\microsoft\python\core\debugpy/..\debugpy\server\cli.py", line 267, in run_file
+    runpy.run_path(options.target, run_name=compat.force_str("__main__"))
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 265, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.8_3.8.2288.0_x64__qbz5n2kfra8p0\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\Arbbet.Connectors.Unibet.py", line 40, in <module>
+    logging.info("Retrieved %d sports", len(sportsAncompetitions))
+TypeError: object of type 'NoneType' has no len()
+

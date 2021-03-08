@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>f6291e0d-eeef-4ff1-805d-f76c6b6ae8cb</ProjectGuid>
+    <ProjectGuid>a25b5cbf-ffb4-4605-8927-965749f0ee00</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Arbbet.Connectors.Fdj.py</StartupFile>
+    <StartupFile>Arbbet.Connectors.Unibet.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>Arbbet.Connectors.Fdj</Name>
-    <RootNamespace>Arbbet.Connectors.Fdj</RootNamespace>
+    <Name>Arbbet.Connectors.Unibet</Name>
+    <RootNamespace>Arbbet.Connectors.Unibet</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,8 +21,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Arbbet.Connectors.Fdj.py" />
-    <Compile Include="service\FdjService.py">
+    <Compile Include="Arbbet.Connectors.Unibet.py" />
+    <Compile Include="service\UnibetService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="service\UnibetService2.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="service\__init__.py">
@@ -30,9 +33,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="pip.txt" />
-    <Content Include=".env" />
-    <Content Include="service\scripts.js" />
+    <Content Include=".env">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Arbbet\Arbbet.pyproj">

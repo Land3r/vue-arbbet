@@ -14,35 +14,40 @@ using Microsoft.EntityFrameworkCore;
 namespace Arbbet.Domain.Entities
 {
   [Index(nameof(Name))]
-    public class Team : IIdentifiable, INamed, ICountryLocalized, IUnifiedEntity<Team>
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+  public class Team : IIdentifiable, INamed, ICountryLocalized, IUnifiedEntity<Team>
+  {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public Guid Id { get; set; }
 
-        public string Name { get; set; }
+    public string Name { get; set; }
 
-        public TeamType TeamType { get; set; }
+    public TeamType TeamType { get; set; }
 
-        public Guid? CountryId { get; set; }
+    public Guid? SportId { get; set; }
 
-        [ForeignKey("CountryId")]
-        public Country Country { get; set; }
+    [ForeignKey("SportId")]
+    public virtual Sport Sport { get; set; }
 
-        public Guid? UnifiedEntityId { get; set; }
-        
-        [ForeignKey("UnifiedEntityId")]
-        public Team UnifiedEntity { get; set; }
+    public Guid? CountryId { get; set; }
 
-        public UnifiedType UnifiedType { get; set; }
-        
-        public Guid? PlatformId { get; set; }
-        
-        [ForeignKey("PlatformId")]
-        public Platform Platform { get; set; }
+    [ForeignKey("CountryId")]
+    public Country Country { get; set; }
 
-        public string Platform_Id { get; set; }
+    public Guid? UnifiedEntityId { get; set; }
 
-        public virtual IList<Event> Events { get; set; }
-    }
+    [ForeignKey("UnifiedEntityId")]
+    public Team UnifiedEntity { get; set; }
+
+    public UnifiedType UnifiedType { get; set; }
+
+    public Guid? PlatformId { get; set; }
+
+    [ForeignKey("PlatformId")]
+    public Platform Platform { get; set; }
+
+    public string Platform_Id { get; set; }
+
+    public virtual IList<Event> Events { get; set; }
+  }
 }

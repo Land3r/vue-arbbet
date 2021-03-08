@@ -8,7 +8,7 @@ namespace Arbbet.Domain.Enums
 {
     public enum EventType
     {
-        MATCH = 1,
-        INDIVIDUAL = 2
+        Match = 1,
+        Individial = 2
     }
 }

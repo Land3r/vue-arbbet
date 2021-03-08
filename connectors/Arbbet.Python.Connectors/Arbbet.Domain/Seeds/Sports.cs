@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Arbbet.Domain.Entities;
+using Arbbet.Domain.Enums;
 
 namespace Arbbet.Domain.Seeds
 {
@@ -18,7 +19,8 @@ namespace Arbbet.Domain.Seeds
         Name = "Football",
         Code = "FOO",
         PlatformId = Guid.Parse("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-        Platform_Id = "100"
+        Platform_Id = "100",
+        UnifiedType = UnifiedType.Platform
       },
       new Sport()
       {
@@ -26,7 +28,8 @@ namespace Arbbet.Domain.Seeds
         Name = "Tennis",
         Code = "TEN",
         PlatformId = Guid.Parse("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-        Platform_Id = "600"
+        Platform_Id = "600",
+        UnifiedType = UnifiedType.Platform
       },
       new Sport()
       {
@@ -34,7 +37,8 @@ namespace Arbbet.Domain.Seeds
         Name = "Basketball",
         Code = "BAS",
         PlatformId = Guid.Parse("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-        Platform_Id = "601600"
+        Platform_Id = "601600",
+        UnifiedType = UnifiedType.Platform
       },
       new Sport()
       {
@@ -42,7 +46,8 @@ namespace Arbbet.Domain.Seeds
         Name = "Rugby",
         Code = "RUG",
         PlatformId = Guid.Parse("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-        Platform_Id = "964500"
+        Platform_Id = "964500",
+        UnifiedType = UnifiedType.Platform
       },
       new Sport()
       {
@@ -50,7 +55,8 @@ namespace Arbbet.Domain.Seeds
         Name = "Volley",
         Code = "VOL",
         PlatformId = Guid.Parse("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-        Platform_Id = "1200"
+        Platform_Id = "1200",
+        UnifiedType = UnifiedType.Platform
       },
       new Sport()
       {
@@ -58,7 +64,8 @@ namespace Arbbet.Domain.Seeds
         Name = "Handball",
         Code = "HAN",
         PlatformId = Guid.Parse("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-        Platform_Id = "1100"
+        Platform_Id = "1100",
+        UnifiedType = UnifiedType.Platform
       },
       new Sport()
       {
@@ -66,7 +73,8 @@ namespace Arbbet.Domain.Seeds
         Name = "Hockey",
         Code = "HOC",
         PlatformId = Guid.Parse("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-        Platform_Id = "2100"
+        Platform_Id = "2100",
+        UnifiedType = UnifiedType.Platform
       },
       new Sport()
       {
@@ -74,7 +82,8 @@ namespace Arbbet.Domain.Seeds
         Name = "Boxe",
         Code = "BOX",
         PlatformId = Guid.Parse("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-        Platform_Id = "364800"
+        Platform_Id = "364800",
+        UnifiedType = UnifiedType.Platform
       }
     };
   }

@@ -11,13 +11,16 @@ namespace Arbbet.Domain.Enums
         /// <summary>
         /// Known as 1/2
         /// </summary>
-        WIN_LOSE = 1,
+        Win_Lose = 1,
 
         /// <summary>
         /// Known as 1/N/2
         /// </summary>
-        WIN_DRAW_LOSE = 2,
+        Win_Draw_Lose = 2,
 
-        INDIVIDUAL_WINNER = 3
+        /// <summary>
+        /// Handicap [0:1]
+        /// </summary>
+        Handicap_0_1 = 3
     }
 }

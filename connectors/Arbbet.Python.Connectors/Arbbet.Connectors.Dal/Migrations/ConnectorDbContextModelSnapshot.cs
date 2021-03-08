@@ -50,8 +50,9 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.Property<Guid?>("UnifiedEntityId")
                         .HasColumnType("uuid");
 
-                    b.Property<int>("UnifiedType")
-                        .HasColumnType("integer");
+                    b.Property<string>("UnifiedType")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp without time zone");
@@ -211,6 +212,8 @@ namespace Arbbet.Connectors.Dal.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Code");
+
                     b.ToTable("Platforms");
 
                     b.HasData(
@@ -219,6 +222,12 @@ namespace Arbbet.Connectors.Dal.Migrations
                             Id = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Code = "FDJ",
                             Name = "FDJ"
+                        },
+                        new
+                        {
+                            Id = new Guid("238d312e-d0b0-4108-9993-2cd322359f76"),
+                            Code = "UNI",
+                            Name = "Unibet"
                         });
                 });
 
@@ -263,7 +272,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                             Name = "Football",
                             PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Platform_Id = "100",
-                            UnifiedType = "Master"
+                            UnifiedType = "Platform"
                         },
                         new
                         {
@@ -272,7 +281,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                             Name = "Tennis",
                             PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Platform_Id = "600",
-                            UnifiedType = "Master"
+                            UnifiedType = "Platform"
                         },
                         new
                         {
@@ -281,7 +290,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                             Name = "Basketball",
                             PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Platform_Id = "601600",
-                            UnifiedType = "Master"
+                            UnifiedType = "Platform"
                         },
                         new
                         {
@@ -290,7 +299,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                             Name = "Rugby",
                             PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Platform_Id = "964500",
-                            UnifiedType = "Master"
+                            UnifiedType = "Platform"
                         },
                         new
                         {
@@ -299,7 +308,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                             Name = "Volley",
                             PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Platform_Id = "1200",
-                            UnifiedType = "Master"
+                            UnifiedType = "Platform"
                         },
                         new
                         {
@@ -308,7 +317,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                             Name = "Handball",
                             PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Platform_Id = "1100",
-                            UnifiedType = "Master"
+                            UnifiedType = "Platform"
                         },
                         new
                         {
@@ -317,7 +326,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                             Name = "Hockey",
                             PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Platform_Id = "2100",
-                            UnifiedType = "Master"
+                            UnifiedType = "Platform"
                         },
                         new
                         {
@@ -326,7 +335,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                             Name = "Boxe",
                             PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Platform_Id = "364800",
-                            UnifiedType = "Master"
+                            UnifiedType = "Platform"
                         });
                 });
 
@@ -348,6 +357,9 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.Property<string>("Platform_Id")
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("SportId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("TeamType")
                         .IsRequired()
                         .HasColumnType("text");
@@ -363,7 +375,11 @@ namespace Arbbet.Connectors.Dal.Migrations
 
                     b.HasIndex("CountryId");
 
+                    b.HasIndex("Name");
+
                     b.HasIndex("PlatformId");
+
+                    b.HasIndex("SportId");
 
                     b.HasIndex("UnifiedEntityId");
 
@@ -492,6 +508,10 @@ namespace Arbbet.Connectors.Dal.Migrations
                         .WithMany()
                         .HasForeignKey("PlatformId");
 
+                    b.HasOne("Arbbet.Domain.Entities.Sport", "Sport")
+                        .WithMany()
+                        .HasForeignKey("SportId");
+
                     b.HasOne("Arbbet.Domain.Entities.Team", "UnifiedEntity")
                         .WithMany()
                         .HasForeignKey("UnifiedEntityId");
@@ -499,6 +519,8 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.Navigation("Country");
 
                     b.Navigation("Platform");
+
+                    b.Navigation("Sport");
 
                     b.Navigation("UnifiedEntity");
                 });
