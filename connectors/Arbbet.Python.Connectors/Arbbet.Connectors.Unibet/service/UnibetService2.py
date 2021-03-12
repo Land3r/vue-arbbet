@@ -4,6 +4,9 @@ import logging
 import json
 from types import SimpleNamespace
 
+from service.markets import config_markets
+from service.bets import config_bets
+
 baseUrl = 'https://www.unibet.fr/'
 
 endpointUrl = {
@@ -93,53 +96,69 @@ class UnibetService(object):
             return r
 
     def getMarketEvents(sportId, marketGroup, marketName):
-        url = urljoin(baseUrl, endpointUrl.get('markets').format(sportId, quote_plus(marketGroup), quote_plus(marketName)))
-        r = requests.get(url)
+
+        shouldExploreEvent = True
+        try:
+            if (config_markets[marketGroup] == None):
+                logging.warning('MarketGroup: %s not known', marketGroup)
+
+            if (config_markets[marketGroup][marketName] == None):
+                logging.warning('MarketName: %s not known', marketName)
+
+            shouldExploreEvent = config_markets[marketGroup][marketName]
+        except Exception:
+            logging.warning('MarketGroup: %s, MarketName: %s', marketGroup, marketName)
+            shouldExploreEvent = False
+            pass
         
-        if r.status_code == 200:
-            logging.debug(r.text)
-            res_object = json.loads(r.text)
+        if (shouldExploreEvent):
+            url = urljoin(baseUrl, endpointUrl.get('markets').format(sportId, quote_plus(marketGroup), quote_plus(marketName)))
+            r = requests.get(url)
+        
+            if r.status_code == 200:
+                logging.debug(r.text)
+                res_object = json.loads(r.text)
 
-            events = []
-            logging.debug('Retrieved %d events for this market', len(res_object['marketsByType'][0]['days'][0]['events']))
+                events = []
+                logging.debug('Retrieved %d events for this market', len(res_object['marketsByType'][0]['days'][0]['events']))
 
-            for event in res_object['marketsByType'][0]['days'][0]['events']:
+                for event in res_object['marketsByType'][0]['days'][0]['events']:
 
-                eventElm = {
-                    'event_platform_id': event['eventId'],
-                    'event_name': event['eventName'],
-                    'competition_platform_id': event['competitionId'],
-                    'competition_name': event['competitionName'],
-                }
-
-                bets = []
-                for market in event['markets']:
-
-                    bet = {
-                        'bet_platform_id': market['marketId']
+                    eventElm = {
+                        'event_platform_id': event['eventId'],
+                        'event_name': event['eventName'],
+                        'competition_platform_id': event['competitionId'],
+                        'competition_name': event['competitionName'],
                     }
 
-                    outcomes = []
-                    for selection in market['selections']:
+                    bets = []
+                    for market in event['markets']:
 
-                        #TODO: Interpret market and market type.
-                        outcome = {
-                            ''
+                        bet = {
+                            'bet_platform_id': market['marketId']
                         }
-                        outcomes.append(outcome)
 
-                    bet['outcomes'] = outcomes
-                    bets.append(bet)
+                        outcomes = []
+                        for selection in market['selections']:
 
-                eventElm['bets'] = bets
-                events.append(eventElm)
-            return events
+                            #TODO: Interpret market and market type.
+                            outcome = {
+                                ''
+                            }
+                            outcomes.append(outcome)
 
-        elif r.status_code == 204:
-            return []
+                        bet['outcomes'] = outcomes
+                        bets.append(bet)
 
-        elif r.status_code == 400:
-            return
+                    eventElm['bets'] = bets
+                    events.append(eventElm)
+                return events
 
-        else:
-            return r
+            elif r.status_code == 204:
+                return []
+
+            elif r.status_code == 400:
+                return
+
+            else:
+                return r

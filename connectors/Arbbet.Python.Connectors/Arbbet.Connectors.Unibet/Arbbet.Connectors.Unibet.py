@@ -14,7 +14,7 @@ from service.UnibetService2 import UnibetService
 
 logging.basicConfig(
     format='%(asctime)s %(levelname)-8s %(message)s',
-    level=logging.DEBUG,
+    level=logging.WARNING,
     datefmt='%Y-%m-%d %H:%M:%S')
 
 logging.info("Lauching Connector UNIBET")
@@ -40,6 +40,11 @@ logging.info("Retrieved %d sports", len(sports))
 
 for sport in sports:
     logging.debug("Processing %s", sport['name'])
+
+    # FIXME: Temp: Seulement Football
+    if (sport['name'] != 'Football'):
+        continue
+
     # Preparing stats
     createdOutcomes = 0
     updatedOutcomes = 0

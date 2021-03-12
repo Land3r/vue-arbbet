@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Arbbet.Connectors.Dal.Migrations
 {
     [DbContext(typeof(ConnectorDbContext))]
-    [Migration("20210307193247_Init")]
+    [Migration("20210312150129_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -269,74 +269,28 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.HasData(
                         new
                         {
+                            Id = new Guid("685792bf-ed12-4b16-b54b-d7a6c08c0d74"),
+                            Code = "FOO",
+                            Name = "Football",
+                            UnifiedType = "Master"
+                        },
+                        new
+                        {
                             Id = new Guid("0405459e-dff5-4e98-9f18-cde23fe456ae"),
                             Code = "FOO",
                             Name = "Football",
                             PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
                             Platform_Id = "100",
+                            UnifiedEntityId = new Guid("685792bf-ed12-4b16-b54b-d7a6c08c0d74"),
                             UnifiedType = "Platform"
                         },
                         new
                         {
-                            Id = new Guid("a588cc21-4797-4916-95ec-fc54e7bacd44"),
-                            Code = "TEN",
-                            Name = "Tennis",
-                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-                            Platform_Id = "600",
-                            UnifiedType = "Platform"
-                        },
-                        new
-                        {
-                            Id = new Guid("4c855310-ec82-48dd-9ba5-9bd611804d4e"),
-                            Code = "BAS",
-                            Name = "Basketball",
-                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-                            Platform_Id = "601600",
-                            UnifiedType = "Platform"
-                        },
-                        new
-                        {
-                            Id = new Guid("6dc779c4-113f-4aa5-855a-65959b0426cf"),
-                            Code = "RUG",
-                            Name = "Rugby",
-                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-                            Platform_Id = "964500",
-                            UnifiedType = "Platform"
-                        },
-                        new
-                        {
-                            Id = new Guid("b3082cf0-1ce3-4ee0-8a2a-105055f3d851"),
-                            Code = "VOL",
-                            Name = "Volley",
-                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-                            Platform_Id = "1200",
-                            UnifiedType = "Platform"
-                        },
-                        new
-                        {
-                            Id = new Guid("43730787-c53e-49a1-80a2-4db01d95d38a"),
-                            Code = "HAN",
-                            Name = "Handball",
-                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-                            Platform_Id = "1100",
-                            UnifiedType = "Platform"
-                        },
-                        new
-                        {
-                            Id = new Guid("ca33fb07-fd55-4c25-8ef9-7a62e75be407"),
-                            Code = "HOC",
-                            Name = "Hockey",
-                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-                            Platform_Id = "2100",
-                            UnifiedType = "Platform"
-                        },
-                        new
-                        {
-                            Id = new Guid("3478ac3e-b02b-46ab-9db4-716519476f73"),
-                            Code = "BOX",
-                            Name = "Boxe",
-                            PlatformId = new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"),
-                            Platform_Id = "364800",
+                            Id = new Guid("f9a054a5-99f5-47b0-967e-9e8ac005a147"),
+                            Code = "FOO",
+                            Name = "Football",
+                            PlatformId = new Guid("238d312e-d0b0-4108-9993-2cd322359f76"),
+                            UnifiedEntityId = new Guid("685792bf-ed12-4b16-b54b-d7a6c08c0d74"),
                             UnifiedType = "Platform"
                         });
                 });

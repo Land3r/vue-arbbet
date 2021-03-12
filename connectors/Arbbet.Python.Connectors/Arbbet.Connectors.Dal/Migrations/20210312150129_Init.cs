@@ -281,16 +281,15 @@ namespace Arbbet.Connectors.Dal.Migrations
             migrationBuilder.InsertData(
                 table: "Sports",
                 columns: new[] { "Id", "Code", "Name", "PlatformId", "Platform_Id", "UnifiedEntityId", "UnifiedType" },
+                values: new object[] { new Guid("685792bf-ed12-4b16-b54b-d7a6c08c0d74"), "FOO", "Football", null, null, null, "Master" });
+
+            migrationBuilder.InsertData(
+                table: "Sports",
+                columns: new[] { "Id", "Code", "Name", "PlatformId", "Platform_Id", "UnifiedEntityId", "UnifiedType" },
                 values: new object[,]
                 {
-                    { new Guid("0405459e-dff5-4e98-9f18-cde23fe456ae"), "FOO", "Football", new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"), "100", null, "Platform" },
-                    { new Guid("a588cc21-4797-4916-95ec-fc54e7bacd44"), "TEN", "Tennis", new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"), "600", null, "Platform" },
-                    { new Guid("4c855310-ec82-48dd-9ba5-9bd611804d4e"), "BAS", "Basketball", new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"), "601600", null, "Platform" },
-                    { new Guid("6dc779c4-113f-4aa5-855a-65959b0426cf"), "RUG", "Rugby", new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"), "964500", null, "Platform" },
-                    { new Guid("b3082cf0-1ce3-4ee0-8a2a-105055f3d851"), "VOL", "Volley", new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"), "1200", null, "Platform" },
-                    { new Guid("43730787-c53e-49a1-80a2-4db01d95d38a"), "HAN", "Handball", new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"), "1100", null, "Platform" },
-                    { new Guid("ca33fb07-fd55-4c25-8ef9-7a62e75be407"), "HOC", "Hockey", new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"), "2100", null, "Platform" },
-                    { new Guid("3478ac3e-b02b-46ab-9db4-716519476f73"), "BOX", "Boxe", new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"), "364800", null, "Platform" }
+                    { new Guid("0405459e-dff5-4e98-9f18-cde23fe456ae"), "FOO", "Football", new Guid("01cb8b1d-5b7f-4545-aba0-a0b8bd46b9bf"), "100", new Guid("685792bf-ed12-4b16-b54b-d7a6c08c0d74"), "Platform" },
+                    { new Guid("f9a054a5-99f5-47b0-967e-9e8ac005a147"), "FOO", "Football", new Guid("238d312e-d0b0-4108-9993-2cd322359f76"), null, new Guid("685792bf-ed12-4b16-b54b-d7a6c08c0d74"), "Platform" }
                 });
 
             migrationBuilder.CreateIndex(

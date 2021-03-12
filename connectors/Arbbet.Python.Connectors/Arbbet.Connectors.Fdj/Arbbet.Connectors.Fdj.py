@@ -38,6 +38,10 @@ sports = SportService.getSportsByPlatform(session, platform.Id)
 logging.info("Retrieved %d sports", len(sports))
 
 for sport in sports:
+    #FIXME: Temp: Only Football
+    if (sport.Code != 'FOO'):
+        continue
+
     logging.debug("Processing %s", sport.Name)
     # Preparing stats
     createdOutcomes = 0
