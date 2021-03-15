@@ -1,4 +1,5 @@
-﻿using Arbbet.Domain.Enums;
+﻿using Arbbet.Domain.Bases;
+using Arbbet.Domain.Enums;
 using Arbbet.Domain.Interfaces;
 
 using System;
@@ -8,12 +9,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Arbbet.Domain.Entities
 {
-  public class Bet : IIdentifiable, INamed, IUnifiedEntity<Bet>
+  /// <summary>
+  /// Bet class
+  /// </summary>
+  public class Bet : AUnifiedEntity<Bet>, IIdentifiable, INamed
   {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public Guid Id { get; set; }
-
     public string Name { get; set; }
 
     public virtual IList<Outcome> Outcomes { get; set; }
@@ -36,19 +36,5 @@ namespace Arbbet.Domain.Entities
     public virtual Event Event { get; set; }
 
     public virtual BetType BetType { get; set; }
-
-    public Guid? UnifiedEntityId { get; set; }
-
-    [ForeignKey("UnifiedEntityId")]
-    public virtual Bet UnifiedEntity { get; set; }
-
-    public virtual UnifiedType UnifiedType { get; set; }
-
-    public Guid? PlatformId { get; set; }
-
-    [ForeignKey("PlatformId")]
-    public Platform Platform { get; set; }
-
-    public string Platform_Id { get; set; }
   }
 }

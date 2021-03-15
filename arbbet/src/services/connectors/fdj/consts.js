@@ -1,4 +1,7 @@
 export const baseUrl = 'https://www.parionssport.fr/api/';
+export const endpoints = {
+    sports = ''
+}
 
 export const sports = [
     {
