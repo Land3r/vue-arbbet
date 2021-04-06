@@ -12,7 +12,7 @@ namespace Arbbet.Domain.Entities
   /// <summary>
   /// Bet class
   /// </summary>
-  public class Bet : AUnifiedEntity<Bet>, IIdentifiable, INamed
+  public class Bet : AUnifiedEntity<Bet>, IIdentifiable, INamed, IUpdatable
   {
     public string Name { get; set; }
 
@@ -26,7 +26,7 @@ namespace Arbbet.Domain.Entities
     /// <summary>
     /// The date at which the Bet was last updated.
     /// </summary>
-    public DateTime UpdatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
 
     public DateTime ExpiresAt { get; set; }
 

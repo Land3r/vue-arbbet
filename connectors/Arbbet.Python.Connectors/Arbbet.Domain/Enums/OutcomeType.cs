@@ -15,12 +15,12 @@ namespace Arbbet.Domain.Enums
     /// <summary>
     /// 1
     /// </summary>
-    Team_1_Win,
+    Team_Win,
 
     /// <summary>
     /// 2
     /// </summary>
-    Team_2_Win,
+    Team_Lose,
 
     /// <summary>
     /// N

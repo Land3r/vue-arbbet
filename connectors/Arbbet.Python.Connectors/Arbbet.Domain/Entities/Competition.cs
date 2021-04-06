@@ -1,4 +1,5 @@
-﻿using Arbbet.Domain.Enums;
+﻿using Arbbet.Domain.Bases;
+using Arbbet.Domain.Enums;
 using Arbbet.Domain.Interfaces;
 
 using System;
@@ -11,12 +12,8 @@ using System.Threading.Tasks;
 
 namespace Arbbet.Domain.Entities
 {
-  public class Competition : IIdentifiable, INamed, ICountryLocalized, IUnifiedEntity<Competition>
+  public class Competition : AUnifiedEntity<Competition>, IIdentifiable, INamed, ICountryLocalized, IUnifiedEntity<Competition>
   {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public Guid Id { get; set; }
-
     public string Name { get; set; }
 
     public Guid SportId { get; set; }
@@ -28,19 +25,5 @@ namespace Arbbet.Domain.Entities
 
     [ForeignKey("CountryId")]
     public virtual Country Country { get; set; }
-
-    public Guid? PlatformId { get; set; }
-
-    [ForeignKey("PlatformId")]
-    public virtual Platform Platform { get; set; }
-
-    public string Platform_Id { get; set; }
-
-    public Guid? UnifiedEntityId { get; set; }
-
-    [ForeignKey("UnifiedEntityId")]
-    public virtual Competition UnifiedEntity { get; set; }
-
-    public virtual UnifiedType UnifiedType { get; set; }
   }
 }

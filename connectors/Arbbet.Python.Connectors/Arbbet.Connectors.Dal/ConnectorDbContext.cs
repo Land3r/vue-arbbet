@@ -40,8 +40,8 @@ namespace Arbbet.Connectors.Dal
       modelBuilder.Entity<Team>().Property(elm => elm.UnifiedType).HasConversion(c => c.ToString(), c => (UnifiedType)Enum.Parse(typeof(UnifiedType), c));
 
       // Données
-      modelBuilder.Entity<Sport>().HasData(Domain.Seeds.Sports.Data);
-      modelBuilder.Entity<Platform>().HasData(Domain.Seeds.Platforms.Data);
+      modelBuilder.Entity<Sport>().HasData(Arbbet.Domain.Seeds.Sports.Data);
+      modelBuilder.Entity<Platform>().HasData(Arbbet.Domain.Seeds.Platforms.Data);
     }
 
     public DbSet<Platform> Platforms { get; set; }

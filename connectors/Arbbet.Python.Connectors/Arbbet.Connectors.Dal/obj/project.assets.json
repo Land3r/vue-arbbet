@@ -257,6 +257,20 @@
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
+      "Arbbet.Connectors.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "5.0.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Arbbet.Connectors.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Arbbet.Connectors.Domain.dll": {}
+        }
+      },
       "Arbbet.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -821,6 +835,11 @@
         "version.txt"
       ]
     },
+    "Arbbet.Connectors.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Arbbet.Connectors.Domain/Arbbet.Connectors.Domain.csproj",
+      "msbuildProject": "../Arbbet.Connectors.Domain/Arbbet.Connectors.Domain.csproj"
+    },
     "Arbbet.Domain/1.0.0": {
       "type": "project",
       "path": "../Arbbet.Domain/Arbbet.Domain.csproj",
@@ -829,6 +848,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Arbbet.Connectors.Domain >= 1.0.0",
       "Arbbet.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.2"
@@ -862,6 +882,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
+              "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj"
+            },
             "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj": {
               "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj"
             }

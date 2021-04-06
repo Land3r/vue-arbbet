@@ -11,13 +11,16 @@ namespace Arbbet.Connectors.Dal.Services
   public class ConvergenceService
   {
     private readonly ILogger<ConvergenceService> _logger;
-    private readonly ConnectorDbContext _context;
+    private readonly BetService _betService;
+    private readonly CountryService _countryService;
 
     public ConvergenceService(ILogger<ConvergenceService> logger,
-      ConnectorDbContext context)
+      CountryService countryService,
+      BetService betService)
     {
       _logger = logger;
-      _context = context;
+      _countryService = countryService;
+      _betService = betService;
     }
 
     public void CreateOrGetEvent()

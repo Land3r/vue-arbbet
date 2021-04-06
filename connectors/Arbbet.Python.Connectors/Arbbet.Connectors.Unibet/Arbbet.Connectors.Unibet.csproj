@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -12,10 +12,12 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
     <PackageReference Include="NLog.Extensions.Logging" Version="1.7.1" />
+    <PackageReference Include="ShellProgressBar" Version="5.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Arbbet.Connectors.Dal\Arbbet.Connectors.Dal.csproj" />
+    <ProjectReference Include="..\Arbbet.Connectors.Domain\Arbbet.Connectors.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

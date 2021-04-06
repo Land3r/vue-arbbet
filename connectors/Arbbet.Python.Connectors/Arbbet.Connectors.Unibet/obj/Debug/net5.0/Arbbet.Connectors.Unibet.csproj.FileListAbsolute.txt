@@ -44,3 +44,6 @@ D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Con
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\bin\Debug\net5.0\Arbbet.Domain.pdb
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\obj\Debug\net5.0\Arbbet.Connectors.Unibet.csproj.CopyComplete
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\bin\Debug\net5.0\Microsoft.Extensions.Http.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\bin\Debug\net5.0\Arbbet.Connectors.Domain.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\bin\Debug\net5.0\Arbbet.Connectors.Domain.pdb
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\bin\Debug\net5.0\ShellProgressBar.dll

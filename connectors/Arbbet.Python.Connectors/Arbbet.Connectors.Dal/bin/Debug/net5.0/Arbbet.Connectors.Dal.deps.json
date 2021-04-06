@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "Arbbet.Connectors.Dal/1.0.0": {
         "dependencies": {
+          "Arbbet.Connectors.Domain": "1.0.0",
           "Arbbet.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.2"
@@ -211,6 +212,15 @@
         }
       },
       "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
+      "Arbbet.Connectors.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "5.0.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
+        },
+        "runtime": {
+          "Arbbet.Connectors.Domain.dll": {}
+        }
+      },
       "Arbbet.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.3"
@@ -380,6 +390,11 @@
       "sha512": "sha512-HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
       "path": "system.runtime.compilerservices.unsafe/4.6.0",
       "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+    },
+    "Arbbet.Connectors.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Arbbet.Domain/1.0.0": {
       "type": "project",

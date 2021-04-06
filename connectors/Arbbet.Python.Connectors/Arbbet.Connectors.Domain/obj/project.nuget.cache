@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZfKsAI+WZOduM2x9vOsVXfbPmk3F4SMx1YO6Gk1rs2H0xY4CR0uS7LfseAGCaBNNMvOSW9WTjWGaCRP1bfdkfA==",
+  "success": true,
+  "projectFilePath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.1\\microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -320,3 +320,5 @@ D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Dat
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\ref\Arbbet.DataExplorer.dll
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Arbbet.DataExplorer.pdb
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Arbbet.DataExplorer.genruntimeconfig.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\bin\Debug\net5.0\Arbbet.Connectors.Domain.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\bin\Debug\net5.0\Arbbet.Connectors.Domain.pdb

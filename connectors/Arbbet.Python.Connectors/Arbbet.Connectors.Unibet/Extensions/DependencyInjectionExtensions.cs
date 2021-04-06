@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Arbbet.Connectors.Dal.Configurations;
+using Arbbet.Connectors.Dal.Configuration;
 using Arbbet.Connectors.Unibet.Services;
 
 using Microsoft.Extensions.Configuration;
@@ -21,7 +21,7 @@ namespace Arbbet.Connectors.Unibet.Extensions
     {
       var services = new ServiceCollection();
 
-      ConfigurationExtension.Configure(services);
+      Dal.Configuration.ConfigurationExtension.ConfigureDbContext(services);
 
       services
         .AddHttpClient<UnibetService>();
@@ -29,6 +29,9 @@ namespace Arbbet.Connectors.Unibet.Extensions
       services
         .AddScoped<UnibetJob>()
         .AddScoped<UnibetService>();
+
+      Dal.Configuration.ConfigurationExtension.ConfigureDI(services);
+      Domain.Configuration.ConfigurationExtension.ConfigureDI(services);
 
       services
         .AddLogging(loggingBuilder =>

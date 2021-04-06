@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Arbbet.Connectors.Domain\Arbbet.Connectors.Domain.csproj" />
     <ProjectReference Include="..\Arbbet.Domain\Arbbet.Domain.csproj" />
   </ItemGroup>
 

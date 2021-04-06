@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 using NLog;
 
+using ShellProgressBar;
+
 namespace Arbbet.Connectors.Unibet
 {
   class Program

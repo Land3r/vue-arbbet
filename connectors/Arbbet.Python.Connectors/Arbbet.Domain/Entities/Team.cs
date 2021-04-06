@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Arbbet.Domain.Bases;
 using Arbbet.Domain.Enums;
 using Arbbet.Domain.Interfaces;
 
@@ -13,13 +14,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Arbbet.Domain.Entities
 {
-  [Index(nameof(Name))]
-  public class Team : IIdentifiable, INamed, ICountryLocalized, IUnifiedEntity<Team>
+  public class Team : AUnifiedEntity<Team>, IIdentifiable, INamed, ICountryLocalized
   {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public Guid Id { get; set; }
-
     public string Name { get; set; }
 
     public TeamType TeamType { get; set; }
@@ -33,20 +29,6 @@ namespace Arbbet.Domain.Entities
 
     [ForeignKey("CountryId")]
     public virtual Country Country { get; set; }
-
-    public Guid? UnifiedEntityId { get; set; }
-
-    [ForeignKey("UnifiedEntityId")]
-    public virtual Team UnifiedEntity { get; set; }
-
-    public UnifiedType UnifiedType { get; set; }
-
-    public Guid? PlatformId { get; set; }
-
-    [ForeignKey("PlatformId")]
-    public virtual Platform Platform { get; set; }
-
-    public string Platform_Id { get; set; }
 
     public virtual IList<Event> Events { get; set; }
   }

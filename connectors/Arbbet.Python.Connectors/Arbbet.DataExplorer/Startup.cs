@@ -1,5 +1,5 @@
 using Arbbet.Connectors.Dal;
-using Arbbet.Connectors.Dal.Configurations;
+using Arbbet.Connectors.Dal.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,7 +28,7 @@ namespace Arbbet.DataExplorer
         {
             services.AddControllersWithViews();
 
-            ConfigurationExtension.Configure(services);
+            ConfigurationExtension.ConfigureDbContext(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

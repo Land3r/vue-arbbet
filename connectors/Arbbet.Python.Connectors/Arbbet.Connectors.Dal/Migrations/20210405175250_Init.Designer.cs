@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Arbbet.Connectors.Dal.Migrations
 {
     [DbContext(typeof(ConnectorDbContext))]
-    [Migration("20210312150129_Init")]
+    [Migration("20210405175250_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,7 +56,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
@@ -88,6 +88,9 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.Property<string>("Platform_Id")
                         .HasColumnType("text");
 
+                    b.Property<Guid>("SportId")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid?>("UnifiedEntityId")
                         .HasColumnType("uuid");
 
@@ -100,6 +103,8 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.HasIndex("CountryId");
 
                     b.HasIndex("PlatformId");
+
+                    b.HasIndex("SportId");
 
                     b.HasIndex("UnifiedEntityId");
 
@@ -129,7 +134,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("CompetitionId")
+                    b.Property<Guid>("CompetitionId")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
@@ -148,6 +153,9 @@ namespace Arbbet.Connectors.Dal.Migrations
                     b.Property<string>("Platform_Id")
                         .HasColumnType("text");
 
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<Guid?>("UnifiedEntityId")
                         .HasColumnType("uuid");
 
@@ -155,7 +163,7 @@ namespace Arbbet.Connectors.Dal.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Url")
@@ -331,8 +339,6 @@ namespace Arbbet.Connectors.Dal.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.HasIndex("Name");
-
                     b.HasIndex("PlatformId");
 
                     b.HasIndex("SportId");
@@ -390,6 +396,12 @@ namespace Arbbet.Connectors.Dal.Migrations
                         .WithMany()
                         .HasForeignKey("PlatformId");
 
+                    b.HasOne("Arbbet.Domain.Entities.Sport", "Sport")
+                        .WithMany("Competitions")
+                        .HasForeignKey("SportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Arbbet.Domain.Entities.Competition", "UnifiedEntity")
                         .WithMany()
                         .HasForeignKey("UnifiedEntityId");
@@ -398,6 +410,8 @@ namespace Arbbet.Connectors.Dal.Migrations
 
                     b.Navigation("Platform");
 
+                    b.Navigation("Sport");
+
                     b.Navigation("UnifiedEntity");
                 });
 
@@ -405,7 +419,9 @@ namespace Arbbet.Connectors.Dal.Migrations
                 {
                     b.HasOne("Arbbet.Domain.Entities.Competition", "Competition")
                         .WithMany()
-                        .HasForeignKey("CompetitionId");
+                        .HasForeignKey("CompetitionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Arbbet.Domain.Entities.Platform", "Platform")
                         .WithMany()
@@ -504,6 +520,11 @@ namespace Arbbet.Connectors.Dal.Migrations
             modelBuilder.Entity("Arbbet.Domain.Entities.Event", b =>
                 {
                     b.Navigation("Bets");
+                });
+
+            modelBuilder.Entity("Arbbet.Domain.Entities.Sport", b =>
+                {
+                    b.Navigation("Competitions");
                 });
 #pragma warning restore 612, 618
         }

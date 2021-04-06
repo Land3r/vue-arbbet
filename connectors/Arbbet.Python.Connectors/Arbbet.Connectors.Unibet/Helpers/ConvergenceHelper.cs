@@ -29,21 +29,14 @@ namespace Arbbet.Connectors.Unibet.Helpers
         var teams = eventName.Split(" - ");
         if (teams.Length == 2)
         {
-          if (teams[0] == outcomeName)
-          {
-            return OutcomeType.Team_1_Win;
-          }
-          else if (teams[1] == outcomeName)
-          {
-            return OutcomeType.Team_2_Win;
-          }
-          else if (outcomeName == "Match Nul")
+          if (outcomeName == "Match nul")
           {
             return OutcomeType.Team_Draw;
           }
           else
           {
-            return null;
+            // Dans le cas des paris 1x2, on represente les options comme Equipe A gagnante / Equipe B gagnante plutot que Equipe A gagnante / Equipe A perdante
+            return OutcomeType.Team_Win;
           }
         }
         else

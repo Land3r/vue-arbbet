@@ -34,11 +34,41 @@ namespace Arbbet.Connectors.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Sports",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Code = table.Column<string>(type: "text", nullable: true),
+                    PlatformId = table.Column<Guid>(type: "uuid", nullable: true),
+                    Platform_Id = table.Column<string>(type: "text", nullable: true),
+                    UnifiedEntityId = table.Column<Guid>(type: "uuid", nullable: true),
+                    UnifiedType = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sports", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Sports_Platforms_PlatformId",
+                        column: x => x.PlatformId,
+                        principalTable: "Platforms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Sports_Sports_UnifiedEntityId",
+                        column: x => x.UnifiedEntityId,
+                        principalTable: "Sports",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Competitions",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
+                    SportId = table.Column<Guid>(type: "uuid", nullable: false),
                     CountryId = table.Column<Guid>(type: "uuid", nullable: true),
                     PlatformId = table.Column<Guid>(type: "uuid", nullable: true),
                     Platform_Id = table.Column<string>(type: "text", nullable: true),
@@ -66,74 +96,12 @@ namespace Arbbet.Connectors.Dal.Migrations
                         principalTable: "Platforms",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Sports",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    Code = table.Column<string>(type: "text", nullable: true),
-                    UnifiedEntityId = table.Column<Guid>(type: "uuid", nullable: true),
-                    UnifiedType = table.Column<string>(type: "text", nullable: false),
-                    PlatformId = table.Column<Guid>(type: "uuid", nullable: true),
-                    Platform_Id = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Sports", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Sports_Platforms_PlatformId",
-                        column: x => x.PlatformId,
-                        principalTable: "Platforms",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Sports_Sports_UnifiedEntityId",
-                        column: x => x.UnifiedEntityId,
+                        name: "FK_Competitions_Sports_SportId",
+                        column: x => x.SportId,
                         principalTable: "Sports",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Events",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: true),
-                    EventType = table.Column<string>(type: "text", nullable: false),
-                    CompetitionId = table.Column<Guid>(type: "uuid", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    Url = table.Column<string>(type: "text", nullable: true),
-                    UnifiedEntityId = table.Column<Guid>(type: "uuid", nullable: true),
-                    UnifiedType = table.Column<string>(type: "text", nullable: false),
-                    PlatformId = table.Column<Guid>(type: "uuid", nullable: true),
-                    Platform_Id = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Events", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Events_Competitions_CompetitionId",
-                        column: x => x.CompetitionId,
-                        principalTable: "Competitions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Events_Events_UnifiedEntityId",
-                        column: x => x.UnifiedEntityId,
-                        principalTable: "Events",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Events_Platforms_PlatformId",
-                        column: x => x.PlatformId,
-                        principalTable: "Platforms",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -145,10 +113,10 @@ namespace Arbbet.Connectors.Dal.Migrations
                     TeamType = table.Column<string>(type: "text", nullable: false),
                     SportId = table.Column<Guid>(type: "uuid", nullable: true),
                     CountryId = table.Column<Guid>(type: "uuid", nullable: true),
-                    UnifiedEntityId = table.Column<Guid>(type: "uuid", nullable: true),
-                    UnifiedType = table.Column<string>(type: "text", nullable: false),
                     PlatformId = table.Column<Guid>(type: "uuid", nullable: true),
-                    Platform_Id = table.Column<string>(type: "text", nullable: true)
+                    Platform_Id = table.Column<string>(type: "text", nullable: true),
+                    UnifiedEntityId = table.Column<Guid>(type: "uuid", nullable: true),
+                    UnifiedType = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -180,20 +148,60 @@ namespace Arbbet.Connectors.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Events",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    EventType = table.Column<string>(type: "text", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    CompetitionId = table.Column<Guid>(type: "uuid", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    Url = table.Column<string>(type: "text", nullable: true),
+                    PlatformId = table.Column<Guid>(type: "uuid", nullable: true),
+                    Platform_Id = table.Column<string>(type: "text", nullable: true),
+                    UnifiedEntityId = table.Column<Guid>(type: "uuid", nullable: true),
+                    UnifiedType = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Events_Competitions_CompetitionId",
+                        column: x => x.CompetitionId,
+                        principalTable: "Competitions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Events_Events_UnifiedEntityId",
+                        column: x => x.UnifiedEntityId,
+                        principalTable: "Events",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Events_Platforms_PlatformId",
+                        column: x => x.PlatformId,
+                        principalTable: "Platforms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Bets",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     ExpiresAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     EventId = table.Column<Guid>(type: "uuid", nullable: false),
                     BetType = table.Column<string>(type: "text", nullable: false),
-                    UnifiedEntityId = table.Column<Guid>(type: "uuid", nullable: true),
-                    UnifiedType = table.Column<string>(type: "text", nullable: false),
                     PlatformId = table.Column<Guid>(type: "uuid", nullable: true),
-                    Platform_Id = table.Column<string>(type: "text", nullable: true)
+                    Platform_Id = table.Column<string>(type: "text", nullable: true),
+                    UnifiedEntityId = table.Column<Guid>(type: "uuid", nullable: true),
+                    UnifiedType = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -318,6 +326,11 @@ namespace Arbbet.Connectors.Dal.Migrations
                 column: "PlatformId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Competitions_SportId",
+                table: "Competitions",
+                column: "SportId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Competitions_UnifiedEntityId",
                 table: "Competitions",
                 column: "UnifiedEntityId");
@@ -373,11 +386,6 @@ namespace Arbbet.Connectors.Dal.Migrations
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Teams_Name",
-                table: "Teams",
-                column: "Name");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Teams_PlatformId",
                 table: "Teams",
                 column: "PlatformId");
@@ -411,13 +419,13 @@ namespace Arbbet.Connectors.Dal.Migrations
                 name: "Events");
 
             migrationBuilder.DropTable(
-                name: "Sports");
-
-            migrationBuilder.DropTable(
                 name: "Competitions");
 
             migrationBuilder.DropTable(
                 name: "Countries");
+
+            migrationBuilder.DropTable(
+                name: "Sports");
 
             migrationBuilder.DropTable(
                 name: "Platforms");

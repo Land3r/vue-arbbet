@@ -16,7 +16,7 @@ namespace Arbbet.Domain.Bases
   /// AUnifiedEntity abstract class.
   /// </summary>
   /// <typeparam name="TEntity">The type of the Entity being Unified.</typeparam>
-  public abstract class AUnifiedEntity<TEntity> : APlatformSpecific, IIdentifiable
+  public abstract class AUnifiedEntity<TEntity> : APlatformSpecific, IIdentifiable, IUnifiedEntity<TEntity>
   {
     /// <summary>
     /// The Id of the Entity.

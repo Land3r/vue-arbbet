@@ -1,4 +1,5 @@
-﻿using Arbbet.Domain.Enums;
+﻿using Arbbet.Domain.Bases;
+using Arbbet.Domain.Enums;
 using Arbbet.Domain.Interfaces;
 
 using System;
@@ -11,15 +12,8 @@ using System.Threading.Tasks;
 
 namespace Arbbet.Domain.Entities
 {
-  public class Event : IIdentifiable, INamed, IUnifiedEntity<Event>
+  public class Event : AUnifiedEntity<Event>, IIdentifiable, INamed, IUnifiedEntity<Event>, IUpdatable
   {
-    /// <summary>
-    /// The Id of the Event.
-    /// </summary>
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public Guid Id { get; set; }
-
     /// <summary>
     /// The name of the Event.
     /// </summary>
@@ -42,6 +36,9 @@ namespace Arbbet.Domain.Entities
     /// </summary>
     public virtual IList<Bet> Bets { get; set; }
 
+    public Guid CompetitionId { get; set; }
+
+    [ForeignKey("CompetitionId")]
     /// <summary>
     /// The competition of the Event.
     /// </summary>
@@ -55,22 +52,8 @@ namespace Arbbet.Domain.Entities
     /// <summary>
     /// The date at which the Event was last updated.
     /// </summary>
-    public DateTime UpdatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
 
     public string Url { get; set; }
-
-    public Guid? UnifiedEntityId { get; set; }
-
-    [ForeignKey("UnifiedEntityId")]
-    public virtual Event UnifiedEntity { get; set; }
-
-    public UnifiedType UnifiedType { get; set; }
-
-    public Guid? PlatformId { get; set; }
-
-    [ForeignKey("PlatformId")]
-    public virtual Platform Platform { get; set; }
-
-    public string Platform_Id { get; set; }
   }
 }
