@@ -2,9 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyVersion>1.0.0.71</AssemblyVersion>
-    <FileVersion>1.0.0.71</FileVersion>
+    <AssemblyVersion>1.0.0.111</AssemblyVersion>
+    <FileVersion>1.0.0.111</FileVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Scripts\**" />
+    <Compile Remove="Styles\Site\**" />
+    <Content Remove="Scripts\**" />
+    <Content Remove="Styles\Site\**" />
+    <EmbeddedResource Remove="Scripts\**" />
+    <EmbeddedResource Remove="Styles\Site\**" />
+    <None Remove="Scripts\**" />
+    <None Remove="Styles\Site\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
@@ -13,30 +24,30 @@
   <ItemGroup>
     <PackageReference Include="BuildWebCompiler" Version="1.12.405" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.5">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.5.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Arbbet.Connectors.Dal\Arbbet.Connectors.Dal.csproj" />
     <ProjectReference Include="..\Arbbet.DataExplorer.Identity\Arbbet.DataExplorer.Identity.csproj" />
     <ProjectReference Include="..\Arbbet.Domain\Arbbet.Domain.csproj" />
+    <ProjectReference Include="..\NGordat.AspNet.Helpers\NGordat.AspNet.Helpers.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Scripts\Vendors\" />
-    <Folder Include="Styles\Site\" />
     <Folder Include="Styles\Theme\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
@@ -55,4 +66,6 @@
     <!--<Copy SourceFiles="@(webfonts)" DestinationFolder="$(ProjectDir)\wwwroot\webfonts" SkipUnchangedFiles="true" />-->
     <!--<Copy SourceFiles="@(svgs)"     DestinationFiles ="@(svgs->'$(ProjectDir)\wwwroot\svgs\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />-->
   </Target>
+  
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

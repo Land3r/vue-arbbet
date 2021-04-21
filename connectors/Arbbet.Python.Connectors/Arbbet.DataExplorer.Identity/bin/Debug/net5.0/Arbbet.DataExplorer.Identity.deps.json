@@ -12,7 +12,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.5",
           "Microsoft.EntityFrameworkCore": "5.0.5",
           "Microsoft.Extensions.Identity.Stores": "5.0.5",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.5"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.5.1"
         },
         "runtime": {
           "Arbbet.DataExplorer.Identity.dll": {}
@@ -472,7 +472,7 @@
           }
         }
       },
-      "Npgsql.EntityFrameworkCore.PostgreSQL/5.0.5": {
+      "Npgsql.EntityFrameworkCore.PostgreSQL/5.0.5.1": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.5",
           "Microsoft.EntityFrameworkCore.Abstractions": "5.0.5",
@@ -481,8 +481,8 @@
         },
         "runtime": {
           "lib/netstandard2.1/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
-            "assemblyVersion": "5.0.5.0",
-            "fileVersion": "5.0.5.0"
+            "assemblyVersion": "5.0.5.1",
+            "fileVersion": "5.0.5.1"
           }
         }
       },
@@ -841,12 +841,12 @@
       "path": "npgsql/5.0.4",
       "hashPath": "npgsql.5.0.4.nupkg.sha512"
     },
-    "Npgsql.EntityFrameworkCore.PostgreSQL/5.0.5": {
+    "Npgsql.EntityFrameworkCore.PostgreSQL/5.0.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sxmLlqjeNgpMAHIyQj62fXtaP/jfJMUrHzXfrXsk1N9NvIbfqTbX/GMkscq/Cqi4JCH+zc1vxnS02KT0Zn5dFg==",
-      "path": "npgsql.entityframeworkcore.postgresql/5.0.5",
-      "hashPath": "npgsql.entityframeworkcore.postgresql.5.0.5.nupkg.sha512"
+      "sha512": "sha512-yTFRZ5jMOu+Ez94YJzYKlxnbSO7h0BDSCM38xVN8ynZrS01xfP4/g8o/+InOarCkT6stZPMPD910STIsXYNQ5w==",
+      "path": "npgsql.entityframeworkcore.postgresql/5.0.5.1",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.5.0.5.1.nupkg.sha512"
     },
     "System.Buffers/4.5.0": {
       "type": "package",

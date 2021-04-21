@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Arbbet.DataExplorer.Identity.Models;
+using Arbbet.DataExplorer.Identity.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace Arbbet.DataExplorer.Areas.Identity.Pages.Account
 {
@@ -19,15 +21,27 @@ namespace Arbbet.DataExplorer.Areas.Identity.Pages.Account
     {
         private readonly UserManager<ArbbetUser> _userManager;
         private readonly IEmailSender _emailSender;
+        private readonly IdentityConfiguration _identityConfiguration;
 
-        public ForgotPasswordModel(UserManager<ArbbetUser> userManager, IEmailSender emailSender)
+        public ForgotPasswordModel(UserManager<ArbbetUser> userManager,
+            IEmailSender emailSender,
+            IOptions<IdentityConfiguration> identityConfiguration)
         {
             _userManager = userManager;
             _emailSender = emailSender;
+            _identityConfiguration = identityConfiguration.Value;
         }
 
         [BindProperty]
         public InputModel Input { get; set; }
+
+        public bool ResendActivationEnabled
+        {
+            get
+            {
+                return _identityConfiguration.ConfirmEmail;
+            }
+        }
 
         public class InputModel
         {

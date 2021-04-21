@@ -4,31 +4,9 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
-
 <div class="row">
     <div class="col-md-4">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
-            <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+        <h4>Create a new account.</h4>
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
@@ -59,6 +37,72 @@
                 }
             }
         </section>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12 pa-0">
+
+            <div class="auth-form-wrap py-xl-0 py-50">
+                <div class="auth-form w-xxl-65 w-xl-75 w-sm-90 w-100 card pa-25 shadow-lg">
+                    <form id="account" method="post">
+                        <h1 class="display-4 mb-10">Sign up for free</h1>
+                        <p class="mb-30">Create your account and start your free trial today</p>
+                        @*<div class="form-row">
+            <div class="col-md-6 form-group">
+                <input class="form-control" placeholder="First name" value="" type="text">
+            </div>
+            <div class="col-md-6 form-group">
+                <input class="form-control" placeholder="Last name" value="" type="text">
+            </div>
+        </div>*@
+                        <div class="form-group">
+                            <input asp-for="Input.Email" class="form-control" placeholder="@Html.DisplayNameFor(model => model.Input.Email)" type="email">
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group input-group-password-toggle">
+                                <input asp-for="Input.Password" class="form-control" placeholder="@Html.DisplayNameFor(model => model.Input.Password)" type="password">
+                                <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
+                                    <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
+                                </div>
+                            </div>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group input-group-password-toggle">
+                                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.Input.ConfirmPassword)" type="password">
+                                <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
+                                    <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
+                                </div>
+                            </div>
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox custom-control custom-checkbox mb-25">
+                                <input asp-for="Input.AcceptCGU" class="custom-control-input" type="checkbox" />
+                                <label asp-for="Input.AcceptCGU" class="custom-control-label font-14">
+                                    I have read and agree to the <a asp-page="Terms"><u>term and conditions</u></a>
+                                </label>
+                            </div>
+                            <span asp-validation-for="Input.AcceptCGU" class="text-danger"></span>
+                        </div>
+                        <button class="btn btn-success btn-block" type="submit">Register</button>
+                        <div class="option-sep">or</div>
+                        <div class="form-row">
+                            <div class="col-sm-6 mb-20">
+                                <button class="btn btn-indigo btn-block btn-wth-icon"> <span class="icon-label"><i class="fab fa-facebook-square"></i> </span><span class="btn-text">Login with facebook</span></button>
+                            </div>
+                            <div class="col-sm-6 mb-20">
+                                <button class="btn btn-primary btn-block btn-wth-icon"> <span class="icon-label"><i class="fab fa-twitter-square"></i> </span><span class="btn-text">Login with Twitter</span></button>
+                            </div>
+                        </div>
+                        <p class="text-center">Already have an account? <a asp-page="Login">Login</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

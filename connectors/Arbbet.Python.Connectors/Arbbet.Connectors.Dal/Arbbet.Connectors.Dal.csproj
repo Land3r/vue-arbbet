@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyVersion>1.2021.62.71</AssemblyVersion>
-    <FileVersion>1.2021.62.71</FileVersion>
+    <AssemblyVersion>1.2021.62.111</AssemblyVersion>
+    <FileVersion>1.2021.62.111</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +15,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.5.1" />
   </ItemGroup>
 
   <ItemGroup>

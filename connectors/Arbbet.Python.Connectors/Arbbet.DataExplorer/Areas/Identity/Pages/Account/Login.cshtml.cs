@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Arbbet.DataExplorer.Identity.Models;
+using Arbbet.DataExplorer.Identity.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace Arbbet.DataExplorer.Areas.Identity.Pages.Account
 {
@@ -21,14 +23,23 @@ namespace Arbbet.DataExplorer.Areas.Identity.Pages.Account
         private readonly UserManager<ArbbetUser> _userManager;
         private readonly SignInManager<ArbbetUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IdentityConfiguration _identityConfiguration;
 
         public LoginModel(SignInManager<ArbbetUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<ArbbetUser> userManager)
+            UserManager<ArbbetUser> userManager,
+            IOptions<IdentityConfiguration> identityConfiguration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _identityConfiguration = identityConfiguration.Value;
+        }
+
+        public bool RegistrationEnabled { get
+            {
+                return _identityConfiguration.AllowRegistration;
+            }
         }
 
         [BindProperty]
