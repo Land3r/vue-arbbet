@@ -52,11 +52,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.5, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.5, )"
             }
           },
           "imports": [
@@ -102,7 +102,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj": {
+                "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -209,11 +213,7 @@
             },
             "NLog.Extensions.Logging": {
               "target": "Package",
-              "version": "[1.7.1, )"
-            },
-            "ShellProgressBar": {
-              "target": "Package",
-              "version": "[5.1.0, )"
+              "version": "[1.7.2, )"
             }
           },
           "imports": [
@@ -274,7 +274,7 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.5, )"
             }
           },
           "imports": [

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "AEf203cHNNITI9G68JjRqJvPPk7U0DGPbdNwcHh/R5wnPcR2D9LXMBa2o4bC8qV4USEVqJ9HMJRs0I0LtkkWgQ==",
+  "dgSpecHash": "6cNRsol8txVcRCnXXvIGlGSV6uGWNB881X9IU7X6kIyPQBVqbweUG8qzYnjOyvlnKDJYOp1ejsf2Yl0yo8xW+A==",
   "success": true,
   "projectFilePath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.3\\microsoft.entityframeworkcore.5.0.3.nupkg.sha512",
-    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.3\\microsoft.entityframeworkcore.abstractions.5.0.3.nupkg.sha512",
-    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.3\\microsoft.entityframeworkcore.analyzers.5.0.3.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.5\\microsoft.entityframeworkcore.5.0.5.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.5\\microsoft.entityframeworkcore.abstractions.5.0.5.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.5\\microsoft.entityframeworkcore.analyzers.5.0.5.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.1\\microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",

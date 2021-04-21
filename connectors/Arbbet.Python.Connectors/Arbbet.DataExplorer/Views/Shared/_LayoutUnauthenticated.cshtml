@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewData["Title"] - Arbbet.DataExplorer</title>
+    <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <link href="~/css/style.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- HK Wrapper -->
+    <div class="hk-wrapper">
+
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper hk-auth-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /HK Wrapper -->
+    <!-- jQuery -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FeatherIcons -->
+    <script src="~/lib/feather-icons/feather.min.js"></script>
+
+    <!-- IonIcons -->
+    <!-- TODO -->
+    <!-- jQuery Toogle -->
+    <script src="~/lib/jquery-toggles/toggles.min.js"></script>
+
+    <!-- jQuery SlimScroll -->
+    <script src="~/lib/jQuery-slimScroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Toastr -->
+    <script src="~/lib/toastr.js/toastr.min.js"></script>
+
+    <!-- Owl Carousel -->
+    <script src="~/lib/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- Init script -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

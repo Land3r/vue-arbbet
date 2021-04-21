@@ -28,6 +28,8 @@ namespace Arbbet.Connectors.Dal
     {
       base.OnModelCreating(modelBuilder);
 
+      modelBuilder.HasDefaultSchema("Domain");
+      
       // Enums
       modelBuilder.Entity<Bet>().Property(elm => elm.BetType).HasConversion(c => c.ToString(), c => (BetType)Enum.Parse(typeof(BetType), c));
       modelBuilder.Entity<Bet>().Property(elm => elm.UnifiedType).HasConversion(c => c.ToString(), c => (UnifiedType)Enum.Parse(typeof(UnifiedType), c));

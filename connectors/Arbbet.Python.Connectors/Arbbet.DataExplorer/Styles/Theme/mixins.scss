@@ -1,0 +1,70 @@
+/*__________________________________________________________________;
+[Mixin]
+Project:	dashgrin
+___________________________________________________________________*/;
+
+/* Transformation mixins */
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin transform($transforms) {
+    -webkit-transform: $transforms;
+    -moz-transform: $transforms;
+    -ms-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+    @include transform(rotate(#{$deg}deg));
+}
+
+@mixin scale($scale) {
+    @include transform(scale($scale));
+}
+
+@mixin translate ($x, $y) {
+    @include transform(translate($x, $y));
+}
+
+@mixin skew ($x, $y) {
+    @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+@mixin background-opacity($color, $opacity: 0.6) {
+    background: rgba($color, $opacity);
+}
+
+@mixin color-opacity($color, $opacity: 0.8) {
+    color: rgba($color, $opacity);
+}
+
+@mixin border-opacity($color, $opacity: 0.8) {
+    border-color: rgba($color, $opacity);
+}
+
+@mixin clear() {
+	overflow:hidden;
+	clear:both;
+	float:none;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin bg-linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: linear-gradient($direction, $color-stops)!important;
+  background: -webkit-bg-linear-gradient($direction, $color-stops)!important;
+}
+@mixin bdr-linear-gradient($direction, $color-stops...) {
+  border-color: nth(nth($color-stops, 1), 1);
+  border-color: linear-gradient($direction, $color-stops)!important;
+  border-color: -webkit-linear-gradient($direction, $color-stops)!important;
+}

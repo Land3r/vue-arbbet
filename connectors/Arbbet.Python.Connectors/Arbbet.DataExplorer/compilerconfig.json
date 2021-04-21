@@ -1,0 +1,6 @@
+[
+  {
+    "inputFile": "Styles/Theme/style.scss",
+    "outputFile": "wwwroot/css/style.css"
+  }
+]

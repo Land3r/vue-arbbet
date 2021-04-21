@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Arbbet.Connectors.Domain.Performances;
+using Arbbet.Connectors.Domain.Statistics;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,7 +17,8 @@ namespace Arbbet.Connectors.Domain.Configuration
     {
       return services
         .AddTransient<MonitoredScope>()
-        .AddSingleton<PerformanceStatService>();
+        .AddSingleton<PerformanceStatService>()
+        .AddSingleton<StatisticService>();
     }
   }
 }

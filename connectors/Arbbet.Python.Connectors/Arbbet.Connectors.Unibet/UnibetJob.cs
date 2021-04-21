@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 using Arbbet.Connectors.Dal;
 using Arbbet.Connectors.Dal.Services;
+using Arbbet.Connectors.Domain.Performances;
+using Arbbet.Connectors.Domain.Progression;
+using Arbbet.Connectors.Domain.Statistics;
 using Arbbet.Connectors.Unibet.Configuration;
 using Arbbet.Connectors.Unibet.Models;
 using Arbbet.Connectors.Unibet.Services;
@@ -14,8 +17,6 @@ using Arbbet.Domain.Entities;
 using Arbbet.Domain.Enums;
 
 using Microsoft.Extensions.Logging;
-
-using ShellProgressBar;
 
 namespace Arbbet.Connectors.Unibet
 {
@@ -35,6 +36,8 @@ namespace Arbbet.Connectors.Unibet
     private readonly TeamService _teamService;
     private readonly BetService _betService;
     private readonly OutcomeService _outcomeService;
+    private readonly PerformanceStatService _performanceStatService;
+    private readonly StatisticService _statisticService;
 
     private Platform _platform;
 
@@ -47,7 +50,9 @@ namespace Arbbet.Connectors.Unibet
       CountryService countryService,
       TeamService teamService,
       BetService betService,
-      OutcomeService outcomeService)
+      OutcomeService outcomeService,
+      PerformanceStatService performanceStatService,
+      StatisticService statisticService)
     {
       _logger = logger;
       _context = context;
@@ -59,27 +64,15 @@ namespace Arbbet.Connectors.Unibet
       _teamService = teamService;
       _betService = betService;
       _outcomeService = outcomeService;
+      _performanceStatService = performanceStatService;
+      _statisticService = statisticService;
     }
 
     public async Task<bool> Run()
     {
       try
       {
-
-        var options = new ProgressBarOptions()
-        {
-          ShowEstimatedDuration = true,
-          ProgressCharacter = '_'
-        };
-
-        using (var pbar = new ProgressBar(5, "Initial message", options))
-        {
-          pbar.Tick(); //will advance pbar to 1 out of 10.
-                       //we can also advance and update the progressbar text
-          pbar.Tick("Step 2 of 10");
-        }
-
-        _logger.Log(LogLevel.Information, "{0} starting", jobName) ;
+        _logger.Log(LogLevel.Information, "{0} starting", jobName);
 
         _platform = _context.Platforms.FirstOrDefault(eml => eml.Code == UnibetJob.platformCode);
         _logger.Log(LogLevel.Debug, "Platform {0} found", _platform.Name);
@@ -101,7 +94,7 @@ namespace Arbbet.Connectors.Unibet
               if (MarketConfiguration.IncludedEntries.Contains(market))
               {
                 _logger.Log(LogLevel.Debug, "Processing market {0} for {1}", market.Name, sport.Name);
-                
+
                 var events = await _service.GetEventsAsync(sport.Id, market.Type, market.Name);
                 _logger.Log(LogLevel.Debug, "Retrieved {0} events for market {1}", events.Count(), market.Name);
 
@@ -114,7 +107,7 @@ namespace Arbbet.Connectors.Unibet
                   if (eventEntity == null)
                   {
                     // Retrieve sport
-                    Sport sportEntity = await _sportService.GetAsync(_platform.Id, sport.Id.ToString()); 
+                    Sport sportEntity = await _sportService.GetAsync(_platform.Id, sport.Id.ToString());
 
                     if (sportEntity == null)
                     {
@@ -126,6 +119,7 @@ namespace Arbbet.Connectors.Unibet
                         UnifiedEntityId = null,
                         UnifiedType = UnifiedType.Platform
                       });
+                      _statisticService.Add(StatisticEvent.Create, typeof(Sport));
                     }
 
                     // Retrieve competition + (country if defined)
@@ -145,6 +139,7 @@ namespace Arbbet.Connectors.Unibet
                             Code = platformEvent.CompetitionCountryName.ToUpperInvariant().Substring(0, Math.Min(platformEvent.CompetitionCountryName.Length, 3)),
                             Name = platformEvent.Name
                           });
+                          _statisticService.Add(StatisticEvent.Create, typeof(Country));
                         }
                       }
 
@@ -157,7 +152,8 @@ namespace Arbbet.Connectors.Unibet
                         SportId = sportEntity.Id,
                         UnifiedEntityId = null,
                         UnifiedType = UnifiedType.Platform
-                      });;
+                      });
+                      _statisticService.Add(StatisticEvent.Create, typeof(Competition));
                     }
 
                     // Retrieve teams
@@ -179,6 +175,7 @@ namespace Arbbet.Connectors.Unibet
                         UnifiedEntityId = null,
                         UnifiedType = UnifiedType.Platform
                       });
+                      _statisticService.Add(StatisticEvent.Create, typeof(Team));
                     }
                     participants.Add(teamAwayEntity);
 
@@ -199,6 +196,7 @@ namespace Arbbet.Connectors.Unibet
                         UnifiedEntityId = null,
                         UnifiedType = UnifiedType.Platform
                       });
+                      _statisticService.Add(StatisticEvent.Create, typeof(Team));
                     }
                     participants.Add(teamHomeEntity);
 
@@ -219,6 +217,7 @@ namespace Arbbet.Connectors.Unibet
                       UpdatedAt = DateTime.Now,
                       Url = platformEvent.Url
                     });
+                    _statisticService.Add(StatisticEvent.Create, typeof(Event));
                   }
 
                   foreach (PlatformBet platformBet in platformEvent.Bets)
@@ -245,6 +244,7 @@ namespace Arbbet.Connectors.Unibet
                         UnifiedEntityId = null,
                         UnifiedType = UnifiedType.Platform,
                       });
+                      _statisticService.Add(StatisticEvent.Create, typeof(Bet));
                     }
 
                     IEnumerable<Outcome> outcomesEntities = _outcomeService.GetOutcomesForBet(betEntity.Id);
@@ -276,11 +276,13 @@ namespace Arbbet.Connectors.Unibet
                             Team = team,
                           });
                           _outcomeService.Create(outcomeEntity);
+                          _statisticService.Add(StatisticEvent.Create, typeof(Outcome));
                         }
                         else
                         {
                           outcomeEntity.Odd = platformOutcome.Odd;
                           _outcomeService.Update(outcomeEntity);
+                          _statisticService.Add(StatisticEvent.Update, typeof(Outcome));
                         }
                       }
                     }
@@ -310,6 +312,12 @@ namespace Arbbet.Connectors.Unibet
       }
       finally
       {
+        IList<PerformanceStat> stats = _performanceStatService.Aggregate().ToList();
+        _logger.Log(LogLevel.Information, _statisticService.GetStatisticsString());
+        foreach (PerformanceStat stat in stats)
+        {
+          _logger.Log(LogLevel.Information, "{0} in total for {1}", TimeSpan.FromMilliseconds(stat.TimeElapsed), stat.Type);
+        }
       }
     }
   }
