@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\Arbbet.DataExplorer.Identity.csproj": {}
+    "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\Arbbet.DataExplorer.Identity.csproj": {}
   },
   "projects": {
-    "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\Arbbet.DataExplorer.Identity.csproj": {
+    "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\Arbbet.DataExplorer.Identity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\Arbbet.DataExplorer.Identity.csproj",
+        "projectUniqueName": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\Arbbet.DataExplorer.Identity.csproj",
         "projectName": "Arbbet.DataExplorer.Identity",
-        "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\Arbbet.DataExplorer.Identity.csproj",
-        "packagesPath": "C:\\Users\\n.gordat\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\obj\\",
+        "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\Arbbet.DataExplorer.Identity.csproj",
+        "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.DataExplorer.Identity\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\n.gordat\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -54,6 +50,12 @@
               "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.5, )"
             },

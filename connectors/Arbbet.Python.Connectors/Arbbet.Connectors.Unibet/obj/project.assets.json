@@ -1063,25 +1063,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\n.gordat\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\nicol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj",
+      "projectUniqueName": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj",
       "projectName": "Arbbet.Connectors.Unibet",
-      "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj",
-      "packagesPath": "C:\\Users\\n.gordat\\.nuget\\packages\\",
-      "outputPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\obj\\",
+      "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj",
+      "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
+      "outputPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\n.gordat\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -1095,11 +1090,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj": {
-              "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj"
+            "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj": {
+              "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj"
             },
-            "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
-              "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj"
+            "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
+              "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj"
             }
           }
         }

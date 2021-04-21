@@ -10,3 +10,15 @@ D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\NGordat.AspNet.Helpers.dll
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\ref\NGordat.AspNet.Helpers.dll
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\NGordat.AspNet.Helpers.pdb
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\bin\Debug\net5.0\NGordat.AspNet.Helpers.deps.json
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\bin\Debug\net5.0\NGordat.AspNet.Helpers.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\bin\Debug\net5.0\ref\NGordat.AspNet.Helpers.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\bin\Debug\net5.0\NGordat.AspNet.Helpers.pdb
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\NGordat.AspNet.Helpers.csprojAssemblyReference.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\NGordat.AspNet.Helpers.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\NGordat.AspNet.Helpers.AssemblyInfoInputs.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\NGordat.AspNet.Helpers.AssemblyInfo.cs
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\NGordat.AspNet.Helpers.csproj.CoreCompileInputs.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\NGordat.AspNet.Helpers.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\ref\NGordat.AspNet.Helpers.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\NGordat.AspNet.Helpers\obj\Debug\net5.0\NGordat.AspNet.Helpers.pdb

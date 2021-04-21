@@ -938,3 +938,6 @@ D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\ref\Arbbet.DataExplorer.dll
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Arbbet.DataExplorer.pdb
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Arbbet.DataExplorer.genruntimeconfig.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\bin\Debug\net5.0\NGordat.AspNet.Helpers.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\bin\Debug\net5.0\NGordat.AspNet.Helpers.pdb
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Views\Shared\_TopNavBar.cshtml.g.cs
