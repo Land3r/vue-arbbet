@@ -112,8 +112,8 @@ namespace Arbbet.DataExplorer.Areas.Identity.Pages.Account
                         code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                         var callbackUrl = Url.Page(
                             "/Account/ConfirmEmail",
-                            pageHandler: null,
-                            values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
+                            pageHandler: "Get",
+                            values: new { userId = user.Id, code = code, returnUrl = returnUrl },
                             protocol: Request.Scheme);
 
                         await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
@@ -129,7 +129,7 @@ namespace Arbbet.DataExplorer.Areas.Identity.Pages.Account
                 }
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    ModelState.AddModelError("Input.Email", error.Description);
                 }
             }
 

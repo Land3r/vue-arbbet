@@ -25,3 +25,6 @@ D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Dat
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer.Identity\bin\Debug\net5.0\Arbbet.DataExplorer.Identity.runtimeconfig.dev.json
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer.Identity\obj\Debug\net5.0\Arbbet.DataExplorer.Identity.genruntimeconfig.cache
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer.Identity\obj\Debug\net5.0\Arbbet.DataExplorer.Identity.csprojAssemblyReference.cache
+D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer.Identity\bin\Debug\net5.0\Arbbet.DataExplorer.Identity.runtimeconfig.json
+D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer.Identity\bin\Debug\net5.0\Arbbet.DataExplorer.Identity.runtimeconfig.dev.json
+D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer.Identity\obj\Debug\net5.0\Arbbet.DataExplorer.Identity.genruntimeconfig.cache

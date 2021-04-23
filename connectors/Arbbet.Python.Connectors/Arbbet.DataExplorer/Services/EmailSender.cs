@@ -17,6 +17,7 @@ namespace Arbbet.DataExplorer.Services
         private bool _enableSSL;
         private string _username;
         private string _password;
+        private string _from;
 
         public EmailSender(IOptions<EmailSenderConfiguration> configuration)
         {
@@ -27,6 +28,7 @@ namespace Arbbet.DataExplorer.Services
             _enableSSL = conf.EnableSSL;
             _username = conf.Username;
             _password = conf.Password;
+            _from = conf.From;
         }
 
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
@@ -38,7 +40,7 @@ namespace Arbbet.DataExplorer.Services
             };
 
             return client.SendMailAsync(
-                new MailMessage(_username, email, subject, htmlMessage) { IsBodyHtml = true }
+                new MailMessage(_from, email, subject, htmlMessage) { IsBodyHtml = true }
             );
         }
     }

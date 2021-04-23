@@ -1,0 +1,34 @@
+﻿@page
+@model ResendEmailConfirmationModel
+@{
+    ViewData["Title"] = "Resend email confirmation";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12 pa-0">
+            <div class="auth-form-wrap auth-cover-img pt-xl-0 pt-70" style="background-image:url(/img/landing/landing1.jpg);">
+                <div class="auth-form w-xl-30 w-lg-65 w-sm-85 w-100 card pa-25 shadow-lg">
+                    <a class="auth-brand text-center d-block mb-20" href="#">
+                        <img class="brand-img" src="img/logo-light.png" alt="brand">
+                    </a>
+                    <form id="account" method="post">
+                        <h1 class="display-5 mb-10 text-center">@ViewData["Title"]</h1>
+                        <p class="mb-30 text-center">We will resend you a new code to your <u>recovery email</u> to activate your account.</p>
+                        <div class="form-group">
+                            <input asp-for="Input.Email" type="email" class="form-control" placeholder="@Html.DisplayNameFor(model => model.Input.Email)" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <button class="btn btn-success btn-block mb-20" type="submit">Resend activation email</button>
+                        <p class="text-right"><a asp-page="Login">Back to login</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
