@@ -21,3 +21,4 @@ D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Domain\obj\Debug
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Domain\obj\Debug\net5.0\ref\Arbbet.Domain.dll
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Domain\obj\Debug\net5.0\Arbbet.Domain.pdb
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Domain\obj\Debug\net5.0\Arbbet.Domain.csprojAssemblyReference.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Domain\obj\Debug\net5.0\Arbbet.Domain.csprojAssemblyReference.cache

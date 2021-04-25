@@ -23,6 +23,12 @@
                         else
                         {
                             <p class="mb-30 text-center">You have successfully logged out of the application.</p>
+
+                            <script>
+                                setTimeout(function () {
+                                    window.location.href = '/';
+                                 }, 5000);
+                            </script>
                         }
                         <p class="text-right"><a asp-page="Login">Back to login</a></p>
                     </div>
@@ -31,16 +37,6 @@
         </div>
     </div>
 </div>
-
-<header>
-    <h1>@ViewData["Title"]</h1>
-    @{
-        
-    }
-</header>
-
-
-
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

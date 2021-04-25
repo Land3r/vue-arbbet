@@ -1,6 +1,9 @@
 [
   {
-    "inputFile": "Styles/Theme/style.scss",
-    "outputFile": "wwwroot/css/style.css"
+    "inputFile": "Styles/Site/style.scss",
+    "outputFile": "wwwroot/css/style.css",
+    "options": {
+      "sourceMap": true
+    }
   }
 ]

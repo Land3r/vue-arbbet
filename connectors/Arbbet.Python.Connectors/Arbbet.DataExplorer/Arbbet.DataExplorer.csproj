@@ -49,12 +49,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Identity\Pages\NewFolder\" />
     <Folder Include="Styles\Theme\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="Styles\Site\style.scss" />
+    <None Include="Styles\Site\theme_reset.scss" />
   </ItemGroup>
   
   <Target Name="CopyFonts" AfterTargets="Build">

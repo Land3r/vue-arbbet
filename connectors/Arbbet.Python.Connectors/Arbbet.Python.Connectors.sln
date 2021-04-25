@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09 - Tools", "09 - Tools", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGordat.AspNet.Helpers", "NGordat.AspNet.Helpers\NGordat.AspNet.Helpers.csproj", "{ABD9BFB8-63DE-4EB6-BE66-EEF63C55238B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tmp", "tmp\tmp.csproj", "{EDB2A88D-C90F-4D77-B3CE-6E46D68B33DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tmp", "tmp\tmp.csproj", "{EDB2A88D-C90F-4D77-B3CE-6E46D68B33DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

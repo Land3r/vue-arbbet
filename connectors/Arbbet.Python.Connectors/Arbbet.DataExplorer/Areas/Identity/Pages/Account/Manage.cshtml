@@ -1,0 +1,901 @@
+﻿@page "{ActivePage?}"
+@using Arbbet.DataExplorer.Identity.Models
+@using Arbbet.DataExplorer.Identity.Helpers;
+
+@inject SignInManager<ArbbetUser> SignInManager
+@inject UserManager<ArbbetUser> UserManager
+
+@model Arbbet.DataExplorer.Areas.Identity.Pages.Account.ManageModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Manage your account";
+    Model.ActivePage ??= "Overview";
+}
+
+<div class="container-fluid">
+    <!-- Row -->
+    <div class="row">
+        <div class="col-xl-12 pa-0">
+            <div class="profile-cover-wrap overlay-wrap">
+
+                <div class="profile-cover-img" style="background-image:url('@Url.Content("~/img/profile/header-2.jpg")')"></div>
+                <div class="bg-overlay bg-trans-dark-30"></div>
+                <div class="container-fluid px-xxl-65 px-xl-20 profile-cover-content py-20">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="media align-items-center">
+                                <div class="media-img-wrap d-flex">
+                                    <div class="avatar" style="font-size:2.5rem;">
+                                        <div class="avatar-text avatar-text-primary rounded-circle">
+                                            <span class="initial-wrap"><span>@UserHelperExtensions.GetInitials(UserManager.GetUserName(User))</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="media-body">
+                                    <div class="text-white display-6 mb-5 font-weight-400">@UserManager.GetUserName(User)</div>
+                                    <div class="font-14 text-white"><span class="mr-5"><span class="font-weight-500 pr-5">124</span><span class="mr-5">Followers</span></span><span><span class="font-weight-500 pr-5">45</span><span>Following</span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="button-list">
+                                <a href="#" class="btn btn-dark btn-wth-icon icon-wthot-bg btn-rounded"><span class="btn-text">Message</span><span class="icon-label"><i class="fas fa-envelope"></i></span></a>
+                                <a href="#" class="btn btn-icon btn-icon-circle btn-indigo btn-icon-style-2"><span class="btn-icon-wrap"><i class="fab fa-facebook-f"></i></span></a>
+                                <a href="#" class="btn btn-icon btn-icon-circle btn-sky btn-icon-style-2"><span class="btn-icon-wrap"><i class="fab fa-twitter"></i></span></a>
+                                <a href="#" class="btn btn-icon btn-icon-circle btn-purple btn-icon-style-2"><span class="btn-icon-wrap"><i class="fab fa-linkedin"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white shadow-bottom">
+                <div class="container-fluid px-xxl-65 px-xl-20">
+                    <ul class="nav nav-light nav-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a href="#overview" data-toggle="tab" aria-controls="overview" class="d-flex h-60p align-items-center nav-link @(Model.ActivePage.ToUpperInvariant() == "OVERVIEW" ? "active": string.Empty)" role="tab" aria-selected="@(Model.ActivePage.ToUpperInvariant() == "OVERVIEW")"><i class="zmdi zmdi-group"></i>&nbsp;Overview</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#account" data-toggle="tab" aria-controls="account" class="d-flex h-60p align-items-center nav-link @(Model.ActivePage.ToUpperInvariant() == "ACCOUNT" ? "active": string.Empty)" role="tab" aria-selected="@(Model.ActivePage.ToUpperInvariant() == "ACCOUNT")"><i class="zmdi zmdi-account"></i>&nbsp;Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#security" data-toggle="tab" aria-controls="security" class="d-flex h-60p align-items-center nav-link @(Model.ActivePage.ToUpperInvariant() == "SECURITY" ? "active": string.Empty)" role="tab" aria-selected="@(Model.ActivePage.ToUpperInvariant() == "SECURITY")"><i class="zmdi zmdi-shield-security"></i>&nbsp;Security</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="d-flex h-60p align-items-center nav-link">Photos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content mt-sm-60 mt-30">
+                <div class="tab-pane fade @(Model.ActivePage.ToUpperInvariant() == "OVERVIEW" ? "show active": string.Empty)" id="overview" aria-labelledby="overview" role="tabpanel">
+                    <div class="container-fluid px-xxl-65 px-xl-20">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card card-profile-feed">
+                                    <div class="card-header card-header-action">
+                                        <div class="media align-items-center">
+                                            <div class="media-img-wrap d-flex mr-10">
+                                                <div class="avatar avatar-sm">
+                                                    <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-capitalize font-weight-500 text-dark">Madelyn Rascon</div>
+                                                <div class="font-13">25 min</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center card-action-wrap">
+                                            <div class="inline-block dropdown">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Separated link</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text mb-30">There was that time artists at Sequence opted to hand-Sharpie the lorem ipsum passage on a line of paper bags they designed for Chipotle.</p>
+                                        <div class="card">
+                                            <div class="position-relative">
+                                                <img class="card-img-top d-block" src="dist/img/cropper.jpg" alt="Card image cap">
+                                                <a href="#" class="btn btn-dark btn-wth-icon icon-wthot-bg btn-rounded btn-pg-link"><span class="icon-label"><i class="ion ion-md-link"></i></span><span class="btn-text">website</span></a>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Bacon chicken turducken spare ribs.</h5>
+                                                <p class="card-text">Of course, we'd be remiss not to include the veritable cadre of lorem ipsum knock offs featuring: Bacon Ipsum, Hipster Ipsum, Corporate Ipsum, Legal Ipsum.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer justify-content-between">
+                                        <div>
+                                            <a href="#"><i class="ion ion-md-heart text-primary"></i>30K</a>
+                                        </div>
+                                        <div>
+                                            <a href="#">1K comments</a>
+                                            <a href="#">12 shares</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-columns card-column-1">
+                                    <div class="card card-profile-feed mb-0 rounded-bottom-0">
+                                        <div class="card-header card-header-action">
+                                            <div class="media align-items-center">
+                                                <div class="media-img-wrap d-flex mr-10">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="text-capitalize font-weight-500 text-dark">Mitsoku Heid</div>
+                                                    <div class="font-13">3 hrs</div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center card-action-wrap">
+                                                <div class="inline-block dropdown">
+                                                    <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="#">Action</a>
+                                                        <a class="dropdown-item" href="#">Another action</a>
+                                                        <a class="dropdown-item" href="#">Something else here</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">Separated link</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text mb-30">Not to mention, Cupcake Ipsum, Bob Ross Ipsum (“happy little clouds”), and the furry Cat Ipsum.</p>
+                                            <div class="feed-img-layout">
+                                                <div class="row h-200p">
+                                                    <div class="col-6 h-100">
+                                                        <div class="feed-img h-100" style="background-image:url(dist/img/slide4.jpg);"></div>
+                                                    </div>
+                                                    <div class="col-6 h-100">
+                                                        <div class="row h-100">
+                                                            <div class="col-sm-12 h-95p mb-10">
+                                                                <div class="feed-img h-100" style="background-image:url(dist/img/slide1.jpg);"></div>
+                                                            </div>
+                                                            <div class="col-sm-12 h-95p">
+                                                                <div class="row h-100">
+                                                                    <div class="col-6 h-100">
+                                                                        <div class="feed-img h-100" style="background-image:url(dist/img/slide2.jpg);"></div>
+                                                                    </div>
+                                                                    <div class="col-6 h-100">
+                                                                        <div class="feed-img h-100" style="background-image:url(dist/img/slide3.jpg);"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer justify-content-between">
+                                            <div>
+                                                <a href="#"><i class="ion ion-md-heart text-primary"></i>94</a>
+                                            </div>
+                                            <div>
+                                                <a href="#">1.5K comments</a>
+                                                <a href="#">18 shares</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-profile-feed border-top-0 rounded-top-0">
+                                        <div class="card-body">
+                                            <button class="btn btn-light btn-sm btn-block mb-25">Hide comments</button>
+                                            <div class="media">
+                                                <div class="media-img-wrap d-flex mr-10">
+                                                    <div class="avatar avatar-xs">
+                                                        <img src="dist/img/avatar5.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="text-capitalize font-14 font-weight-500 text-dark">Eziquiel Merideth</div>
+                                                    <div class="font-15"><p>So there you have it. The nonsense words unable to fully escape meaning.</p></div>
+                                                    <div class="d-flex mt-10">
+                                                        <span class="font-14 text-light mr-15">1 hr</span>
+                                                        <a href="#" class="font-14 text-light text-capitalize font-weight-500">reply</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="media w-100 align-items-center">
+                                                <div class="media-img-wrap d-flex mr-15">
+                                                    <div class="avatar avatar-xs">
+                                                        <img src="dist/img/avatar11.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <textarea class="form-control filled-input bg-transparent" rows="1" placeholder="Leave a comment..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-profile-feed">
+                                    <div class="card-header card-header-action">
+                                        <div class="media align-items-center">
+                                            <div class="media-img-wrap d-flex mr-10">
+                                                <div class="avatar avatar-sm">
+                                                    <img src="dist/img/avatar6.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-capitalize font-weight-500 text-dark">Johnie Metoyer</div>
+                                                <div class="font-13">11 hrs</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center card-action-wrap">
+                                            <div class="inline-block dropdown">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Separated link</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text mb-30">Below are the original Latin passages from which Lorem Ipsum was derived, paired with their 1914 translations by H. Rackham.</p>
+                                        <div class="card">
+                                            <div class="position-relative">
+                                                <img class="card-img-top rounded d-block" src="dist/img/slide7.jpg" alt="Card image cap">
+                                                <a href="#" class="btn-video-link"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer justify-content-between">
+                                        <div>
+                                            <a href="#"><i class="ion ion-md-heart text-primary"></i>142</a>
+                                        </div>
+                                        <div>
+                                            <a href="#">751 comments</a>
+                                            <a href="#">2 shares</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card card-profile-feed">
+                                    <div class="card-header card-header-action">
+                                        <div class="media align-items-center">
+                                            <div class="media-img-wrap d-flex mr-10">
+                                                <div class="avatar avatar-sm">
+                                                    <img src="dist/img/avatar7.jpg" alt="user" class="avatar-img rounded-circle">
+                                                </div>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-capitalize font-weight-500 text-dark">Angelic Lauver</div>
+                                                <div class="font-13">Business Manager</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center card-action-wrap">
+                                            <div class="inline-block dropdown">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-settings"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Separated link</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col-4 border-right pr-0">
+                                            <div class="pa-15">
+                                                <span class="d-block display-6 text-dark mb-5">154</span>
+                                                <span class="d-block text-capitalize font-14">photos</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 border-right px-0">
+                                            <div class="pa-15">
+                                                <span class="d-block display-6 text-dark mb-5">65</span>
+                                                <span class="d-block text-capitalize font-14">followers</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 pl-0">
+                                            <div class="pa-15">
+                                                <span class="d-block display-6 text-dark mb-5">433</span>
+                                                <span class="d-block text-capitalize font-14">views</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><span><i class="ion ion-md-calendar font-18 text-light-20 mr-10"></i><span>Went to:</span></span><span class="ml-5 text-dark">Oh, Canada</span></li>
+                                        <li class="list-group-item"><span><i class="ion ion-md-briefcase font-18 text-light-20 mr-10"></i><span>Worked at:</span></span><span class="ml-5 text-dark">Companey</span></li>
+                                        <li class="list-group-item"><span><i class="ion ion-md-home font-18 text-light-20 mr-10"></i><span>Lives in:</span></span><span class="ml-5 text-dark">San Francisco, CA</span></li>
+                                        <li class="list-group-item"><span><i class="ion ion-md-pin font-18 text-light-20 mr-10"></i><span>From:</span></span><span class="ml-5 text-dark">Settle, WA</span></li>
+                                    </ul>
+                                </div>
+                                <div class="card card-profile-feed">
+                                    <div class="card-header card-header-action">
+                                        <h6>You know these people ?</h6>
+                                        <div class="d-flex align-items-center card-action-wrap">
+                                            <div class="inline-block dropdown">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Separated link</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">Evie Ono</span>
+                                                    <span class="d-block font-13">Apple Inc</span>
+                                                </div>
+                                                <a href="#" class="text-light-40 ml-auto"><i class="ion ion-md-add font-24"></i></a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/avatar2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">Clay Masse</span>
+                                                    <span class="d-block font-13">Hencework.com</span>
+                                                </div>
+                                                <a href="#" class="text-light-40 ml-auto"><i class="ion ion-md-add font-24"></i></a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/avatar3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">Madelyn Rascon</span>
+                                                    <span class="d-block font-13">Godaddy.co.in</span>
+                                                </div>
+                                                <a href="#" class="text-success ml-auto"><i class="ion ion-md-checkmark font-20"></i></a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/avatar4.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">Mitsoku Heid</span>
+                                                    <span class="d-block font-13">Flipkart</span>
+                                                </div>
+                                                <a href="#" class="text-success ml-auto"><i class="ion ion-md-checkmark font-20"></i></a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/avatar5.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">Eziquiel Merideth</span>
+                                                    <span class="d-block font-13">Paypal</span>
+                                                </div>
+                                                <a href="#" class="text-light-40 ml-auto"><i class="ion ion-md-add font-24"></i></a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/avatar6.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">Johnie Metoyer</span>
+                                                    <span class="d-block font-13">Robocon</span>
+                                                </div>
+                                                <a href="#" class="text-success ml-auto"><i class="ion ion-md-checkmark font-20"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card card-profile-feed">
+                                    <div class="card-header card-header-action">
+                                        <h6><span>Friends <span class="badge badge-soft-primary ml-5">212</span></span></h6>
+                                        <a href="#" class="font-14 ml-auto">View all</a>
+                                    </div>
+                                    <div class="card-body pb-5">
+                                        <div class="row text-center">
+                                            <div class="col-3 mb-15">
+                                                <div class="w-100">
+                                                    <img src="dist/img/avatar1.jpg" alt="user" class="img-fluid rounded">
+                                                </div>
+                                                <span class="d-block font-14 text-truncate">Evie Ono</span>
+                                            </div>
+                                            <div class="col-3 mb-15">
+                                                <div class="w-100">
+                                                    <img src="dist/img/avatar2.jpg" alt="user" class="img-fluid rounded">
+                                                </div>
+                                                <span class="d-block font-14 text-truncate">Clay Masse</span>
+                                            </div>
+                                            <div class="col-3 mb-15">
+                                                <div class="w-100">
+                                                    <img src="dist/img/avatar3.jpg" alt="user" class="img-fluid rounded">
+                                                </div>
+                                                <span class="d-block font-14 text-truncate">Madelyn Rascon</span>
+                                            </div>
+                                            <div class="col-3 mb-15">
+                                                <div class="w-100">
+                                                    <img src="dist/img/avatar4.jpg" alt="user" class="img-fluid rounded">
+                                                </div>
+                                                <span class="d-block font-14 text-truncate">Mitsoku Heid</span>
+                                            </div>
+                                            <div class="col-3 mb-15">
+                                                <div class="w-100">
+                                                    <img src="dist/img/avatar5.jpg" alt="user" class="img-fluid rounded">
+                                                </div>
+                                                <span class="d-block font-14 text-truncate">Eziquiel Merideth</span>
+                                            </div>
+                                            <div class="col-3 mb-15">
+                                                <div class="w-100">
+                                                    <img src="dist/img/avatar6.jpg" alt="user" class="img-fluid rounded">
+                                                </div>
+                                                <span class="d-block font-14 text-truncate">Johnie Metoyer</span>
+                                            </div>
+                                            <div class="col-3 mb-15">
+                                                <div class="w-100">
+                                                    <img src="dist/img/avatar7.jpg" alt="user" class="img-fluid rounded">
+                                                </div>
+                                                <span class="d-block font-14 text-truncate">Angelic Lauver</span>
+                                            </div>
+                                            <div class="col-3 mb-15">
+                                                <div class="w-100">
+                                                    <img src="dist/img/avatar8.jpg" alt="user" class="img-fluid rounded">
+                                                </div>
+                                                <span class="d-block font-14 text-truncate">Cecilia Rios</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-profile-feed">
+                                    <div class="card-header card-header-action">
+                                        <h6><span>Groups <span class="badge badge-soft-success ml-5">12</span></span></h6>
+                                        <a href="#" class="font-14 ml-auto">View all</a>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/slide1.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">Landscape Group</span>
+                                                    <span class="d-block font-13">1.25K Members</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/slide2.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">Josh Groben Fanclub</span>
+                                                    <span class="d-block font-13">2M Members</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/avatar12.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">UI/UX Lead</span>
+                                                    <span class="d-block font-13">8K Members</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <img src="dist/img/slide3.jpg" alt="user" class="avatar-img rounded-circle">
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize">Design Yatra</span>
+                                                    <span class="d-block font-13">14K Members</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="card card-profile-feed">
+                                    <div class="card-header card-header-action">
+                                        <h6><span>Links <span class="badge badge-soft-warning ml-5">7</span></span></h6>
+                                        <div class="d-flex align-items-center card-action-wrap">
+                                            <div class="inline-block dropdown">
+                                                <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Separated link</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <span class="avatar-text avatar-text-inv-pink rounded-circle">
+                                                            <span class="initial-wrap"><span>G</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize text-truncate mw-150p">Google.com</span>
+                                                    <span class="d-block font-13 text-truncate mw-150p">google.com</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <span class="avatar-text avatar-text-inv-primary rounded-circle">
+                                                            <span class="initial-wrap"><span>PR</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize text-truncate mw-150p">Improve your business</span>
+                                                    <span class="d-block font-13 text-truncate mw-150p">yahoo.com</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <span class="avatar-text avatar-text-inv-success rounded-circle">
+                                                            <span class="initial-wrap"><span>AB</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize text-truncate mw-150p">Cast the cookware</span>
+                                                    <span class="d-block font-13 text-truncate mw-150p">yahoo.com</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0">
+                                            <div class="media align-items-center">
+                                                <div class="d-flex media-img-wrap mr-15">
+                                                    <div class="avatar avatar-sm">
+                                                        <span class="avatar-text avatar-text-inv-danger rounded-circle">
+                                                            <span class="initial-wrap"><span>LR</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span class="d-block text-dark text-capitalize text-truncate mw-150p">The universe thought sds sa</span>
+                                                    <span class="d-block font-13 text-truncate mw-150p">facebook.com</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="card bg-primary text-center border-0">
+                                    <div class="twitter-slider-wrap card-body">
+                                        <div class="twitter-icon text-center mb-15">
+                                            <i class="fa fa-twitter"></i>
+                                        </div>
+                                        <div id="tweets_fetch" class="owl-carousel owl-theme"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade @(Model.ActivePage.ToUpperInvariant() == "ACCOUNT" ? "show active": string.Empty)" id="account" aria-labelledby="account" role="tabpanel">
+                    <p>
+                        TODO:
+                        Gestion des infos personnelle,
+                        Gestion de l'email (modification)
+                        Gestion du mot de passe
+                        Gestion du 2FA
+                    </p>
+
+                    <div class="container-fluid px-xxl-65 px-xl-20">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <section class="hk-sec-wrapper">
+                                    <h5 class="hk-sec-title mb-25">User information</h5>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="firstName">First name</label>
+                                                        <input class="form-control" id="firstName" placeholder="" value="" type="text">
+                                                    </div>
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="lastName">Last name</label>
+                                                        <input class="form-control" id="lastName" placeholder="" value="" type="text">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="username">Username</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">@@</span>
+                                                        </div>
+                                                        <input class="form-control" id="username" placeholder="Username" type="text">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input class="form-control" id="email" placeholder="you@example.com" type="email">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="email">Password</label>
+                                                    <input class="form-control" id="password" placeholder="Password" type="password">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="address">Address</label>
+                                                    <input class="form-control" id="address" placeholder="1234 Main St" type="text">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="input_tags">Tags</label>
+                                                    <select id="input_tags" class="form-control" multiple="multiple">
+                                                        <option selected="selected">orange</option>
+                                                        <option>white</option>
+                                                        <option selected="selected">purple</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="input_tags">Date range</label>
+                                                    <input class="form-control" type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                                                    <input class="form-control" id="address2" placeholder="Apartment or suite" type="text">
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-5 mb-10">
+                                                        <label for="country">Country</label>
+                                                        <select class="form-control custom-select d-block w-100" id="country">
+                                                            <option value="">Choose...</option>
+                                                            <option>United States</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4 mb-10">
+                                                        <label for="state">State</label>
+                                                        <select class="form-control custom-select d-block w-100" id="state">
+                                                            <option value="">Choose...</option>
+                                                            <option>California</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3 mb-10">
+                                                        <label for="zip">Zip</label>
+                                                        <input class="form-control" id="zip" placeholder="" type="text">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="custom-control custom-checkbox mb-15">
+                                                    <input class="custom-control-input" id="same-address" type="checkbox" checked>
+                                                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input" id="save-info" type="checkbox">
+                                                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                                                </div>
+                                                <hr>
+
+                                                <h6 class="form-group">Payment</h6>
+
+                                                <div class="d-block mt-20 mb-30">
+                                                    <div class="custom-control custom-radio mb-10">
+                                                        <input id="credit" name="paymentMethod" class="custom-control-input" checked="" type="radio">
+                                                        <label class="custom-control-label" for="credit">Credit card</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio mb-10">
+                                                        <input id="debit" name="paymentMethod" class="custom-control-input" type="radio">
+                                                        <label class="custom-control-label" for="debit">Debit card</label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio">
+                                                        <input id="paypal" name="paymentMethod" class="custom-control-input" type="radio">
+                                                        <label class="custom-control-label" for="paypal">PayPal</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="cc-name">Name on card</label>
+                                                        <input class="form-control" id="cc-name" placeholder="" type="text">
+                                                        <small class="form-text text-muted">Full name as displayed on card</small>
+                                                    </div>
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="cc-number">Credit card number</label>
+                                                        <input class="form-control" id="cc-number" placeholder="" data-mask="9999-9999-9999-9999" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3 form-group">
+                                                        <label for="cc-expiration">Expiration</label>
+                                                        <input class="form-control" id="cc-expiration" placeholder="" data-mask="99-99" type="text">
+                                                        <div class="invalid-feedback">
+                                                            Expiration date required
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3 form-group">
+                                                        <label for="cc-cvv">CVV</label>
+                                                        <input class="form-control" id="cc-cvv" data-mask="999" placeholder="" type="text">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <button class="btn btn-primary" type="submit">Continue to checkout</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade @(Model.ActivePage.ToUpperInvariant() == "SECURITY" ? "show active": string.Empty)" id="security" aria-labelledby="security" role="tabpanel">
+                    <div class="container-fluid px-xxl-65 px-xl-20">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <section class="hk-sec-wrapper">
+                                    <h5 class="hk-sec-title mb-25">Change password</h5>
+                                    <partial name="_AlertMessage" model="Model.StatusChangePasswordMessage" />
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <form asp-page-handler="UpdatePassword" method="post">
+                                                <div class="form-group">
+                                                    <div class="input-group input-group-password-toggle">
+                                                        <input asp-for="InputChangePassword.OldPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.InputChangePassword.OldPassword)" type="password">
+                                                        <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
+                                                            <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <span asp-validation-for="InputChangePassword.OldPassword" class="text-danger"></span>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 form-group">
+                                                        <div class="input-group input-group-password-toggle">
+                                                            <input asp-for="InputChangePassword.NewPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.InputChangePassword.NewPassword)" type="password">
+                                                            <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
+                                                                <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
+                                                            </div>
+                                                        </div>
+                                                        <span asp-validation-for="InputChangePassword.NewPassword" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="col-md-6 form-group">
+                                                        <div class="input-group input-group-password-toggle">
+                                                            <input asp-for="InputChangePassword.ConfirmPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.InputChangePassword.ConfirmPassword)" type="password">
+                                                            <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
+                                                                <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
+                                                            </div>
+                                                        </div>
+                                                        <span asp-validation-for="InputChangePassword.ConfirmPassword" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <button class="btn btn-primary" type="submit">Update password</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+                                @if (Model.TwoFactorAuthentication.TwoFactorAuthenticationAvailable)
+                                {
+                                    <section class="hk-sec-wrapper">
+                                        <h5 class="hk-sec-title mb-25">2FA <span class="badge badge-info">Not activated</span><span class="badge badge-success">Activated</span></h5>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                @if (Model.TwoFactorAuthentication.TwoFactorAuthenticationEnabled)
+                                                {
+                                                    <span class="badge badge-info badge-pill mt-15 mr-10">Info</span>
+                                                }
+                                                else
+                                                {
+                                                    <p class="pb-20">You should consider enable 2FA</p>
+                                                    <hr>
+                                                    <a asp-page="Enable2FA">Enable 2FA</a>
+                                                    <button class="btn btn-primary" type="button" asp-page="Account/Manage/EnableAuthenticator">Enable 2FA</button>
+                                                }
+                                                <form asp-page-handler="Update2FA" method="post">
+                                                    <div class="form-group">
+                                                        <div class="input-group input-group-password-toggle">
+                                                            <input asp-for="InputChangePassword.OldPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.InputChangePassword.OldPassword)" type="password">
+                                                            <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
+                                                                <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
+                                                            </div>
+                                                        </div>
+                                                        <span asp-validation-for="InputChangePassword.OldPassword" class="text-danger"></span>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6 form-group">
+                                                            <div class="input-group input-group-password-toggle">
+                                                                <input asp-for="InputChangePassword.NewPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.InputChangePassword.NewPassword)" type="password">
+                                                                <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
+                                                                    <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
+                                                                </div>
+                                                            </div>
+                                                            <span asp-validation-for="InputChangePassword.NewPassword" class="text-danger"></span>
+                                                        </div>
+                                                        <div class="col-md-6 form-group">
+                                                            <div class="input-group input-group-password-toggle">
+                                                                <input asp-for="InputChangePassword.ConfirmPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.InputChangePassword.ConfirmPassword)" type="password">
+                                                                <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
+                                                                    <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
+                                                                </div>
+                                                            </div>
+                                                            <span asp-validation-for="InputChangePassword.ConfirmPassword" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </section>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Row -->
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
