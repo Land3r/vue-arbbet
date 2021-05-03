@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b8IRF4+hK+2jSVsYO4PYdOC0OusqjMGlWpRSODyM5YBOgH501pMsEEf3UbYIQ0EKUw2tbKQ5Dimu/dhL7s5rbg==",
+  "dgSpecHash": "0ctS+uJSZNyr1zof/TiSpsyO59vBkkA5aCCRSdkVn1xfHLs2p8+yQvwcuj0yMl+2zDDrpYzE0IoRZObtdKk5mw==",
   "success": true,
-  "projectFilePath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\NGordat.AspNet.Helpers\\NGordat.AspNet.Helpers.csproj",
+  "projectFilePath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\NGordat.AspNet.Helpers\\NGordat.AspNet.Helpers.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

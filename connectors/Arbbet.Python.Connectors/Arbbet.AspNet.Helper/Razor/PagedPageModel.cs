@@ -9,23 +9,48 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Arbbet.AspNet.Helper.Razor
 {
-  public class PagedPageModel<TViewModel> : PageModel
-  {
-    [BindProperty(SupportsGet = true)]
-    public virtual int CurrentPage { get; set; } = 1;
+    /// <summary>
+    /// A Razor page model for pages with paginations of items.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of the view model being manipulated.</typeparam>
+    public class PagedPageModel<TViewModel> : PageModel
+    {
+        /// <summary>
+        /// Gets or set the current page of the pagination.
+        /// </summary>
+        [BindProperty(SupportsGet = true)]
+        public virtual int CurrentPage { get; set; } = 1;
 
-    public virtual int Count { get; set; }
+        /// <summary>
+        /// Gets or sets the total number of items
+        /// </summary>
+        public virtual int Count { get; set; }
 
-    public virtual int PageSize { get; set; } = 25;
+        /// <summary>
+        /// Gets or sets the page size for the pagination.
+        /// </summary>
+        public virtual int PageSize { get; set; } = 25;
 
-    public virtual int TotalPages => (int)Math.Ceiling(decimal.Divide(Count, PageSize));
+        /// <summary>
+        /// Deduct the total number of pages, based on the total number of items and the page size.
+        /// </summary>
+        public virtual int TotalPages => (int)Math.Ceiling(decimal.Divide(Count, PageSize));
 
-    public virtual IList<TViewModel> Items { get; set; }
+        /// <summary>
+        /// Gets or sets the list of items of type <see cref="TViewModel"/>.
+        /// </summary>
+        public virtual IList<TViewModel> Items { get; set; }
 
-    [BindProperty(SupportsGet = true)]
-    public virtual string OrderBy { get; set; }
+        /// <summary>
+        /// Gets or sets the field on which an order should happend.
+        /// </summary>
+        [BindProperty(SupportsGet = true)]
+        public virtual string OrderBy { get; set; }
 
-    [BindProperty(SupportsGet = true)]
-    public virtual string Order { get; set; } = "Asc";
-  }
+        /// <summary>
+        /// Gets or sets whether the Order gets applied ascendent or descendant.
+        /// </summary>
+        [BindProperty(SupportsGet = true)]
+        public virtual string Order { get; set; } = "Asc";
+    }
 }

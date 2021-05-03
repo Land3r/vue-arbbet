@@ -15,7 +15,7 @@ namespace Arbbet.Connectors.Dal.Mappings
   {
     public DomainMappingProfile()
     {
-      CreateMap<Country, CountryDto>();
+        CreateMap<Country, CountryDto>().ReverseMap();
     }
   }
 }
