@@ -17,10 +17,11 @@ namespace Arbbet.Connectors.Dal.Configuration
     public static IServiceCollection ConfigureDbContext(IServiceCollection services)
     {
       return services.AddDbContext<ConnectorDbContext>(options =>
-            options.UseNpgsql("User ID=postgres;Password=postgres;Server=localhost;Port=5432;Database=Arbbet;Integrated Security=true;Pooling=true;"));
+            options.UseNpgsql("User ID=postgres;Password=postgres;Server=localhost;Port=5432;Database=Arbbet;Integrated Security=true;Pooling=true;",
+        optionsBuilder => optionsBuilder.MigrationsHistoryTable("__EFMigrationsHistory", "Domain")));
     }
 
-    public static IServiceCollection ConfigureDI(ServiceCollection services)
+    public static IServiceCollection ConfigureDI(IServiceCollection services)
     {
       return services
         .AddScoped<EventService>()

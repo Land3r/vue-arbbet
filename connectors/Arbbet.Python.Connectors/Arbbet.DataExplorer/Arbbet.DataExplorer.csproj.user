@@ -17,6 +17,8 @@
     <ShowAllFiles>true</ShowAllFiles>
     <ActiveDebugProfile>Arbbet.DataExplorer</ActiveDebugProfile>
     <WebStackScaffolding_LayoutPageFile>~/Views/Shared/_LayoutUnauthenticated.cshtml</WebStackScaffolding_LayoutPageFile>
+    <RazorPage_SelectedScaffolderID>RazorComponentScaffolder</RazorPage_SelectedScaffolderID>
+    <RazorPage_SelectedScaffolderCategoryPath>root/Common/RazorComponent</RazorPage_SelectedScaffolderCategoryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

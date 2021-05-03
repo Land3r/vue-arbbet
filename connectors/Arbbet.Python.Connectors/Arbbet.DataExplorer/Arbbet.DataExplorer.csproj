@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="BuildWebCompiler" Version="1.12.405" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.2" />
@@ -31,7 +32,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -42,6 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Arbbet.AspNet.Helper\Arbbet.AspNet.Helper.csproj" />
     <ProjectReference Include="..\Arbbet.Connectors.Dal\Arbbet.Connectors.Dal.csproj" />
     <ProjectReference Include="..\Arbbet.DataExplorer.Identity\Arbbet.DataExplorer.Identity.csproj" />
     <ProjectReference Include="..\Arbbet.Domain\Arbbet.Domain.csproj" />
@@ -49,7 +51,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Identity\Pages\NewFolder\" />
+    <Folder Include="Pages\Home\" />
+    <Folder Include="Pages\Shared\" />
     <Folder Include="Styles\Theme\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>

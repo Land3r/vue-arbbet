@@ -10,5 +10,6 @@ namespace Arbbet.Domain.Entities
 {
     public class Country : ACodeName
     {
-    }
+    public string FlagName { get; set; }
+  }
 }

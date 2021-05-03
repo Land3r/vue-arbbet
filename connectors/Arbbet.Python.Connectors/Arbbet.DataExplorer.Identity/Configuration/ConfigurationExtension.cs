@@ -42,6 +42,10 @@ namespace Arbbet.DataExplorer.Identity.Configuration
         options.LoginPath = $"/Identity/Account/Login";
         options.LogoutPath = $"/Identity/Account/Logout";
         options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+        options.Cookie.Name = configurationOptions.Value.CookieConfiguration.Name;
+        options.Cookie.HttpOnly = true;
+        options.ExpireTimeSpan = configurationOptions.Value.CookieConfiguration.ExpireTimeSpan;
+        options.SlidingExpiration = configurationOptions.Value.CookieConfiguration.SlidingExpiration;
       });
 
       return services;

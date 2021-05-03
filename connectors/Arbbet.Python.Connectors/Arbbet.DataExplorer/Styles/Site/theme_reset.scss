@@ -4,3 +4,20 @@
 .badge-indicator {
     border: 1px solid white;
 }
+
+.breadcrumb-item + .breadcrumb-item {
+    &:before {
+        font-family: Material-Design-Iconic-Font !important;
+        content: '\f2fb';
+        font-size: 100%;
+        float: none;
+    }
+}
+
+.hk-breadcrumb .breadcrumb {
+    margin-bottom: 1em;
+}
+
+.hk-wrapper .hk-pg-header {
+    margin-bottom: 1.5em;
+}

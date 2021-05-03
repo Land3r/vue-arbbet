@@ -68,7 +68,7 @@ namespace Arbbet.DataExplorer.Areas.Identity.Pages.Account
                 var callbackUrl = Url.Page(
                     "/Account/ResetPassword",
                     pageHandler: null,
-                    values: new { area = "Identity", code },
+                    values: new { area = "Identity", code, email = user.Email },
                     protocol: Request.Scheme);
 
                 await _emailSender.SendEmailAsync(

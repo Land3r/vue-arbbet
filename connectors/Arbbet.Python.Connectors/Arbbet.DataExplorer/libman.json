@@ -119,6 +119,25 @@
     {
       "library": "toastr.js@2.1.4",
       "destination": "wwwroot/lib/toastr.js/"
+    },
+    {
+      "library": "qrcodejs@1.0.0",
+      "destination": "wwwroot/lib/qrcodejs/"
+    },
+    {
+      "library": "semantic-ui@2.4.1",
+      "destination": "wwwroot/lib/semantic-ui/",
+      "files": [
+        "components/flag.min.css"
+      ]
+    },
+    {
+      "library": "semantic-ui@2.4.1",
+      "destination": "wwwroot/lib/semantic-ui/",
+      "files": [
+        "components/flag.min.css",
+        "themes/default/assets/images/flags.png"
+      ]
     }
   ]
 }

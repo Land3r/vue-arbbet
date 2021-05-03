@@ -21,7 +21,8 @@ namespace Arbbet.Connectors.Dal
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      optionsBuilder.UseNpgsql("User ID=postgres;Password=postgres;Server=localhost;Port=5432;Database=Arbbet;Integrated Security=true;Pooling=true;");
+      optionsBuilder.UseNpgsql("User ID=postgres;Password=postgres;Server=localhost;Port=5432;Database=Arbbet;Integrated Security=true;Pooling=true;",
+        optionsBuilder => optionsBuilder.MigrationsHistoryTable("__EFMigrationsHistory", "Domain"));
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

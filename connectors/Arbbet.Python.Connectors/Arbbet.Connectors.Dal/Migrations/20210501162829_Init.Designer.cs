@@ -10,16 +10,17 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Arbbet.Connectors.Dal.Migrations
 {
     [DbContext(typeof(ConnectorDbContext))]
-    [Migration("20210405175250_Init")]
+    [Migration("20210501162829_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("Domain")
+                .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "5.0.3")
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                .HasAnnotation("ProductVersion", "5.0.5");
 
             modelBuilder.Entity("Arbbet.Domain.Entities.Bet", b =>
                 {

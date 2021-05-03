@@ -94,3 +94,4 @@ D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibe
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\obj\Debug\net5.0\ref\Arbbet.Connectors.Unibet.dll
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\obj\Debug\net5.0\Arbbet.Connectors.Unibet.pdb
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\obj\Debug\net5.0\Arbbet.Connectors.Unibet.genruntimeconfig.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Unibet\bin\Debug\net5.0\AutoMapper.dll

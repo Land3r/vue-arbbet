@@ -15,9 +15,10 @@ namespace Arbbet.Connectors.Dal.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("Domain")
+                .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "5.0.3")
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                .HasAnnotation("ProductVersion", "5.0.5");
 
             modelBuilder.Entity("Arbbet.Domain.Entities.Bet", b =>
                 {
@@ -116,6 +117,9 @@ namespace Arbbet.Connectors.Dal.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Code")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FlagName")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")

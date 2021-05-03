@@ -20,6 +20,8 @@ namespace Arbbet.DataExplorer.Identity.Configuration
 
     public TwoFactorAuthenticationRules TwoFactorAuthenticationRules { get; set; }
 
+    public CookieConfiguration CookieConfiguration { get; set; }
+
     public bool AllowRegistration { get; set; }
 
     public bool ConfirmEmail { get; set; }
@@ -66,5 +68,16 @@ namespace Arbbet.DataExplorer.Identity.Configuration
   public class TwoFactorAuthenticationRules
   {
     public bool Enabled { get; set; }
+
+    public string IssuerName { get; set; }
+  }
+
+  public class CookieConfiguration
+  {
+    public string Name { get; set; }
+
+    public TimeSpan ExpireTimeSpan { get; set; }
+
+    public bool SlidingExpiration { get; set; }
   }
 }

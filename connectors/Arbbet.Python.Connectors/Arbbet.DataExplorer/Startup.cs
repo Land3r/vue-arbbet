@@ -1,5 +1,6 @@
 using Arbbet.Connectors.Dal;
 using Arbbet.Connectors.Dal.Configuration;
+using Arbbet.Connectors.Dal.Mappings;
 using Arbbet.DataExplorer.Configuration;
 using Arbbet.DataExplorer.Identity.Configuration;
 using Arbbet.DataExplorer.Services;
@@ -41,12 +42,29 @@ namespace Arbbet.DataExplorer
       IOptions<IdentityConfiguration> identityConfiguration = Options.Create(identityConfigurationSection);
 
       services.AddControllersWithViews();
-      services.AddRazorPages();
+      var razor = services.AddRazorPages()
+        .AddRazorPagesOptions(options =>
+        {
+          options.Conventions.AuthorizeFolder("/");
+          options.Conventions.AllowAnonymousToAreaFolder("Identity", "/");
+          options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage/");
+          options.Conventions.AuthorizeAreaPage("Identity", "/Account/Manage");
+        });
+
+      if (Environment.IsDevelopment())
+      {
+        razor.AddRazorRuntimeCompilation();
+      }
 
       services.AddScoped<IEmailSender, EmailSender>();
 
       Connectors.Dal.Configuration.ConfigurationExtension.ConfigureDbContext(services);
       Identity.Configuration.ConfigurationExtension.ConfigureIdentity(services, identityConfiguration);
+
+      Connectors.Dal.Configuration.ConfigurationExtension.ConfigureDI(services);
+      Connectors.Domain.Configuration.ConfigurationExtension.ConfigureDI(services);
+
+      services.AddAutoMapper(typeof(DomainMappingProfile).Assembly);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,8 +85,8 @@ namespace Arbbet.DataExplorer
 
       app.UseRouting();
 
-      app.UseAuthorization();
       app.UseAuthentication();
+      app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
       {
@@ -76,8 +94,8 @@ namespace Arbbet.DataExplorer
           name: "Areas",
           pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
         endpoints.MapControllerRoute(
-                  name: "default",
-                  pattern: "{controller=Home}/{action=Index}/{id?}");
+          name: "default",
+          pattern: "{controller=Home}/{action=Index}/{id?}");
         endpoints.MapRazorPages();
       });
     }

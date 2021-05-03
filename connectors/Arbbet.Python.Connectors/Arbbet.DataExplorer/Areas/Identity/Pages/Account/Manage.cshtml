@@ -834,54 +834,30 @@
                                 @if (Model.TwoFactorAuthentication.TwoFactorAuthenticationAvailable)
                                 {
                                     <section class="hk-sec-wrapper">
-                                        <h5 class="hk-sec-title mb-25">2FA <span class="badge badge-info">Not activated</span><span class="badge badge-success">Activated</span></h5>
+                                        <h5 class="hk-sec-title mb-25">
+                                            2FA
+                                            @if (Model.TwoFactorAuthentication.TwoFactorAuthenticationEnabled)
+                                            {
+                                                <span class="badge badge-success">Activated</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-info">Not activated</span>
+                                            }
+                                        </h5>
                                         <div class="row">
                                             <div class="col-sm">
                                                 @if (Model.TwoFactorAuthentication.TwoFactorAuthenticationEnabled)
                                                 {
                                                     <span class="badge badge-info badge-pill mt-15 mr-10">Info</span>
+                                                    <hr />
                                                 }
                                                 else
                                                 {
                                                     <p class="pb-20">You should consider enable 2FA</p>
                                                     <hr>
-                                                    <a asp-page="Enable2FA">Enable 2FA</a>
-                                                    <button class="btn btn-primary" type="button" asp-page="Account/Manage/EnableAuthenticator">Enable 2FA</button>
+                                                    <a asp-page="Manage/EnableAuthenticator">Enable 2FA</a>
                                                 }
-                                                <form asp-page-handler="Update2FA" method="post">
-                                                    <div class="form-group">
-                                                        <div class="input-group input-group-password-toggle">
-                                                            <input asp-for="InputChangePassword.OldPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.InputChangePassword.OldPassword)" type="password">
-                                                            <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
-                                                                <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
-                                                            </div>
-                                                        </div>
-                                                        <span asp-validation-for="InputChangePassword.OldPassword" class="text-danger"></span>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="col-md-6 form-group">
-                                                            <div class="input-group input-group-password-toggle">
-                                                                <input asp-for="InputChangePassword.NewPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.InputChangePassword.NewPassword)" type="password">
-                                                                <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
-                                                                    <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
-                                                                </div>
-                                                            </div>
-                                                            <span asp-validation-for="InputChangePassword.NewPassword" class="text-danger"></span>
-                                                        </div>
-                                                        <div class="col-md-6 form-group">
-                                                            <div class="input-group input-group-password-toggle">
-                                                                <input asp-for="InputChangePassword.ConfirmPassword" class="form-control" placeholder="@Html.DisplayNameFor(model => model.InputChangePassword.ConfirmPassword)" type="password">
-                                                                <div class="input-group-append" style="pointer-events:painted;cursor:pointer;">
-                                                                    <span class="input-group-text"><i class="far fa-eye-slash"></i></span>
-                                                                </div>
-                                                            </div>
-                                                            <span asp-validation-for="InputChangePassword.ConfirmPassword" class="text-danger"></span>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-
-                                                </form>
                                             </div>
                                         </div>
                                     </section>

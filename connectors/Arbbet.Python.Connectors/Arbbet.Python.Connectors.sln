@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGordat.AspNet.Helpers", "N
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tmp", "tmp\tmp.csproj", "{EDB2A88D-C90F-4D77-B3CE-6E46D68B33DE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbbet.AspNet.Helper", "Arbbet.AspNet.Helper\Arbbet.AspNet.Helper.csproj", "{88366400-CA97-4AF4-96E6-63B106EDECC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{EDB2A88D-C90F-4D77-B3CE-6E46D68B33DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB2A88D-C90F-4D77-B3CE-6E46D68B33DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB2A88D-C90F-4D77-B3CE-6E46D68B33DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88366400-CA97-4AF4-96E6-63B106EDECC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88366400-CA97-4AF4-96E6-63B106EDECC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88366400-CA97-4AF4-96E6-63B106EDECC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88366400-CA97-4AF4-96E6-63B106EDECC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

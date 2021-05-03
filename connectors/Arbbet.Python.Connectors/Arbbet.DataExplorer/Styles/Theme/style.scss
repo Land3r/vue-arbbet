@@ -5151,10 +5151,11 @@ button.close {
 			line-height: 1;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			font-size:11px;
+			font-size:100%;
 			padding-right: .3rem;  
 			position: relative;
 			top: 1px;
+			float:none;
 			@include color-opacity($light_30,.8);
 		}
 	}

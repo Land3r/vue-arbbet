@@ -1,0 +1,47 @@
+﻿@page
+@model Arbbet.DataExplorer.Areas.Identity.Pages.Account.LoginWith2faModel
+@{
+  ViewData["Title"] = "Two-factor authentication";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12 pa-0">
+
+            <div class="auth-form-wrap auth-cover-img pt-xl-0 pt-70" style="background-image:url(/img/landing/landing1.jpg);">
+                <div class="auth-form w-xl-35 w-lg-65 w-sm-85 w-100 card pa-25 shadow-lg">
+                    <a class="auth-brand text-center d-block mb-20" href="#">
+                        <img class="brand-img" src="@Url.Content("~/img/logos/arbbet_logo_128.png")" alt="arbbet" />
+                    </a>
+                    <form id="account" method="post">
+                        <h1 class="display-4 text-center mb-10">Welcome Back :)</h1>
+                        <p class="text-center mb-30">Your login is protected with an authenticator app. Enter your authenticator code below.</p>
+                        <div class="form-group">
+                            <input asp-for="Input.TwoFactorCode" class="form-control" placeholder="@Html.DisplayNameFor(model => model.Input.TwoFactorCode)" autocomplete="off" />
+                            <span asp-validation-for="Input.TwoFactorCode" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox custom-control custom-checkbox mb-25">
+                                <input asp-for="RememberMe" type="hidden" />
+                                <input asp-for="Input.RememberMachine" class="custom-control-input" type="checkbox" />
+                                <label asp-for="Input.RememberMachine" class="custom-control-label font-14">
+                                    @Html.DisplayNameFor(m => m.Input.RememberMachine)
+                                </label>
+                            </div>
+                        </div>
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <button type="submit" class="btn btn-success btn-block">Login</button>
+                        <p class="font-14 text-center mt-15">
+                            Don't have access to your authenticator device? You can
+                            <a id="recovery-code-login" asp-page="./LoginWithRecoveryCode" asp-route-returnUrl="@Model.ReturnUrl">log in with a recovery code</a>.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

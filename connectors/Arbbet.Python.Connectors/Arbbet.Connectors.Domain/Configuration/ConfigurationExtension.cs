@@ -13,7 +13,7 @@ namespace Arbbet.Connectors.Domain.Configuration
 {
   public static class ConfigurationExtension
   {
-    public static IServiceCollection ConfigureDI(ServiceCollection services)
+    public static IServiceCollection ConfigureDI(IServiceCollection services)
     {
       return services
         .AddTransient<MonitoredScope>()

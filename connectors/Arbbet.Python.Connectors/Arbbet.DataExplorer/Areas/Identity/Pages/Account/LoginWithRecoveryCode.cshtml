@@ -1,0 +1,36 @@
+﻿@page
+@model Arbbet.DataExplorer.Areas.Identity.Pages.Account.LoginWithRecoveryCodeModel
+@{
+    ViewData["Title"] = "Recovery code verification";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12 pa-0">
+            <div class="auth-form-wrap auth-cover-img pt-xl-0 pt-70" style="background-image:url(/img/landing/landing1.jpg);">
+                <div class="auth-form w-xl-35 w-lg-65 w-sm-85 w-100 card pa-25 shadow-lg">
+                    <a class="auth-brand text-center d-block mb-20" href="#">
+                        <img class="brand-img" src="@Url.Content("~/img/logos/arbbet_logo_128.png")" alt="arbbet" />
+                    </a>
+                    <form id="account" method="post">
+                        <h1 class="display-4 text-center mb-10">Welcome Back :)</h1>
+                        <p class="text-center mb-30">
+                            You have requested to log in with a recovery code. This login will not be remembered until you provide
+                            an authenticator app code at log in or disable 2FA and log in again.
+                        </p>
+                        <div class="form-group">
+                            <input asp-for="Input.RecoveryCode" class="form-control" placeholder="@Html.DisplayNameFor(model => model.Input.RecoveryCode)" autocomplete="off" />
+                            <span asp-validation-for="Input.RecoveryCode" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <button type="submit" class="btn btn-success btn-block">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
