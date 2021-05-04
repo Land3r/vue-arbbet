@@ -23,6 +23,8 @@ namespace Arbbet.Connectors.Dal
     {
       optionsBuilder.UseNpgsql("User ID=postgres;Password=postgres;Server=localhost;Port=5432;Database=Arbbet;Integrated Security=true;Pooling=true;",
         optionsBuilder => optionsBuilder.MigrationsHistoryTable("__EFMigrationsHistory", "Domain"));
+
+      optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTrackingWithIdentityResolution);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

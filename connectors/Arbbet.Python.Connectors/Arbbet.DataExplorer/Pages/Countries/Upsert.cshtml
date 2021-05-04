@@ -47,13 +47,18 @@
                                 <div class="col">
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Item.FlagName)
-                                        @Html.TextBoxFor(model => model.Item.FlagName, htmlAttributes: new { @class = "form-control" })
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="flag @(!string.IsNullOrEmpty(Model.Item.FlagName) ? Model.Item.FlagName : string.Empty)"></i></span>
+                                            </div>
+                                            <select asp-for="Item.FlagName" asp-items="Model.FlagSelectList" class="chosen2 form-control"></select>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             <div class="row">
                                 <div class="col-sm">
-                                    <button class="btn btn-success" type="submit" asp-page-handler="@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")">@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")</button>
+                                    <button class="btn btn-success" type="submit" asp-page-handler="@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")">@(Model.Meaning == PageMeaning.CREATE ? "Create": "Save")</button>
                                 </div>
                             </div>
                         </form>
