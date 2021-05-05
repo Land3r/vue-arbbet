@@ -1,4 +1,4 @@
-@charset "UTF-8"; 
+﻿@charset "UTF-8"; 
 /*------------------------------------------------------------------
 [Master Stylesheet]
 Project:	dashgrin
@@ -103,7 +103,8 @@ Project:	dashgrin
 @import "../../wwwroot/lib/owl-carousel/owl.carousel.min.css";
 @import "../../wwwroot/lib/owl-carousel/owl.theme.min.css";
 @import "../../wwwroot/lib/owl-carousel/owl.transitions.min.css";
-
+@import "../../wwwroot/lib/select2/css/select2.min.css";
+@import "../../wwwroot/lib/ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css";
 /*@import "ionicons.min.css";
 @import "dripicons.css";	
 @import "glyphicons.css";	

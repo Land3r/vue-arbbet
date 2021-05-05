@@ -128,15 +128,26 @@
       "library": "semantic-ui@2.4.1",
       "destination": "wwwroot/lib/semantic-ui/",
       "files": [
-        "components/flag.min.css"
+        "components/flag.min.css",
+        "themes/default/assets/images/flags.png"
       ]
     },
     {
-      "library": "semantic-ui@2.4.1",
-      "destination": "wwwroot/lib/semantic-ui/",
+      "library": "select2@4.0.13",
+      "destination": "wwwroot/lib/select2/",
       "files": [
-        "components/flag.min.css",
-        "themes/default/assets/images/flags.png"
+        "js/select2.min.js",
+        "js/i18n/fr.min.js",
+        "js/i18n/en.min.js",
+        "css/select2.min.css"
+      ]
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "@ttskch/select2-bootstrap4-theme@1.5.2",
+      "destination": "wwwroot/lib/ttskch/select2-bootstrap4-theme/",
+      "files": [
+        "dist/select2-bootstrap4.min.css"
       ]
     }
   ]

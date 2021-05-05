@@ -1,15 +1,15 @@
 ﻿@page "{Id?}"
 @model Arbbet.DataExplorer.Pages.Countries.UpsertModel
 @{
-  ViewData["Title"] = Model.Meaning == PageMeaning.CREATE ? "New country" : string.Format("Edit country {0}", Model.Id);
-  Layout = "_Layout";
+    ViewData["Title"] = Model.Meaning == PageMeaning.CREATE ? "New country" : string.Format("Edit country {0}", Model.Item.Name);
+    Layout = "_Layout";
 }
 
 <nav class="hk-breadcrumb" aria-label="breadcrumb">
     <ol class="breadcrumb breadcrumb-light bg-transparent">
         <li class="breadcrumb-item"><a href="#">Data</a></li>
-        <li class="breadcrumb-item">Countries</li>
-        <li class="breadcrumb-item active" aria-current="page">@(Model.Meaning == PageMeaning.CREATE ? "New country" : string.Format("Edit country {0}", Model.Id))</li>
+        <li class="breadcrumb-item"><a asp-page="./Index">Countries</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@(Model.Meaning == PageMeaning.CREATE ? "New country" : string.Format("Edit country {0}", Model.Item.Name))</li>
     </ol>
 </nav>
 
@@ -49,13 +49,13 @@
                                         @Html.LabelFor(model => model.Item.FlagName)
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="flag @(!string.IsNullOrEmpty(Model.Item.FlagName) ? Model.Item.FlagName : string.Empty)"></i></span>
+                                                <span class="input-group-text"><i class="flag @(!string.IsNullOrEmpty(Model.Item?.FlagName) ? Model.Item.FlagName : string.Empty)" id="flagIcon"></i></span>
                                             </div>
-                                            <select asp-for="Item.FlagName" asp-items="Model.FlagSelectList" class="chosen2 form-control"></select>
-                                        </div>
+                                            <select asp-for="Item.FlagName" asp-items="Model.FlagSelectList" class="select2 form-control" onchange="UpdateFlagIcon();"></select>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             <div class="row">
                                 <div class="col-sm">
                                     <button class="btn btn-success" type="submit" asp-page-handler="@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")">@(Model.Meaning == PageMeaning.CREATE ? "Create": "Save")</button>
@@ -70,3 +70,12 @@
     <!-- /Row -->
 
 </div>
+
+@section Scripts {
+<script>
+    function UpdateFlagIcon() {
+        let newFlag = jQuery('#Item_FlagName').val();
+        jQuery('#flagIcon').attr('class', `flag ${newFlag}`);
+    }
+</script>
+} 

@@ -17,76 +17,76 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Arbbet.DataExplorer.Pages.Countries
 {
-  [AllowAnonymous]
-  public class UpsertModel : UpsertPageModel<CountryDto>
-  {
-    private readonly CountryService _countryService;
-
-    public IList<SelectListItem> FlagSelectList { get; set; }
-
-    public UpsertModel(CountryService countryService)
+    [AllowAnonymous]
+    public class UpsertModel : UpsertPageModel<CountryDto>
     {
-      _countryService = countryService;
-    }
+        private readonly CountryService _countryService;
 
-    public async Task<IActionResult> OnGetAsync()
-    {
-      if (Meaning == PageMeaning.EDIT && Id.HasValue)
-      {
-        Item = await _countryService.Get(Id.Value);
-      }
+        public IList<SelectListItem> FlagSelectList { get; set; }
 
-      LoadRelatedData();
-      return Page();
-    }
-
-    public override async Task<IActionResult> OnPostCreateAsync()
-    {
-      if (ModelState.IsValid)
-      {
-        _countryService.Create(Item);
-        await _countryService.CommitAsync();
-
-        return RedirectToPage("./Index");
-      }
-
-      LoadRelatedData();
-      return Page();
-    }
-
-    public override async Task<IActionResult> OnPostEditAsync()
-    {
-      if (ModelState.IsValid)
-      {
-        var entity = await _countryService.Get(Id.Value);
-
-        if (entity == null)
+        public UpsertModel(CountryService countryService)
         {
-          return NotFound("Country not found");
+            _countryService = countryService;
         }
 
-        entity.Code = Item.Code;
-        entity.Name = Item.Name;
-        entity.FlagName = Item.FlagName;
+        public async Task<IActionResult> OnGetAsync()
+        {
+            if (Meaning == PageMeaning.EDIT && Id.HasValue)
+            {
+                Item = await _countryService.Get(Id.Value);
+            }
 
-        _countryService.Update(entity);
-        await _countryService.CommitAsync();
+            LoadRelatedData();
+            return Page();
+        }
 
-        return RedirectToPage("./Index");
-      }
+        public override async Task<IActionResult> OnPostCreateAsync()
+        {
+            if (ModelState.IsValid)
+            {
+                _countryService.Create(Item);
+                await _countryService.CommitAsync();
 
-      LoadRelatedData();
-      return Page();
+                return RedirectToPage("./Index");
+            }
+
+            LoadRelatedData();
+            return Page();
+        }
+
+        public override async Task<IActionResult> OnPostEditAsync()
+        {
+            if (ModelState.IsValid)
+            {
+                var entity = await _countryService.Get(Id.Value);
+
+                if (entity == null)
+                {
+                    return NotFound("Country not found");
+                }
+
+                entity.Code = Item.Code;
+                entity.Name = Item.Name;
+                entity.FlagName = Item.FlagName;
+
+                _countryService.Update(entity);
+                await _countryService.CommitAsync();
+
+                return RedirectToPage("./Index");
+            }
+
+            LoadRelatedData();
+            return Page();
+        }
+
+        private void LoadRelatedData()
+        {
+            LoadAvailableFlagsAsync();
+        }
+
+        private void LoadAvailableFlagsAsync()
+        {
+            FlagSelectList = AvailableFlags.Collection.ToSelectListItem(elm => elm.Replace(".", string.Empty).ToLowerInvariant(), elm => elm.ToString()).ToList();
+        }
     }
-
-    private void LoadRelatedData()
-    {
-      LoadAvailableFlagsAsync();
-    }
-
-    private void LoadAvailableFlagsAsync()
-    {
-      FlagSelectList = JsonSerializer.Deserialize<IList<AvailableFlag>>(AvailableFlags.Collection.Replace("\r\n", string.Empty)).ToSelectListItem(elm => elm.CountryCode, elm => elm.Name, Item.FlagName).ToList();
-    }
-  }
 }
