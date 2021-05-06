@@ -1,0 +1,33 @@
+﻿@using Arbbet.DataExplorer.Data
+@using Arbbet.AspNet.Helper.Core
+@using Arbbet.AspNet.Helper.Core.Definition
+@model Type
+@{
+    var breadcumbHierarchy = BreadcrumbHelper.GetHierarchyForType(Model, SiteDefinition.Breadcrumbs);
+}
+
+<nav class="hk-breadcrumb" aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-light bg-transparent">
+        @{
+            int nbOfBreadcrumb = breadcumbHierarchy.Count;
+            int currentBreadcrumb = 1;
+            LinkedListNode<IBreadcrumbDefinition> breadcrumb = breadcumbHierarchy.First;
+            while (breadcrumb != null)
+            {
+                <li class="breadcrumb-item @(currentBreadcrumb == nbOfBreadcrumb ? "active" : string.Empty)" aria-current="@(currentBreadcrumb == nbOfBreadcrumb ? "page" : null)">
+                    @if (currentBreadcrumb != nbOfBreadcrumb)
+                    {
+                        <a asp-page="@breadcrumb.Value.Page">@breadcrumb.Value.Name</a>
+                    }
+                    else
+                    {
+                        <a href="#"
+                    }
+                </li>
+
+                breadcrumb = breadcrumb.Next;
+                currentBreadcrumb++;
+            }
+        }
+    </ol>
+</nav>

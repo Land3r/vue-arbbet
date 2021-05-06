@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arbbet.AspNet.Helper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.125")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.126")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arbbet.AspNet.Helper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arbbet.AspNet.Helper")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.125")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.126")]
 
 // Généré par la classe MSBuild WriteCodeFragment.
 
