@@ -36,12 +36,21 @@ namespace Arbbet.DataExplorer
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      // Configuration sections
       services.Configure<EmailSenderConfiguration>(Configuration.GetSection(EmailSenderConfiguration.SectionName));
       services.Configure<IdentityConfiguration>(Configuration.GetSection(IdentityConfiguration.SectionName));
+      services.Configure<LanguageConfiguration>(Configuration.GetSection(LanguageConfiguration.SectionName));
+      
+      // Configuration required for startup
       IdentityConfiguration identityConfigurationSection = (IdentityConfiguration)Configuration.GetSection(IdentityConfiguration.SectionName).Get(typeof(IdentityConfiguration));
       IOptions<IdentityConfiguration> identityConfiguration = Options.Create(identityConfigurationSection);
+      LanguageConfiguration languageConfigurationSection = (LanguageConfiguration)Configuration.GetSection(LanguageConfiguration.SectionName).Get(typeof(LanguageConfiguration));
+      IOptions<LanguageConfiguration> languageConfiguration = Options.Create(languageConfigurationSection);
 
-      services.AddControllersWithViews();
+      // MVC
+      var mvc = services.AddControllersWithViews();
+      
+      // Razor
       var razor = services.AddRazorPages()
         .AddRazorPagesOptions(options =>
         {
@@ -49,21 +58,40 @@ namespace Arbbet.DataExplorer
           options.Conventions.AllowAnonymousToAreaFolder("Identity", "/");
           options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage/");
           options.Conventions.AuthorizeAreaPage("Identity", "/Account/Manage");
-        });
+        }).AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix);
 
+      // I18n
+      services.AddLocalization(options =>
+      {
+        options.ResourcesPath = "Resources";
+      });
+      services.Configure<RequestLocalizationOptions>(options =>
+      {
+        options.SetDefaultCulture(languageConfiguration.Value.DefaultCulture);
+        string[] cultures = languageConfiguration.Value.SupportedCultures.ToArray();
+        options.AddSupportedCultures(cultures);
+        options.AddSupportedUICultures(cultures);
+        options.FallBackToParentUICultures = true;
+      });
+      services.AddSingleton<CommonLocalizationService>();
+
+      // Environment specific
       if (Environment.IsDevelopment())
       {
         razor.AddRazorRuntimeCompilation();
       }
 
+      // DI
       services.AddScoped<IEmailSender, EmailSender>();
 
+      // Dépendances
       Connectors.Dal.Configuration.ConfigurationExtension.ConfigureDbContext(services);
       Identity.Configuration.ConfigurationExtension.ConfigureIdentity(services, identityConfiguration);
 
       Connectors.Dal.Configuration.ConfigurationExtension.ConfigureDI(services);
       Connectors.Domain.Configuration.ConfigurationExtension.ConfigureDI(services);
 
+      // Automapper
       services.AddAutoMapper(typeof(DomainMappingProfile).Assembly);
     }
 

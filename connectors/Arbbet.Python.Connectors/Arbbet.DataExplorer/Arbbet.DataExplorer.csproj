@@ -52,7 +52,7 @@
 
   <ItemGroup>
     <Folder Include="Pages\Home\" />
-    <Folder Include="Pages\Shared\" />
+    <Folder Include="Pages\Teams\" />
     <Folder Include="Styles\Theme\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
@@ -61,6 +61,12 @@
     <None Include="compilerconfig.json" />
     <None Include="Styles\Site\style.scss" />
     <None Include="Styles\Site\theme_reset.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Pages\Countries\IndexModel.en.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
   </ItemGroup>
   
   <Target Name="CopyFonts" AfterTargets="Build">

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Arbbet.AspNet.Helper.MVC
+namespace Arbbet.AspNet.Helper.Core
 {
   public static class SelectListHelper
   {

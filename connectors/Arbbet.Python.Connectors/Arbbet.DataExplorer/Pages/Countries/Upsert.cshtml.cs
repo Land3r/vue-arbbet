@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-using Arbbet.AspNet.Helper.MVC;
+using Arbbet.AspNet.Helper.Core;
 using Arbbet.AspNet.Helper.Razor;
 using Arbbet.Connectors.Dal.Services;
 using Arbbet.DataExplorer.Helpers;

@@ -189,9 +189,10 @@
                         </li>
                     </ul>
                     <hr class="nav-separator">
+                    <partial name="_Navigation" />
                     <div class="nav-header">
-                        <span><i class="fas fa-funnel-dollar"></i>&nbsp;Data</span>
-                        <span><i class="fas fa-funnel-dollar"></i></span>
+                        <span><i class="fas fa-funnel-dollar mr-2"></i>Data</span>
+                        <span></span>
                     </div>
                     <ul class="navbar-nav flex-column">
                         <li class="nav-item">
@@ -204,6 +205,12 @@
                             <a class="nav-link" asp-page="/Countries/Index">
                                 <i class="fas fa-flag"></i>
                                 <span class="nav-link-text">Countries</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Countries/Index">
+                                <i class="fas fa-users"></i>
+                                <span class="nav-link-text">Teams</span>
                             </a>
                         </li>
                     </ul>

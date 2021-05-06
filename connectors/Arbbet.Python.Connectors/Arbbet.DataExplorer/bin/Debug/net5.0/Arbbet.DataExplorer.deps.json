@@ -329,6 +329,11 @@
         "runtime": {
           "Arbbet.DataExplorer.dll": {}
         },
+        "resources": {
+          "en/Arbbet.DataExplorer.resources.dll": {
+            "locale": "en"
+          }
+        },
         "compile": {
           "Arbbet.DataExplorer.dll": {}
         }

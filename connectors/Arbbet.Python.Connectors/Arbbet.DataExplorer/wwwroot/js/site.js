@@ -11,6 +11,9 @@
  ** ***************************************/
 
 "use strict";
+
+const defaultLocale = 'fr';
+
 /*****Ready function start*****/
 jQuery(document).ready(function () {
     dashgrin();
@@ -62,9 +65,19 @@ var dashgrin = function () {
 
     /* Select2 */
     if (jQuery('.select2').length > 0) {
-        jQuery('.select2').select2({
-            allowClear: true,
-            theme: 'bootstrap4'
+        jQuery('.select2').each(function () {
+            let elm = jQuery(this);
+            let allowClear = elm.data('clearable');
+            let theme = elm.data('theme');
+            let placeholder = elm.data('placeholder');
+            let language = elm.data('language');
+
+            elm.select2({
+                allowClear: allowClear ?? true,
+                theme: theme ?? 'bootstrap4',
+                placeholder: placeholder ?? 'Select an item',
+                language: language ?? defaultLocale
+            });
         });
     }
 

@@ -38,6 +38,8 @@ namespace Arbbet.DataExplorer.Pages.Countries
 
       var test = _countryService.Where(elm => true).OrderBy(elm => EF.Property<object>(elm, OrderBy));
       Items = _countryService.Where(elm => true).OrderBy(elm => elm.Name).ToList();
+      Count = Items.Count();
+      Items = Items.TakePage(CurrentPage, PageSize);
     }
   }
 }

@@ -51,7 +51,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="flag @(!string.IsNullOrEmpty(Model.Item?.FlagName) ? Model.Item.FlagName : string.Empty)" id="flagIcon"></i></span>
                                             </div>
-                                            <select asp-for="Item.FlagName" asp-items="Model.FlagSelectList" class="select2 form-control" onchange="UpdateFlagIcon();"></select>
+                                            <select asp-for="Item.FlagName" asp-items="Model.FlagSelectList" class="select2 form-control" onchange="UpdateFlagIcon();" data-clearable="true" data-placeholder="Select a flag"></select>
                                         </div>
                                     </div>
                                 </div>
@@ -77,5 +77,9 @@
         let newFlag = jQuery('#Item_FlagName').val();
         jQuery('#flagIcon').attr('class', `flag ${newFlag}`);
     }
+
+    jQuery(document).ready(function() {
+        UpdateFlagIcon();
+    });
 </script>
 } 

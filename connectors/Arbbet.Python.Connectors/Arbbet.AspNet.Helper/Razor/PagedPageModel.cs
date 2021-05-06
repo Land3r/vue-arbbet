@@ -53,4 +53,17 @@ namespace Arbbet.AspNet.Helper.Razor
         [BindProperty(SupportsGet = true)]
         public virtual string Order { get; set; } = "Asc";
     }
+
+  public static class PagedPageModelExtensions
+  {
+    public static IEnumerable<TEntity> TakePage<TEntity>(this IEnumerable<TEntity> collection, int pageNumber, int pageSize)
+    {
+      return collection.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+    }
+
+    public static IList<TEntity> TakePage<TEntity>(this IList<TEntity> collection, int pageNumber, int pageSize)
+    {
+      return collection.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+    }
+  }
 }

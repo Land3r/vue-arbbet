@@ -474,7 +474,6 @@ D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Dat
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Views\Shared\_LayoutUnauthenticated.cshtml.g.cs
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
-D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Views\Shared\_Navigation.cshtml.g.cs
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Views\Shared\_TopNavBar.cshtml.g.cs
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Views\Sport\Details.cshtml.g.cs
@@ -984,3 +983,10 @@ D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\ref\Arbbet.DataExplorer.dll
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Arbbet.DataExplorer.pdb
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Arbbet.DataExplorer.genruntimeconfig.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Pages\Shared\_Pagination.cshtml.g.cs
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Arbbet.DataExplorer.Resources.Pages.Countries.IndexModel.en.resources
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Arbbet.DataExplorer.Resources.Program.en.resources
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Arbbet.DataExplorer.csproj.GenerateResource.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\en\Arbbet.DataExplorer.resources.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\bin\Debug\net5.0\en\Arbbet.DataExplorer.resources.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Pages\Shared\_Navigation.cshtml.g.cs

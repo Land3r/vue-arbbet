@@ -1,0 +1,34 @@
+﻿@{
+    var maxPagesDisplay = 15;
+    int startAt = Math.Max(1, Model.CurrentPage - (maxPagesDisplay / 2));
+    int endAt = Math.Min(Model.TotalPages, Model.CurrentPage + (maxPagesDisplay / 2));
+}
+
+<ul class="pagination">
+    @if (Model.TotalPages > 0)
+    {
+        <li class="page-item">
+            <a class="page-link" asp-route-CurrentPage="1">First</a>
+        </li>
+
+        for (int i = startAt; i <= endAt; i++)
+        {
+            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                <a class="page-link" asp-route-CurrentPage="@i">@i</a>
+            </li>
+        }
+
+        if (Model.TotalPages > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-route-CurrentPage="@Model.TotalPages">Last</a>
+            </li>
+        }
+    }
+    else
+    {
+        <li class="page-item">
+            <a class="page-link disabled" href="#">No pages</a>
+        </li>
+    }
+</ul>
