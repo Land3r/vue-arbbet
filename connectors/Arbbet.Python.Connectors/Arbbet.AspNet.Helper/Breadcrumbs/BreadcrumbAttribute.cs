@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Arbbet.AspNet.Helper.Attributes
+namespace Arbbet.AspNet.Helper.Breadcrumbs
 {
   [System.AttributeUsage(System.AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
   public sealed class BreadcrumbAttribute : Attribute

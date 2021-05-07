@@ -1,9 +1,9 @@
 ﻿@using Arbbet.DataExplorer.Data
-@using Arbbet.AspNet.Helper.Core
-@using Arbbet.AspNet.Helper.Core.Definition
+@using Arbbet.AspNet.Helper.Breadcrumbs
+@inject Arbbet.AspNet.Helper.Breadcrumbs.BreadcrumbsProvider BreadcrumbsProvider
 @model Type
 @{
-    var breadcumbHierarchy = BreadcrumbHelper.GetHierarchyForType(Model, SiteDefinition.Breadcrumbs);
+    var breadcumbHierarchy = BreadcrumbsProvider.GetBreadcrumbsHierarchyForType(Model);
 }
 
 <nav class="hk-breadcrumb" aria-label="breadcrumb">

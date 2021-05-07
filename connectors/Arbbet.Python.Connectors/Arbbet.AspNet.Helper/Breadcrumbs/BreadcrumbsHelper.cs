@@ -5,8 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-using Arbbet.AspNet.Helper.Attributes;
-using Arbbet.AspNet.Helper.Core.Definition;
+using Arbbet.AspNet.Helper.Breadcrumbs;
 using Arbbet.AspNet.Helper.Reflexion;
 
 namespace Arbbet.AspNet.Helper.Breadcrumbs
@@ -15,11 +14,11 @@ namespace Arbbet.AspNet.Helper.Breadcrumbs
   {
     // Register all breadcrumbs
     // Note that this process requires reflexion and should be done once, then saved and use the results already queried.
-    public static IList<BreadcrumbDefinition> GetBreadcrumbsForAssembly(Assembly assembly)
+    public static IList<IBreadcrumbDefinition> GetBreadcrumbsForAssembly(Assembly assembly)
     {
       IEnumerable<Type> pages = ReflexionHelper.GetTypesWithAttribute(assembly, typeof(BreadcrumbAttribute));
 
-      IList<BreadcrumbDefinition> siteDefinition = new List<BreadcrumbDefinition>();
+      IList<IBreadcrumbDefinition> siteDefinition = new List<IBreadcrumbDefinition>();
 
       foreach (Type pageType in pages)
       {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Arbbet.AspNet.Helper.Core.Definition
+namespace Arbbet.AspNet.Helper.Breadcrumbs
 {
     public class BreadcrumbDefinition : IBreadcrumbDefinition
     {

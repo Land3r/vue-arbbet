@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Arbbet.AspNet.Helper.Attributes;
+using Arbbet.AspNet.Helper.Breadcrumbs;
 using Arbbet.AspNet.Helper.Razor;
 using Arbbet.Connectors.Dal.Services;
 using Arbbet.Domain.Entities;

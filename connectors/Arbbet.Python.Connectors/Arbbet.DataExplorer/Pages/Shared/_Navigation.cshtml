@@ -1,11 +1,12 @@
 ﻿@using Arbbet.DataExplorer.Data
 @using Arbbet.AspNet.Helper.Core
-@using Arbbet.AspNet.Helper.Core.Definition
+@using Arbbet.AspNet.Helper.Navigation
+@inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider 
 @{
-    var siteDefinition = SiteDefinition.SiteNavigation;
+    var siteDefinition = SiteNavigationProvider.GetNavigation();
 }
 
-@if (SiteNavigationHelper.ShowFirstPage)
+@if (SiteNavigationHelper.ShowFirstSection)
 {
     <div class="nav-header">
         @if (!string.IsNullOrEmpty(siteDefinition.Icon))
@@ -23,12 +24,12 @@
 @if (siteDefinition.Childrens != null && siteDefinition.Childrens.Count > 0)
 {
     <ul class="navbar-nav flex-column">
-        @foreach (PageDefinition pageLvl1Definition in siteDefinition.Childrens)
+        @foreach (PageNavigationDefinition pageLvl1Definition in siteDefinition.Childrens)
         {
             <li class="nav-item @(Context.Request.Path.HasValue && !string.IsNullOrEmpty(@pageLvl1Definition.Path) ? Context.Request.Path.Value.Contains(@pageLvl1Definition.Path) ? "active" : string.Empty : string.Empty)">
-                @if (!string.IsNullOrEmpty(pageLvl1Definition.Page))
+                @if (!string.IsNullOrEmpty(pageLvl1Definition.PageUrl))
                 {
-                    <a class="nav-link" asp-page="@pageLvl1Definition.Page">
+                    <a class="nav-link" asp-page="@pageLvl1Definition.PageUrl">
                         @if (!string.IsNullOrEmpty(pageLvl1Definition.Icon))
                         {
                             <i class="@pageLvl1Definition.Icon"></i>
@@ -50,12 +51,12 @@
                         <ul id="@(pageLvl1Definition.Name)_drp" class="nav flex-column collapse collapse-level-1">
                             <li class="nav-item">
                                 <ul class="nav flex-column">
-                                    @foreach (PageDefinition pageLvl2Definition in pageLvl1Definition.Childrens)
+                                    @foreach (PageNavigationDefinition pageLvl2Definition in pageLvl1Definition.Childrens)
                                     {
                                         <li class="nav-item">
-                                            @if (!string.IsNullOrEmpty(pageLvl2Definition.Page))
+                                            @if (!string.IsNullOrEmpty(pageLvl2Definition.PageUrl))
                                             {
-                                                <a class="nav-link" asp-page="@pageLvl2Definition.Page">
+                                                <a class="nav-link" asp-page="@pageLvl2Definition.PageUrl">
                                                     @if (!string.IsNullOrEmpty(pageLvl2Definition.Icon))
                                                     {
                                                         <i class="@pageLvl2Definition.Icon"></i>

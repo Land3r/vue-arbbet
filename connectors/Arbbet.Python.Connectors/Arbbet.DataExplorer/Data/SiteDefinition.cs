@@ -1,5 +1,5 @@
-﻿using Arbbet.AspNet.Helper.Core.Definition;
-
+﻿using Arbbet.AspNet.Helper.Breadcrumbs;
+using Arbbet.AspNet.Helper.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,56 +7,57 @@ using System.Threading.Tasks;
 
 namespace Arbbet.DataExplorer.Data
 {
-  public static class SiteDefinition
-  {
-    public static readonly PageDefinition SiteNavigation = new PageDefinition()
+    public static class SiteDefinition
     {
-      Name = "Data",
-      Icon = "fas fa-funnel-dollar",
-      Childrens = new List<PageDefinition>() {
-        new PageDefinition() {
-          Name = "Countries",
-          Icon = "fas fa-flag",
-          Page = "/Countries/Index",
-          Path = "/Countries",
-          Order = 1
-        },
-        new PageDefinition()
-        {
-          Name = "Teams",
-          Icon = "fas fa-users",
-          Page = "/Teams/Index",
-          Path = "/Teams",
-          Order = 2
-        },
-        new PageDefinition()
-        {
-          Name = "Platforms",
-          Path = "/Platforms",
-          Order = 3,
-          Childrens = new List<PageDefinition>()
-          {
-            new PageDefinition()
-            {
-              Name = "Test1",
-              Icon = "fa fa-plus",
-              Page = "/Platforms/4",
-              Path = "/Platforms/4"
-            },
-            new PageDefinition()
-            {
-              Name = "Test2",
-              Icon = "fa fa-plus",
-              Page = "/Platforms/9",
-              Path = "/Platforms/9"
-            }
-          }
-        }
-      }
-    };
 
-    // TODO: Ce serait bien de passer sur un systeme d'annotation et d'autoenregistrement des 
-    public static readonly IList<IBreadcrumbDefinition> Breadcrumbs = new List<IBreadcrumbDefinition>()
+      //  public static readonly PageNavigationDefinition SiteNavigation = new PageNavigationDefinition()
+      //  {
+      //      Name = "Data",
+      //      Icon = "fas fa-funnel-dollar",
+      //      Childrens = new List<PageNavigationDefinition>() {
+      //  new PageNavigationDefinition() {
+      //    Name = "Countries",
+      //    Icon = "fas fa-flag",
+      //    PageUrl = "/Countries/Index",
+      //    Path = "/Countries",
+      //    Order = 1
+      //  },
+      //  new PageNavigationDefinition()
+      //  {
+      //    Name = "Teams",
+      //    Icon = "fas fa-users",
+      //    PageUrl = "/Teams/Index",
+      //    Path = "/Teams",
+      //    Order = 2
+      //  },
+      //  new PageNavigationDefinition()
+      //  {
+      //    Name = "Platforms",
+      //    Path = "/Platforms",
+      //    Order = 3,
+      //    Childrens = new List<PageNavigationDefinition>()
+      //    {
+      //      new PageNavigationDefinition()
+      //      {
+      //        Name = "Test1",
+      //        Icon = "fa fa-plus",
+      //        PageUrl = "/Platforms/4",
+      //        Path = "/Platforms/4"
+      //      },
+      //      new PageNavigationDefinition()
+      //      {
+      //        Name = "Test2",
+      //        Icon = "fa fa-plus",
+      //        PageUrl = "/Platforms/9",
+      //        Path = "/Platforms/9"
+      //      }
+      //    }
+      //  }
+      //}
+      //  };
+
+        // TODO: Ce serait bien de passer sur un systeme d'annotation et d'autoenregistrement des 
+        public static readonly IList<IBreadcrumbDefinition> Breadcrumbs = new List<IBreadcrumbDefinition>()
         {
             new BreadcrumbDefinition()
             {
@@ -75,5 +76,5 @@ namespace Arbbet.DataExplorer.Data
                 ParentType = typeof(Pages.Countries.IndexModel)
             },
         };
-  }
+    }
 }

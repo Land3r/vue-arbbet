@@ -6,15 +6,6 @@
 }
 
 <partial name="_Breadcrumb" model="this.Model.GetType()"/>
-<hr />
-
-<nav class="hk-breadcrumb" aria-label="breadcrumb">
-    <ol class="breadcrumb breadcrumb-light bg-transparent">
-        <li class="breadcrumb-item"><a href="#">Data</a></li>
-        <li class="breadcrumb-item"><a asp-page="./Index">Countries</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@(Model.Meaning == PageMeaning.CREATE ? "New country" : string.Format("Edit country {0}", Model.Item.Name))</li>
-    </ol>
-</nav>
 
 <div class="container-fluid px-xxl-65 px-xl-20">
     <!-- Title -->
