@@ -1,4 +1,5 @@
 ﻿using Arbbet.AspNet.Helper.Core.Definition;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Arbbet.DataExplorer.Data
 {
-    public static class SiteDefinition
+  public static class SiteDefinition
+  {
+    public static readonly PageDefinition SiteNavigation = new PageDefinition()
     {
-        public static readonly PageDefinition SiteNavigation = new PageDefinition()
-        {
-            Name = "Data",
-            Icon = "fas fa-funnel-dollar",
-            Childrens = new List<PageDefinition>() {
+      Name = "Data",
+      Icon = "fas fa-funnel-dollar",
+      Childrens = new List<PageDefinition>() {
         new PageDefinition() {
           Name = "Countries",
           Icon = "fas fa-flag",
@@ -52,26 +53,27 @@ namespace Arbbet.DataExplorer.Data
           }
         }
       }
-        };
+    };
 
-        public static readonly IList<IBreadcrumbDefinition> Breadcrumbs = new List<IBreadcrumbDefinition>()
+    // TODO: Ce serait bien de passer sur un systeme d'annotation et d'autoenregistrement des 
+    public static readonly IList<IBreadcrumbDefinition> Breadcrumbs = new List<IBreadcrumbDefinition>()
         {
             new BreadcrumbDefinition()
             {
                 Name = "Countries",
                 Icon = "fa fa-home",
                 PageType = typeof(Pages.Countries.IndexModel),
-                Page = "/Countries/Index",
-                Parent = null
+                PageUrl = "/Countries/Index",
+                ParentType = null
             },
             new BreadcrumbDefinition()
             {
                 Name = "Edit Country",
                 Icon = "fas fa-flag",
                 PageType = typeof(Pages.Countries.UpsertModel),
-                Page = "/Countries/Upsert",
-                Parent = typeof(Pages.Countries.IndexModel)
+                PageUrl = "/Countries/Upsert",
+                ParentType = typeof(Pages.Countries.IndexModel)
             },
         };
-    }
+  }
 }

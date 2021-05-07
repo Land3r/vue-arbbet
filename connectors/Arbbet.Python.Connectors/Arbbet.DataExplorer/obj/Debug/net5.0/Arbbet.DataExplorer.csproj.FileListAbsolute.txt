@@ -997,3 +997,4 @@ D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Pages\Shared\_Navigation.cshtml.g.cs
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Pages\Shared\_Pagination.cshtml.g.cs
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Pages\Shared\_Breadcrumb.cshtml.g.cs
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.DataExplorer\obj\Debug\net5.0\Razor\Pages\Shared\_Breadcrumb.cshtml.g.cs

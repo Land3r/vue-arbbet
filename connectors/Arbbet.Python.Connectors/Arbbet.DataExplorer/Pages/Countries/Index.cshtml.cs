@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Arbbet.AspNet.Helper.Attributes;
 using Arbbet.AspNet.Helper.Razor;
 using Arbbet.Connectors.Dal.Services;
 using Arbbet.Domain.Entities;
@@ -16,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Arbbet.DataExplorer.Pages.Countries
 {
   [Authorize]
+  [Breadcrumb("Countries", "/Coutries/Index/", Icon = "fas fa-flag", PageType = typeof(IndexModel), ParentType = null)]
   public class IndexModel : PagedPageModel<CountryDto>
   {
     private readonly CountryService _countryService;

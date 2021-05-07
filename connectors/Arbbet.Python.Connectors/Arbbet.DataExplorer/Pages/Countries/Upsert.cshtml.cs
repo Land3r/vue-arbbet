@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+using Arbbet.AspNet.Helper.Attributes;
 using Arbbet.AspNet.Helper.Core;
 using Arbbet.AspNet.Helper.Razor;
 using Arbbet.Connectors.Dal.Services;
@@ -17,76 +18,77 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Arbbet.DataExplorer.Pages.Countries
 {
-    [AllowAnonymous]
-    public class UpsertModel : UpsertPageModel<CountryDto>
+  [AllowAnonymous]
+  [Breadcrumb("Edit country", "/Coutries/Index/", Icon = "fas fa-flag", PageType = typeof(UpsertModel), ParentType = typeof(IndexModel))]
+  public class UpsertModel : UpsertPageModel<CountryDto>
+  {
+    private readonly CountryService _countryService;
+
+    public IList<SelectListItem> FlagSelectList { get; set; }
+
+    public UpsertModel(CountryService countryService)
     {
-        private readonly CountryService _countryService;
-
-        public IList<SelectListItem> FlagSelectList { get; set; }
-
-        public UpsertModel(CountryService countryService)
-        {
-            _countryService = countryService;
-        }
-
-        public async Task<IActionResult> OnGetAsync()
-        {
-            if (Meaning == PageMeaning.EDIT && Id.HasValue)
-            {
-                Item = await _countryService.Get(Id.Value);
-            }
-
-            LoadRelatedData();
-            return Page();
-        }
-
-        public override async Task<IActionResult> OnPostCreateAsync()
-        {
-            if (ModelState.IsValid)
-            {
-                _countryService.Create(Item);
-                await _countryService.CommitAsync();
-
-                return RedirectToPage("./Index");
-            }
-
-            LoadRelatedData();
-            return Page();
-        }
-
-        public override async Task<IActionResult> OnPostEditAsync()
-        {
-            if (ModelState.IsValid)
-            {
-                var entity = await _countryService.Get(Id.Value);
-
-                if (entity == null)
-                {
-                    return NotFound("Country not found");
-                }
-
-                entity.Code = Item.Code;
-                entity.Name = Item.Name;
-                entity.FlagName = Item.FlagName;
-
-                _countryService.Update(entity);
-                await _countryService.CommitAsync();
-
-                return RedirectToPage("./Index");
-            }
-
-            LoadRelatedData();
-            return Page();
-        }
-
-        private void LoadRelatedData()
-        {
-            LoadAvailableFlagsAsync();
-        }
-
-        private void LoadAvailableFlagsAsync()
-        {
-            FlagSelectList = AvailableFlags.Collection.ToSelectListItem(elm => elm.Replace(".", string.Empty).ToLowerInvariant(), elm => elm.ToString()).ToList();
-        }
+      _countryService = countryService;
     }
+
+    public async Task<IActionResult> OnGetAsync()
+    {
+      if (Meaning == PageMeaning.EDIT && Id.HasValue)
+      {
+        Item = await _countryService.Get(Id.Value);
+      }
+
+      LoadRelatedData();
+      return Page();
+    }
+
+    public override async Task<IActionResult> OnPostCreateAsync()
+    {
+      if (ModelState.IsValid)
+      {
+        _countryService.Create(Item);
+        await _countryService.CommitAsync();
+
+        return RedirectToPage("./Index");
+      }
+
+      LoadRelatedData();
+      return Page();
+    }
+
+    public override async Task<IActionResult> OnPostEditAsync()
+    {
+      if (ModelState.IsValid)
+      {
+        var entity = await _countryService.Get(Id.Value);
+
+        if (entity == null)
+        {
+          return NotFound("Country not found");
+        }
+
+        entity.Code = Item.Code;
+        entity.Name = Item.Name;
+        entity.FlagName = Item.FlagName;
+
+        _countryService.Update(entity);
+        await _countryService.CommitAsync();
+
+        return RedirectToPage("./Index");
+      }
+
+      LoadRelatedData();
+      return Page();
+    }
+
+    private void LoadRelatedData()
+    {
+      LoadAvailableFlagsAsync();
+    }
+
+    private void LoadAvailableFlagsAsync()
+    {
+      FlagSelectList = AvailableFlags.Collection.ToSelectListItem(elm => elm.Replace(".", string.Empty).ToLowerInvariant(), elm => elm.ToString()).ToList();
+    }
+  }
 }

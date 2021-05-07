@@ -14,8 +14,8 @@ namespace Arbbet.AspNet.Helper.Core.Definition
 
         public Type PageType { get; set; }
 
-        public string Page { get; set; }
+        public string PageUrl { get; set; }
 
-        public Type Parent { get; set; }
+        public Type ParentType { get; set; }
     }
 }

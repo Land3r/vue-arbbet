@@ -20,15 +20,15 @@ namespace Arbbet.AspNet.Helper.Core
             {
                 res.AddFirst(endNode);
 
-                if (endNode.Parent != null)
+                if (endNode.ParentType != null)
                 {
                     do
                     {
-                        endNode = GetParentNode(endNode.Parent, breadcrumbDefinition);
+                        endNode = GetParentNode(endNode.ParentType, breadcrumbDefinition);
                         res.AddFirst(endNode);
 
                     }
-                    while (endNode.Parent != null);
+                    while (endNode.ParentType != null);
                 }
             }
 
