@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Arbbet.AspNet.Helper.Breadcrumbs;
+using Arbbet.AspNet.Helper.Navigation;
 using Arbbet.AspNet.Helper.Razor;
 using Arbbet.Connectors.Dal.Services;
+using Arbbet.DataExplorer.Data.Navigation;
 using Arbbet.Domain.Entities;
 using Arbbet.Domain.ViewModels;
 
@@ -18,6 +20,7 @@ namespace Arbbet.DataExplorer.Pages.Countries
 {
   [Authorize]
   [Breadcrumb("Countries", "/Coutries/Index/", Icon = "fas fa-flag", PageType = typeof(IndexModel), ParentType = null)]
+  [PageNavigation("Countries", "/Countries/Index", Icon = "fas fa-flag", Order = 1, PageType = typeof(IndexModel), ParentType = typeof(DataNavigation))]
   public class IndexModel : PagedPageModel<CountryDto>
   {
     private readonly CountryService _countryService;

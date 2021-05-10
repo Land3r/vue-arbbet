@@ -14,10 +14,14 @@ namespace Arbbet.AspNet.Helper.Navigation
 
         public string PageUrl { get; set; }
 
+        public Type PageType { get; set; }
+
         public string Path { get; set; }
 
         public int Order { get; set; }
 
         public IList<NavigationNode> Childrens { get; set; }
+
+        public bool? Actif { get; set; }
     }
 }

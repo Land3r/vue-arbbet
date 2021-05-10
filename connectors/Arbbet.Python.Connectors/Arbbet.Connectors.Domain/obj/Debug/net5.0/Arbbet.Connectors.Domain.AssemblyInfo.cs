@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arbbet.Connectors.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.127")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.130")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arbbet.Connectors.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arbbet.Connectors.Domain")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.127")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.130")]
 
 // Généré par la classe MSBuild WriteCodeFragment.
 
