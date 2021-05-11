@@ -1,9 +1,52 @@
 ﻿@using Arbbet.DataExplorer.Data
 @using Arbbet.AspNet.Helper.Core
 @using Arbbet.AspNet.Helper.Navigation
-@inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider 
+@using Arbbet.DataExplorer.Data.Navigation
+
+@model (IList<NavigationNode> nodes, int depth)
+
+@inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider
 @{
-    var siteDefinition = SiteNavigationProvider.GetNavigationTest();
+  IList<NavigationNode> localModel = null;
+  int depth = 0;
+  if (Model.nodes != null)
+  {
+      localModel = Model.nodes;
+  }
+  if (Model.depth != null)
+  {
+      depth = Model.depth;
+  }
+  if (Model.nodes == null)
+  {
+      localModel = SiteNavigationProvider.GetNavigation(Context);
+      depth = 0;
+  }
 }
 
-@siteDefinition
+<ul class="@(depth == 0 ? "navbar-nav" : "nav") flex-column">
+    @foreach (var item in localModel)
+    {
+        @if (item.Childrens != null && item.Childrens.Count > 0)
+        {
+            <li class="nav-item @(item.Actif.HasValue && item.Actif.Value || (item.Childrens.Any(elm => elm.Actif.HasValue && elm.Actif.Value == true)) ? "active" : string.Empty)">
+                <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#nav_drp_@item.Name" aria-expanded="@(item.Actif.HasValue && item.Actif.Value || (item.Childrens.Any(elm => elm.Actif.HasValue && elm.Actif.Value == true)))">
+                    @(!string.IsNullOrEmpty(item.Icon) ? Html.Raw($"<i class=\"{item.Icon}\"></i>") : null)
+                    <span class="nav-link-text">@item.Name</span>
+                </a>
+                <ul id="nav_drp_@item.Name" class="nav flex-column collapse collapse-level-@(depth + 1) @(item.Actif.HasValue && item.Actif.Value || (item.Childrens.Any(elm => elm.Actif.HasValue && elm.Actif.Value == true)) ? "collapse show" : string.Empty)">
+                    <partial name="_Navigation" model="(nodes: item.Childrens, depth: depth + 1)" />
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item @(item.Actif.HasValue && item.Actif.Value ? "active" : null)">
+                <a class="nav-link" asp-page="@item.PageUrl">
+                    @(!string.IsNullOrEmpty(item.Icon) ? Html.Raw($"<i class=\"{item.Icon}\"></i>") : null)
+                    <span class="nav-link-text">@item.Name</span>
+                </a>
+            </li>
+        }
+    }
+</ul>

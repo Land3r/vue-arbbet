@@ -16,8 +16,6 @@ namespace Arbbet.AspNet.Helper.Navigation
 
         public Type PageType { get; set; }
 
-        public string Path { get; set; }
-
         public int Order { get; set; }
 
         public IList<NavigationNode> Childrens { get; set; }

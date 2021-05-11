@@ -28,10 +28,11 @@ namespace Arbbet.AspNet.Helper.Navigation
                     siteDefinition.Add(new PageNavigationDefinition()
                     {
                         Name = pageNavAttribute.Name,
-                        
                         PageUrl = pageNavAttribute.PageUrl,
                         PageType = pageNavAttribute.PageType,
-                        ParentType = pageNavAttribute.ParentType
+                        ParentType = pageNavAttribute.ParentType,
+                        Icon = pageNavAttribute.Icon,
+                        Order = pageNavAttribute.Order
                     });
                 }
             }
