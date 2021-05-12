@@ -1,0 +1,100 @@
+﻿@page "{Id?}"
+@inject IStringLocalizer<Arbbet.DataExplorer.Pages.Sports.UpsertModel> Localizer
+@inject CommonLocalizationService CommonLocalizer
+@inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider
+@using Arbbet.Domain.Enums
+@model Arbbet.DataExplorer.Pages.Sports.UpsertModel
+@{
+    ViewData["Title"] = Model.Meaning == PageMeaning.CREATE ? Localizer["PageTitle_Create"] : Localizer["PageTitle_Edit", Model.Item.Name];
+}
+
+<partial name="_Breadcrumb" model="this.Model.GetType()" />
+
+<div class="container-fluid px-xxl-65 px-xl-20">
+    <!-- Title -->
+    @*<div class="hk-pg-header">
+            <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span></span>Basic Tables</h4>
+        </div>*@
+    <!-- /Title -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-xl-12">
+            <section class="hk-sec-wrapper">
+                <h5 class="hk-sec-title">
+                    <i class="@SiteNavigationProvider.GetPageIcon(this.Model.GetType())"></i>
+                    @ViewData["Title"]
+                </h5>
+                <div class="row">
+                    <div class="col-sm">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        @Html.HiddenFor(model => model.Item.Id)
+                                        @Html.HiddenFor(model => model.Id)
+                                        @Html.LabelFor(model => model.Item.Code)
+                                        @Html.TextBoxFor(model => model.Item.Code, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Item.Name)
+                                        @Html.TextBoxFor(model => model.Item.Name, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>
+                                Unified Statuts
+                                @Html.Raw(UnifiedEntityHelper.GetUnifiedBadge(Model.Item.UnifiedType))
+                            </h3>
+                            <div class="row">
+                                @if (Model.Item?.UnifiedType == UnifiedType.Master)
+                                {
+                                    <div class="col">
+                                        <div class="form-group">
+                                            TODO: Lien vers les platforms specifics liés à ce mater
+                                        </div>
+                                    </div>
+                                }
+                                else if (Model.Item?.UnifiedType == UnifiedType.Platform)
+                                {
+                                    <div class="col">
+                                        <div class="form-group">
+                                            @if (Model.Item.UnifiedEntityId != null)
+                                            {
+                                                <a asp-page="Upsert" asp-route-id="@Model.Item.UnifiedEntityId">View Master</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="Upsert">Set master</a>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Item.Platform)
+                                            <span>Faire un select</span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Item.Platform_Id)
+                                            @Html.TextBoxFor(model => model.Item.Platform_Id, htmlAttributes: new { @class = "form-control"})
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <button class="btn btn-success" type="submit" asp-page-handler="@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")">@(Model.Meaning == PageMeaning.CREATE ? CommonLocalizer["Action.Create"]: CommonLocalizer["Action.Save"])</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- /Row -->
+
+</div>

@@ -9,13 +9,16 @@ using Arbbet.Domain.Entities;
 using Arbbet.Domain.ViewModels;
 
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Arbbet.Connectors.Dal.Services
 {
-  public class CountryService : ACrudEntityService<Country, CountryDto>
-  {
-    public CountryService(ConnectorDbContext context, PerformanceStatService performanceStatService, IMapper mapper) : base(context, performanceStatService, mapper)
+    public class CountryService : ACrudEntityService<Country, CountryDto>
     {
+        public static Func<IQueryable<Country>, IQueryable<Country>> WithAllProperties = elm => elm;
+
+        public CountryService(ConnectorDbContext context, PerformanceStatService performanceStatService, IMapper mapper) : base(context, performanceStatService, mapper)
+        {
+        }
     }
-  }
 }

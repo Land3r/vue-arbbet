@@ -12,6 +12,7 @@ namespace Arbbet.AspNet.Helper.Navigation
 
         public string Icon { get; set; }
 
+        public string Badge { get; set; }
         public string PageUrl { get; set; }
 
         public Type ParentType { get; set; }

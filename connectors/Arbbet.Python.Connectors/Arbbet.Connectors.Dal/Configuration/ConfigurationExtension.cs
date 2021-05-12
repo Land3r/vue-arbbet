@@ -24,6 +24,7 @@ namespace Arbbet.Connectors.Dal.Configuration
     public static IServiceCollection ConfigureDI(IServiceCollection services)
     {
       return services
+        .AddScoped<PlatformService>()
         .AddScoped<EventService>()
         .AddScoped<SportService>()
         .AddScoped<CompetitionService>()

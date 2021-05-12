@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Arbbet.Domain.ViewModels
 {
-  public class SportDto
-  {
-  }
+    public class SportDto : AUnifiedViewModel
+    {
+        public string Name { get; set; }
+
+        public string Code { get; set; }
+
+        //public virtual IList<CompetitionDto> Competitions { get; set; }
+    }
 }

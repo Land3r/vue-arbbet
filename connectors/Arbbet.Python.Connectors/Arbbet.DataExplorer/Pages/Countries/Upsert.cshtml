@@ -1,11 +1,13 @@
 ﻿@page "{Id?}"
+@inject IStringLocalizer<Arbbet.DataExplorer.Pages.Countries.UpsertModel> Localizer
+@inject CommonLocalizationService CommonLocalizer
+@inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider
 @model Arbbet.DataExplorer.Pages.Countries.UpsertModel
 @{
-    ViewData["Title"] = Model.Meaning == PageMeaning.CREATE ? "New country" : string.Format("Edit country {0}", Model.Item.Name);
-    Layout = "_Layout";
+    ViewData["Title"] = Model.Meaning == PageMeaning.CREATE ? Localizer["PageTitle_Create"] : Localizer["PageTitle_Edit", Model.Item.Name];
 }
 
-<partial name="_Breadcrumb" model="this.Model.GetType()"/>
+<partial name="_Breadcrumb" model="this.Model.GetType()" />
 
 <div class="container-fluid px-xxl-65 px-xl-20">
     <!-- Title -->
@@ -18,7 +20,8 @@
         <div class="col-xl-12">
             <section class="hk-sec-wrapper">
                 <h5 class="hk-sec-title">
-                    Countries
+                    <i class="@SiteNavigationProvider.GetPageIcon(this.Model.GetType())"></i>
+                    @ViewData["Title"]
                 </h5>
                 <div class="row">
                     <div class="col-sm">
@@ -52,7 +55,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm">
-                                    <button class="btn btn-success" type="submit" asp-page-handler="@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")">@(Model.Meaning == PageMeaning.CREATE ? "Create": "Save")</button>
+                                    <button class="btn btn-success" type="submit" asp-page-handler="@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")">@(Model.Meaning == PageMeaning.CREATE ? CommonLocalizer["Action.Create"]: CommonLocalizer["Action.Save"])</button>
                                 </div>
                             </div>
                         </form>
@@ -66,14 +69,14 @@
 </div>
 
 @section Scripts {
-<script>
-    function UpdateFlagIcon() {
-        let newFlag = jQuery('#Item_FlagName').val();
-        jQuery('#flagIcon').attr('class', `flag ${newFlag}`);
-    }
+    <script>
+        function UpdateFlagIcon() {
+            let newFlag = jQuery('#Item_FlagName').val();
+            jQuery('#flagIcon').attr('class', `flag ${newFlag}`);
+        }
 
-    jQuery(document).ready(function() {
-        UpdateFlagIcon();
-    });
-</script>
+        jQuery(document).ready(function () {
+            UpdateFlagIcon();
+        });
+    </script>
 } 

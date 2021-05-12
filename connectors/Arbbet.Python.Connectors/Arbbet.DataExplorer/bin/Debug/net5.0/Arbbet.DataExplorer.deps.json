@@ -332,6 +332,9 @@
         "resources": {
           "en/Arbbet.DataExplorer.resources.dll": {
             "locale": "en"
+          },
+          "fr/Arbbet.DataExplorer.resources.dll": {
+            "locale": "fr"
           }
         },
         "compile": {

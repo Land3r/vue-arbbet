@@ -135,6 +135,9 @@
   <data name="Action.Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Actions.Name" xml:space="preserve">
+    <value>Actions</value>
+  </data>
   <data name="AppTitle" xml:space="preserve">
     <value>Arbbet</value>
   </data>

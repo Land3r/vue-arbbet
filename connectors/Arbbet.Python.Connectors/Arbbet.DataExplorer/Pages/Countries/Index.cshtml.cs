@@ -18,33 +18,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Arbbet.DataExplorer.Pages.Countries
 {
-  [Authorize]
-  [Breadcrumb("Countries", "/Coutries/Index/", Icon = "fas fa-flag", PageType = typeof(IndexModel), ParentType = null)]
-  [PageNavigation("Countries", "/Countries/Index", Icon = "fas fa-flag", Order = 1, PageType = typeof(IndexModel), ParentType = typeof(DataNavigation))]
-  public class IndexModel : PagedPageModel<CountryDto>
-  {
-    private readonly CountryService _countryService;
-    public IndexModel(CountryService countryService)
+    [Authorize]
+    [Breadcrumb("Countries", "/Countries/Index/", Icon = "fas fa-flag", PageType = typeof(IndexModel), ParentType = null)]
+    [PageNavigation("Countries", "/Countries/Index", Icon = "fas fa-flag", Order = 1, PageType = typeof(IndexModel), ParentType = typeof(DataNavigation))]
+    public class IndexModel : PagedPageModel<CountryDto>
     {
-      _countryService = countryService;
+        private readonly CountryService _countryService;
+        public IndexModel(CountryService countryService)
+        {
+            _countryService = countryService;
+        }
+
+        public IActionResult OnGet()
+        {
+            LoadData();
+
+            return Page();
+        }
+
+        private void LoadData()
+        {
+            OrderBy ??= "Name";
+            Order ??= "Asc";
+
+            Items = _countryService.Where(elm => true).OrderBy(elm => elm.Name).ToList();
+            Count = Items.Count();
+            Items = Items.TakePage(CurrentPage, PageSize);
+        }
     }
-
-    public async Task<IActionResult> OnGetAsync()
-    {
-      await LoadData();
-
-      return Page();
-    }
-
-    private async Task LoadData()
-    {
-      OrderBy ??= "Name";
-      Order ??= "Asc";
-
-      var test = _countryService.Where(elm => true).OrderBy(elm => EF.Property<object>(elm, OrderBy));
-      Items = _countryService.Where(elm => true).OrderBy(elm => elm.Name).ToList();
-      Count = Items.Count();
-      Items = Items.TakePage(CurrentPage, PageSize);
-    }
-  }
 }

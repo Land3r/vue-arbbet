@@ -8,10 +8,8 @@ using Arbbet.Domain.Enums;
 
 namespace Arbbet.Domain.ViewModels
 {
-  public class TeamDto
+  public class TeamDto : AUnifiedViewModel
   {
-    public Guid? Id { get; set; }
-
     public string Name { get; set; }
 
     public TeamType TeamType { get; set; }

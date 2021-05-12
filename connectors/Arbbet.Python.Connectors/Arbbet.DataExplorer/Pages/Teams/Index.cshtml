@@ -1,0 +1,64 @@
+﻿@page "{CurrentPage?}/{OrderBy?}/{Order?}"
+@model Arbbet.DataExplorer.Pages.Teams.IndexModel
+@using Arbbet.Domain.ViewModels
+@inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider
+@inject IStringLocalizer<Arbbet.DataExplorer.Pages.Teams.IndexModel> Localizer
+@inject CommonLocalizationService CommonLocalizer
+@{
+    ViewData["Title"] = Localizer["PageTitle"];
+}
+
+<partial name="_Breadcrumb" model="this.Model.GetType()" />
+
+<div class="container-fluid px-xxl-65 px-xl-20">
+    <!-- Title -->
+    @*<div class="hk-pg-header">
+            <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span></span>Basic Tables</h4>
+        </div>*@
+    <!-- /Title -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-xl-12">
+            <section class="hk-sec-wrapper">
+                <h5 class="hk-sec-title">
+                    <i class="@SiteNavigationProvider.GetPageIcon(this.Model.GetType())"></i>
+                    @ViewData["Title"]
+                    <a asp-page="Upsert" class="btn btn-sm btn-gradient-success btn-wth-icon btn-rounded icon-right">
+                        <span class="btn-text">@CommonLocalizer["Action.Create"]</span> <span class="icon-label"><i class="fa fa-plus-circle"></i></span>
+                    </a>
+                </h5>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="table-wrap mb-30">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped mb-0">
+                                    <thead class="thead-success">
+                                        <tr>
+                                            <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Name)</th>
+                                            <th>@CommonLocalizer["Actions.Name"]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Items)
+                                        {
+                                            <tr>
+                                                <td><a asp-page="Upsert" asp-route-id="@item.Id" class="text-capitalize">@item.Name</a></td>
+                                                <td>TODO ?</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br />
+                            <nav aria-label="List navigation">
+                                <partial name="_Pagination" model="Model" />
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- /Row -->
+
+</div>

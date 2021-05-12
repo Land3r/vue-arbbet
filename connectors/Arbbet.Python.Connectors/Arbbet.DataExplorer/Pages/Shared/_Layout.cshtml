@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewData["Title"] - Arbbet.DataExplorer</title>
+    <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")">
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+
+    <!-- CSS -->
+    <link href="@Url.Content("~/css/style.min.css")" rel="stylesheet" type="text/css">
+</head>
+@*<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Arbbet.DataExplorer</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Arbbet.DataExplorer - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>*@
+
+<body>
+
+    <!-- HK Wrapper -->
+    <div class="hk-wrapper hk-vertical-nav">
+
+        <partial name="_TopNavBar" />
+
+        <!-- Vertical Nav -->
+        <nav class="hk-nav hk-nav-light">
+            <a href="javascript:void(0);" id="hk_nav_close" class="hk-nav-close"><span class="feather-icon"><i data-feather="x"></i></span></a>
+            <div class="nicescroll-bar">
+                <div class="navbar-nav-wrap">
+                    <partial name="_Navigation" model="null" />
+                </div>
+            </div>
+        </nav>
+        <div id="hk_nav_backdrop" class="hk-nav-backdrop"></div>
+        <!-- /Vertical Nav -->
+
+        <partial name="_RightPanel" />
+
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /HK Wrapper -->
+    <!-- jQuery -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FeatherIcons -->
+    <script src="~/lib/feather-icons/feather.min.js"></script>
+
+    <!-- IonIcons -->
+    <!-- TODO -->
+    <!-- jQuery Toogle -->
+    <script src="~/lib/jquery-toggles/toggles.min.js"></script>
+
+    <!-- jQuery SlimScroll -->
+    <script src="~/lib/jQuery-slimScroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Toastr -->
+    <script src="~/lib/toastr.js/toastr.min.js"></script>
+
+    <!-- Owl Carousel -->
+    <script src="~/lib/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="~/lib/select2/js/select2.min.js"></script>
+
+    <!-- Init script -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -32,6 +32,7 @@ namespace Arbbet.AspNet.Helper.Navigation
                         PageType = pageNavAttribute.PageType,
                         ParentType = pageNavAttribute.ParentType,
                         Icon = pageNavAttribute.Icon,
+                        Badge = pageNavAttribute.Badge,
                         Order = pageNavAttribute.Order
                     });
                 }

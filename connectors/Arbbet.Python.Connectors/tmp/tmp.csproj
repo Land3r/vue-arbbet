@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
-    <AssemblyVersion>1.0.0.130</AssemblyVersion>
-    <FileVersion>1.0.0.130</FileVersion>
+    <AssemblyVersion>1.0.0.132</AssemblyVersion>
+    <FileVersion>1.0.0.132</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

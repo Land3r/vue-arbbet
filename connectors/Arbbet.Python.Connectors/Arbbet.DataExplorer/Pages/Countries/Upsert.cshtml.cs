@@ -19,7 +19,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Arbbet.DataExplorer.Pages.Countries
 {
   [AllowAnonymous]
-  [Breadcrumb("Edit country", "/Coutries/Index/", Icon = "fas fa-flag", PageType = typeof(UpsertModel), ParentType = typeof(IndexModel))]
+  [Breadcrumb("Edit country", "/Countries/Index/", Icon = "fas fa-flag", PageType = typeof(UpsertModel), ParentType = typeof(IndexModel))]
   public class UpsertModel : UpsertPageModel<CountryDto>
   {
     private readonly CountryService _countryService;

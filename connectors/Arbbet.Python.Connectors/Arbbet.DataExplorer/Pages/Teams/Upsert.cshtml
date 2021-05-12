@@ -1,0 +1,59 @@
+﻿@page "{Id?}"
+@inject IStringLocalizer<Arbbet.DataExplorer.Pages.Teams.UpsertModel> Localizer
+@inject CommonLocalizationService CommonLocalizer
+@inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider
+@using Arbbet.Domain.Enums
+@model Arbbet.DataExplorer.Pages.Teams.UpsertModel
+@{
+    ViewData["Title"] = Model.Meaning == PageMeaning.CREATE ? Localizer["PageTitle_Create"] : Localizer["PageTitle_Edit", Model.Item.Name];
+}
+
+<partial name="_Breadcrumb" model="this.Model.GetType()" />
+
+<div class="container-fluid px-xxl-65 px-xl-20">
+    <!-- Title -->
+    @*<div class="hk-pg-header">
+            <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span></span>Basic Tables</h4>
+        </div>*@
+    <!-- /Title -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-xl-12">
+            <section class="hk-sec-wrapper">
+                <h5 class="hk-sec-title">
+                    <i class="@SiteNavigationProvider.GetPageIcon(this.Model.GetType())"></i>
+                    @ViewData["Title"]
+                </h5>
+                <div class="row">
+                    <div class="col-sm">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        @Html.HiddenFor(model => model.Item.Id)
+                                        @Html.HiddenFor(model => model.Id)
+                                        @Html.LabelFor(model => model.Item.Name)
+                                        @Html.TextBoxFor(model => model.Item.Name, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Item.TeamType)
+                                        <select asp-for="Item.TeamType" asp-items="Html.GetEnumSelectList<TeamType>()" class="select2 form-control" data-clearable="true" data-placeholder="Select a type"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <button class="btn btn-success" type="submit" asp-page-handler="@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")">@(Model.Meaning == PageMeaning.CREATE ? CommonLocalizer["Action.Create"]: CommonLocalizer["Action.Save"])</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- /Row -->
+
+</div>

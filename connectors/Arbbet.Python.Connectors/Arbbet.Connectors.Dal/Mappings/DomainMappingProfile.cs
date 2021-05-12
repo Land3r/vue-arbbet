@@ -11,11 +11,15 @@ using AutoMapper;
 
 namespace Arbbet.Connectors.Dal.Mappings
 {
-  public class DomainMappingProfile : Profile
-  {
-    public DomainMappingProfile()
+    public class DomainMappingProfile : Profile
     {
-        CreateMap<Country, CountryDto>().ReverseMap();
+        public DomainMappingProfile()
+        {
+            CreateMap<Platform, PlatformDto>().ReverseMap();
+            CreateMap<Sport, SportDto>().ReverseMap();
+            CreateMap<Country, CountryDto>().ReverseMap();
+            CreateMap<Team, TeamDto>().ReverseMap();
+            CreateMap<Competition, CompetitionDto>().ReverseMap();
+        }
     }
-  }
 }

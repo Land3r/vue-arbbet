@@ -7,21 +7,18 @@
 
 @inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider
 @{
-  IList<NavigationNode> localModel = null;
-  int depth = 0;
-  if (Model.nodes != null)
-  {
-      localModel = Model.nodes;
-  }
-  if (Model.depth != null)
-  {
-      depth = Model.depth;
-  }
-  if (Model.nodes == null)
-  {
-      localModel = SiteNavigationProvider.GetNavigation(Context);
-      depth = 0;
-  }
+    IList<NavigationNode> localModel = null;
+    int depth = 0;
+    if (Model.nodes != null)
+    {
+        localModel = Model.nodes.OrderBy(elm => elm.Order).ToList();
+        depth = Model.depth;
+    }
+    if (Model.nodes == null)
+    {
+        localModel = SiteNavigationProvider.GetNavigation(Context).OrderBy(elm => elm.Order).ToList();
+        depth = 0;
+    }
 }
 
 <ul class="@(depth == 0 ? "navbar-nav" : "nav") flex-column">
@@ -30,9 +27,10 @@
         @if (item.Childrens != null && item.Childrens.Count > 0)
         {
             <li class="nav-item @(item.Actif.HasValue && item.Actif.Value || (item.Childrens.Any(elm => elm.Actif.HasValue && elm.Actif.Value == true)) ? "active" : string.Empty)">
-                <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#nav_drp_@item.Name" aria-expanded="@(item.Actif.HasValue && item.Actif.Value || (item.Childrens.Any(elm => elm.Actif.HasValue && elm.Actif.Value == true)))">
+                <a class="nav-link @(!string.IsNullOrEmpty(item.Badge) ? "link-with-badge" : string.Empty)" href="javascript:void(0);" data-toggle="collapse" data-target="#nav_drp_@item.Name" aria-expanded="@((item.Actif.HasValue && item.Actif.Value || (item.Childrens.Any(elm => elm.Actif.HasValue && elm.Actif.Value == true))) ? "true" : null)">
                     @(!string.IsNullOrEmpty(item.Icon) ? Html.Raw($"<i class=\"{item.Icon}\"></i>") : null)
                     <span class="nav-link-text">@item.Name</span>
+                    @(!string.IsNullOrEmpty(item.Badge) ? Html.Raw($"<span class=\"badge badge-success badge-pill\">{item.Badge}</span>") : null)
                 </a>
                 <ul id="nav_drp_@item.Name" class="nav flex-column collapse collapse-level-@(depth + 1) @(item.Actif.HasValue && item.Actif.Value || (item.Childrens.Any(elm => elm.Actif.HasValue && elm.Actif.Value == true)) ? "collapse show" : string.Empty)">
                     <partial name="_Navigation" model="(nodes: item.Childrens, depth: depth + 1)" />
@@ -42,9 +40,10 @@
         else
         {
             <li class="nav-item @(item.Actif.HasValue && item.Actif.Value ? "active" : null)">
-                <a class="nav-link" asp-page="@item.PageUrl">
+                <a class="nav-link @(!string.IsNullOrEmpty(item.Badge) ? "link-with-badge" : string.Empty)" asp-page="@item.PageUrl">
                     @(!string.IsNullOrEmpty(item.Icon) ? Html.Raw($"<i class=\"{item.Icon}\"></i>") : null)
                     <span class="nav-link-text">@item.Name</span>
+                    @(!string.IsNullOrEmpty(item.Badge) ? Html.Raw($"<span class=\"badge badge-success badge-pill\">{item.Badge}</span>") : null)
                 </a>
             </li>
         }

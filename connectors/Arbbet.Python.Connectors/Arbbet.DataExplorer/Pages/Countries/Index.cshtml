@@ -1,19 +1,14 @@
 ﻿@page "{CurrentPage?}/{OrderBy?}/{Order?}"
 @model Arbbet.DataExplorer.Pages.Countries.IndexModel
 @using Arbbet.Domain.ViewModels
+@inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider
 @inject IStringLocalizer<Arbbet.DataExplorer.Pages.Countries.IndexModel> Localizer
 @inject CommonLocalizationService CommonLocalizer
 @{
-    Layout = "_Layout";
     ViewData["Title"] = Localizer["PageTitle"];
 }
 
-<nav class="hk-breadcrumb" aria-label="breadcrumb">
-    <ol class="breadcrumb breadcrumb-light bg-transparent">
-        <li class="breadcrumb-item"><a href="#">Data</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
-    </ol>
-</nav>
+<partial name="_Breadcrumb" model="this.Model.GetType()" />
 
 <div class="container-fluid px-xxl-65 px-xl-20">
     <!-- Title -->
@@ -26,6 +21,7 @@
         <div class="col-xl-12">
             <section class="hk-sec-wrapper">
                 <h5 class="hk-sec-title">
+                    <i class="@SiteNavigationProvider.GetPageIcon(this.Model.GetType())"></i>
                     @ViewData["Title"]
                     <a asp-page="Upsert" class="btn btn-sm btn-gradient-success btn-wth-icon btn-rounded icon-right">
                         <span class="btn-text">@CommonLocalizer["Action.Create"]</span> <span class="icon-label"><i class="fa fa-plus-circle"></i></span>
@@ -41,7 +37,7 @@
                                             <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Code)</th>
                                             <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Name)</th>
                                             <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().FlagName)</th>
-                                            <th>Actions</th>
+                                            <th>@CommonLocalizer["Actions.Name"]</th>
                                         </tr>
                                     </thead>
                                     <tbody>

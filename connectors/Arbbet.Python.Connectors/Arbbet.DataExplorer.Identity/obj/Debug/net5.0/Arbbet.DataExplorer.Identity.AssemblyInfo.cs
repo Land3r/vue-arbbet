@@ -14,11 +14,11 @@ using System.Reflection;
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arbbet.DataExplorer.Identity")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.130")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.132")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arbbet.DataExplorer.Identity")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arbbet.DataExplorer.Identity")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.130")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.132")]
 
 // Généré par la classe MSBuild WriteCodeFragment.
 
