@@ -1,0 +1,84 @@
+﻿@page
+@model Arbbet.DataExplorer.Pages.Home.IndexModel
+@using Arbbet.Domain.ViewModels
+@inject Arbbet.AspNet.Helper.Navigation.SiteNavigationProvider SiteNavigationProvider
+@inject IStringLocalizer<Arbbet.DataExplorer.Pages.Sports.IndexModel> Localizer
+@inject CommonLocalizationService CommonLocalizer
+@{
+    ViewData["Title"] = Localizer["PageTitle"];
+}
+
+<partial name="_Breadcrumb" model="this.Model.GetType()" />
+
+<div class="container-fluid px-xxl-65 px-xl-20">
+    <!-- Title -->
+    @*<div class="hk-pg-header">
+            <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></span></span>Basic Tables</h4>
+        </div>*@
+    <!-- /Title -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-xl-12">
+            <section class="hk-sec-wrapper">
+                <h5 class="hk-sec-title">
+                    <i class="@SiteNavigationProvider.GetPageIcon(this.Model.GetType())"></i>
+                    @ViewData["Title"]
+                </h5>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Football</div>
+                            <img class="card-img-top" src="~/img/sports/footba2ll.jpg" style="width:100%;" />
+                            <div class="card-footer justify-content-between">
+                                <small class="text-muted">23587 events total</small>
+                                <a asp-page="Sports/Index">View <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Football</div>
+                            <img class="card-img-top" src="~/img/sports/footba2ll.jpg" style="width:100%;" />
+                            <div class="card-footer justify-content-between">
+                                <small class="text-muted">23587 events total</small>
+                                <a asp-page="Sports/Index">View <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Football</div>
+                            <img class="card-img-top" src="~/img/sports/footba2ll.jpg" style="width:100%;" />
+                            <div class="card-footer justify-content-between">
+                                <small class="text-muted">23587 events total</small>
+                                <a asp-page="Sports/Index">View <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-red mb-3" style="max-width: 18rem;">
+                            <div class="card-header">1W2 - Lille - OM (Olympique de Marseille)</div>
+                            <div class="card-body">
+                                <h3 class="text-danger text-center">103 %</h3>
+                            </div>
+                            <div class="card-footer justify-content-between">
+                                <small class="text-muted">Last sync 2 min ago</small>
+                                <a asp-page="Events/Details">View <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="card border-blue mb-3" style="max-width: 18rem;">
+                            <div class="card-header">1W2 - AS Arsenal - Wattignies</div>
+                            <div class="card-body">
+                                <h3 class="text-blue text-center">98 %</h3>
+                            </div>
+                            <div class="card-footer justify-content-between">
+                                <small class="text-muted">Last sync 2 min ago</small>
+                                <a asp-page="Events/Details">View <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- /Row -->
+
+</div>

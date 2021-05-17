@@ -14,8 +14,8 @@ namespace Arbbet.Connectors.Dal.Services
 {
     public class SportService : AUnifiedEntityService<Sport, SportDto>
     {
-        public static readonly Func<IQueryable<Sport>, IQueryable<Sport>> WithAllProperties = elm => WithPlatform(elm);
-        public static readonly Func<IQueryable<Sport>, IQueryable<Sport>> WithPlatform = elm => elm.Include(item => item.Platform);
+        public static readonly Func<IQueryable<Sport>, IQueryable<Sport>> WithAllProperties = elm => WithPlatform(elm).AsNoTracking();
+        public static readonly Func<IQueryable<Sport>, IQueryable<Sport>> WithPlatform = elm => elm.Include(item => item.Platform).AsNoTracking();
 
         public SportService(ConnectorDbContext connectorDbContext, PerformanceStatService performanceStatService, IMapper mapper) : base(connectorDbContext, performanceStatService, mapper)
         {

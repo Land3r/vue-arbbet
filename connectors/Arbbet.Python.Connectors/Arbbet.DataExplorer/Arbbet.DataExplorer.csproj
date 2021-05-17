@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyVersion>1.0.0.132</AssemblyVersion>
-    <FileVersion>1.0.0.132</FileVersion>
+    <AssemblyVersion>1.0.0.137</AssemblyVersion>
+    <FileVersion>1.0.0.137</FileVersion>
     <UserSecretsId>b2f315bb-4e75-43ae-b161-60ebdc826ca8</UserSecretsId>
   </PropertyGroup>
 
@@ -51,9 +51,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Home\" />
     <Folder Include="Styles\Theme\" />
     <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\img\sports\" />
   </ItemGroup>
 
   <ItemGroup>

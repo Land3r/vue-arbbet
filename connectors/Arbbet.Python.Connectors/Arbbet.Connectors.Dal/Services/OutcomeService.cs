@@ -6,26 +6,27 @@ using System.Threading.Tasks;
 
 using Arbbet.Connectors.Domain.Performances;
 using Arbbet.Domain.Entities;
-
+using Arbbet.Domain.ViewModels;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace Arbbet.Connectors.Dal.Services
 {
-    public class OutcomeService : ACrudEntityService<Outcome>
+    public class OutcomeService : ACrudEntityService<Outcome, OutcomeDto>
     {
-        public static readonly Func<IQueryable<Outcome>, IQueryable<Outcome>> WithAllProperties = elm => WithTeam(WithBet(elm));
-        public static readonly Func<IQueryable<Outcome>, IQueryable<Outcome>> WithBet = elm => elm.Include(elm => elm.Bet);
-        public static readonly Func<IQueryable<Outcome>, IQueryable<Outcome>> WithTeam = elm => elm.Include(elm => elm.Team);
+        public static readonly Func<IQueryable<Outcome>, IQueryable<Outcome>> WithAllProperties = elm => WithTeam(WithBet(elm)).AsNoTracking();
+        public static readonly Func<IQueryable<Outcome>, IQueryable<Outcome>> WithBet = elm => elm.Include(elm => elm.Bet).AsNoTracking();
+        public static readonly Func<IQueryable<Outcome>, IQueryable<Outcome>> WithTeam = elm => elm.Include(elm => elm.Team).AsNoTracking();
 
-        public OutcomeService(ConnectorDbContext connectorDbContext, PerformanceStatService performanceStatService) : base(connectorDbContext, performanceStatService)
+        public OutcomeService(ConnectorDbContext connectorDbContext, PerformanceStatService performanceStatService, IMapper mapper) : base(connectorDbContext, performanceStatService, mapper)
         {
         }
 
-        public IEnumerable<Outcome> GetOutcomesForBet(Guid betId)
+        public IEnumerable<OutcomeDto> GetOutcomesForBet(Guid betId)
         {
             using (var ms = new MonitoredScope(_performanceStatService) { Type = MonitoredScopeType.Database })
             {
-                return _entities.Where(elm => elm.BetId == betId).Include(elm => elm.Team);
+                return this.Where(elm => elm.BetId == betId, WithTeam);
             }
         }
     }
