@@ -13,7 +13,7 @@ namespace Arbbet.Connectors.Dal.Services
 {
     public class PlatformService : ACrudEntityService<Platform, PlatformDto>
     {
-        public static readonly Func<IQueryable<Platform>, IQueryable<Platform>> WithAllProperties = elm => elm;
+        public static readonly Func<IQueryable<Platform>, IQueryable<Platform>> WithAllProperties = elm => elm.AsNoTracking();
 
         public PlatformService(ConnectorDbContext connectorDbContext, PerformanceStatService performanceStatService, IMapper mapper) : base(connectorDbContext, performanceStatService, mapper)
         {

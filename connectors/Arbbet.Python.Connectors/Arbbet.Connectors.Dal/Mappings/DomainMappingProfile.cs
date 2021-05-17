@@ -20,6 +20,9 @@ namespace Arbbet.Connectors.Dal.Mappings
             CreateMap<Country, CountryDto>().ReverseMap();
             CreateMap<Team, TeamDto>().ReverseMap();
             CreateMap<Competition, CompetitionDto>().ReverseMap();
+            CreateMap<Bet, BetDto>().ReverseMap();
+            CreateMap<Event, EventDto>().ReverseMap();
+            CreateMap<Outcome, OutcomeDto>().ReverseMap();
         }
     }
 }

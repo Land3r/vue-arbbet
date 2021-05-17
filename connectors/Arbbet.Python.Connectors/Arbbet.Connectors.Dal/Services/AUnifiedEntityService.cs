@@ -113,6 +113,15 @@ namespace Arbbet.Connectors.Dal.Services
             return base.Create(entity);
         }
 
+        public TViewModel Create(Guid platformId, TViewModel entity)
+        {
+            if (entity.PlatformId == null || entity.PlatformId != platformId)
+            {
+                entity.PlatformId = platformId;
+            }
+            return base.Create(entity);
+        }
+
         public TViewModel Update(Guid platformId, TEntity entity)
         {
             if (entity.PlatformId == null || entity.PlatformId != platformId)
@@ -120,6 +129,24 @@ namespace Arbbet.Connectors.Dal.Services
                 entity.PlatformId = platformId;
             }
             return base.Update(entity);
+        }
+
+        public TViewModel Update(Guid platformId, TViewModel entity)
+        {
+            if (entity.PlatformId == null || entity.PlatformId != platformId)
+            {
+                entity.PlatformId = platformId;
+            }
+            return base.Update(entity);
+        }
+
+        public void Delete(Guid platformId, TEntity entity)
+        {
+            if (entity.PlatformId == null || entity.PlatformId != platformId)
+            {
+                entity.PlatformId = platformId;
+            }
+            base.Delete(entity);
         }
 
         public void Delete(Guid platformId, TViewModel entity)

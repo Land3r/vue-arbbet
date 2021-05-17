@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 using Arbbet.Connectors.Domain.Performances;
 using Arbbet.Domain.Entities;
+using Arbbet.Domain.ViewModels;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace Arbbet.Connectors.Dal.Services
 {
-    public class CompetitionService : AUnifiedEntityService<Competition>
+    public class CompetitionService : AUnifiedEntityService<Competition, CompetitionDto>
     {
-        public static readonly Func<IQueryable<Competition>, IQueryable<Competition>> WithAllProperties = elm => WithPlatform(WithCountry(WithSport(elm)));
-        public static readonly Func<IQueryable<Competition>, IQueryable<Competition>> WithPlatform = elm => elm.Include(elm => elm.Platform);
-        public static readonly Func<IQueryable<Competition>, IQueryable<Competition>> WithCountry = elm => elm.Include(elm => elm.Country);
-        public static readonly Func<IQueryable<Competition>, IQueryable<Competition>> WithSport = elm => elm.Include(elm => elm.Sport);
+        public static readonly Func<IQueryable<Competition>, IQueryable<Competition>> WithAllProperties = elm => WithPlatform(WithCountry(WithSport(elm))).AsNoTracking();
+        public static readonly Func<IQueryable<Competition>, IQueryable<Competition>> WithPlatform = elm => elm.Include(elm => elm.Platform).AsNoTracking();
+        public static readonly Func<IQueryable<Competition>, IQueryable<Competition>> WithCountry = elm => elm.Include(elm => elm.Country).AsNoTracking();
+        public static readonly Func<IQueryable<Competition>, IQueryable<Competition>> WithSport = elm => elm.Include(elm => elm.Sport).AsNoTracking();
 
-        public CompetitionService(ConnectorDbContext context, PerformanceStatService performanceStatService) : base(context, performanceStatService)
+        public CompetitionService(ConnectorDbContext context, PerformanceStatService performanceStatService, IMapper mapper) : base(context, performanceStatService, mapper)
         {
         }
     }

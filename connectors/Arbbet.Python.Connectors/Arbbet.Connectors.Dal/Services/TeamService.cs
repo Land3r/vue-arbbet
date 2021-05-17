@@ -14,10 +14,10 @@ namespace Arbbet.Connectors.Dal.Services
 {
     public class TeamService : ACrudEntityService<Team, TeamDto>
     {
-        public static readonly Func<IQueryable<Team>, IQueryable<Team>> WithAllProperties = elm => WithCountry(WithSport(WithPlatform(elm)));
-        public static readonly Func<IQueryable<Team>, IQueryable<Team>> WithPlatform = elm => elm.Include(item => item.Platform);
-        public static readonly Func<IQueryable<Team>, IQueryable<Team>> WithSport = elm => elm.Include(item => item.Sport);
-        public static readonly Func<IQueryable<Team>, IQueryable<Team>> WithCountry = elm => elm.Include(item => item.Country);
+        public static readonly Func<IQueryable<Team>, IQueryable<Team>> WithAllProperties = elm => WithCountry(WithSport(WithPlatform(elm))).AsNoTracking();
+        public static readonly Func<IQueryable<Team>, IQueryable<Team>> WithPlatform = elm => elm.Include(item => item.Platform).AsNoTracking();
+        public static readonly Func<IQueryable<Team>, IQueryable<Team>> WithSport = elm => elm.Include(item => item.Sport).AsNoTracking();
+        public static readonly Func<IQueryable<Team>, IQueryable<Team>> WithCountry = elm => elm.Include(item => item.Country).AsNoTracking();
 
         public TeamService(ConnectorDbContext connectorDbContext, PerformanceStatService performanceStatService, IMapper mapper) : base(connectorDbContext, performanceStatService, mapper)
         {

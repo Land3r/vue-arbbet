@@ -36,7 +36,7 @@ namespace Arbbet.Domain.Entities
     /// </summary>
     public virtual IList<Bet> Bets { get; set; }
 
-    public Guid CompetitionId { get; set; }
+    public Guid? CompetitionId { get; set; }
 
     [ForeignKey("CompetitionId")]
     /// <summary>

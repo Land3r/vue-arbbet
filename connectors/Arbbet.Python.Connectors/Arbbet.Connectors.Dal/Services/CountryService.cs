@@ -15,7 +15,7 @@ namespace Arbbet.Connectors.Dal.Services
 {
     public class CountryService : ACrudEntityService<Country, CountryDto>
     {
-        public static Func<IQueryable<Country>, IQueryable<Country>> WithAllProperties = elm => elm;
+        public static Func<IQueryable<Country>, IQueryable<Country>> WithAllProperties = elm => elm.AsNoTracking();
 
         public CountryService(ConnectorDbContext context, PerformanceStatService performanceStatService, IMapper mapper) : base(context, performanceStatService, mapper)
         {

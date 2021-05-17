@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj": {}
+    "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj": {}
   },
   "projects": {
-    "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj": {
+    "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj",
+        "projectUniqueName": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj",
         "projectName": "Arbbet.Connectors.Dal",
-        "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj",
-        "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\obj\\",
+        "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj",
+        "packagesPath": "C:\\Users\\n.gordat\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\n.gordat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -29,11 +33,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
-                "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj"
+              "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
+                "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj"
               },
-              "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj": {
-                "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj"
+              "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj": {
+                "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj"
               }
             }
           }
@@ -82,18 +86,22 @@
         }
       }
     },
-    "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
+    "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj",
+        "projectUniqueName": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj",
         "projectName": "Arbbet.Connectors.Domain",
-        "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj",
-        "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\obj\\",
+        "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj",
+        "packagesPath": "C:\\Users\\n.gordat\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\n.gordat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -107,8 +115,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj": {
-                "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj"
+              "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj": {
+                "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj"
               }
             }
           }
@@ -151,18 +159,22 @@
         }
       }
     },
-    "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj": {
+    "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj",
+        "projectUniqueName": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj",
         "projectName": "Arbbet.Connectors.Unibet",
-        "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj",
-        "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\obj\\",
+        "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\Arbbet.Connectors.Unibet.csproj",
+        "packagesPath": "C:\\Users\\n.gordat\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Unibet\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\n.gordat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -176,11 +188,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj": {
-                "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj"
+              "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj": {
+                "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Dal\\Arbbet.Connectors.Dal.csproj"
               },
-              "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
-                "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj"
+              "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj": {
+                "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Connectors.Domain\\Arbbet.Connectors.Domain.csproj"
               }
             }
           }
@@ -195,6 +207,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -210,6 +226,10 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[5.0.1, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "Microsoft.Extensions.Http": {
               "target": "Package",
@@ -239,18 +259,22 @@
         }
       }
     },
-    "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj": {
+    "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj",
+        "projectUniqueName": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj",
         "projectName": "Arbbet.Domain",
-        "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj",
-        "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\obj\\",
+        "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\Arbbet.Domain.csproj",
+        "packagesPath": "C:\\Users\\n.gordat\\.nuget\\packages\\",
+        "outputPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\Arbbet.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\n.gordat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
