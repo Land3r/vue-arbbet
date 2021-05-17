@@ -15,11 +15,13 @@ namespace Arbbet.Connectors.Dal.Services
 {
     public class BetService : AUnifiedEntityService<Bet>
     {
-        public static readonly Func<IQueryable<Bet>, IQueryable<Bet>> WithAllProperties = elm => WithPlatform(WithCountry(WithSport(elm)));
+        public static readonly Func<IQueryable<Bet>, IQueryable<Bet>> WithAllProperties = elm => WithPlatform(WithEvent(WithOutcomes(elm)));
 
-        public static readonly Func<IQueryable<Bet>, IQueryable<Bet>> WithPlatform = elm => elm.Include(elm => elm.Event);
+        public static readonly Func<IQueryable<Bet>, IQueryable<Bet>> WithPlatform = elm => elm.Include(elm => elm.Platform);
+        public static readonly Func<IQueryable<Bet>, IQueryable<Bet>> WithEvent = elm => elm.Include(elm => elm.Event);
+        public static readonly Func<IQueryable<Bet>, IQueryable<Bet>> WithOutcomes = elm => elm.Include(elm => elm.Outcomes);
 
-        public BetService(ConnectorDbContext connectorDbContext, PerformanceStatService performanceStatService) : base(connectorDbContext, performanceStatService)
+    public BetService(ConnectorDbContext connectorDbContext, PerformanceStatService performanceStatService) : base(connectorDbContext, performanceStatService)
         {
         }
 

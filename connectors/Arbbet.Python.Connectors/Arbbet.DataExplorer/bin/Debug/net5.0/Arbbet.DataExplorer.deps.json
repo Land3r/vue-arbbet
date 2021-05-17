@@ -2700,6 +2700,14 @@
         "runtime": {
           "Arbbet.Domain.dll": {}
         },
+        "resources": {
+          "en/Arbbet.Domain.resources.dll": {
+            "locale": "en"
+          },
+          "fr/Arbbet.Domain.resources.dll": {
+            "locale": "fr"
+          }
+        },
         "compile": {
           "Arbbet.Domain.dll": {}
         }

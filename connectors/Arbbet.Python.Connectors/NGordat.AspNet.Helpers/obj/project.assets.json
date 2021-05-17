@@ -8,25 +8,20 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\n.gordat\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\nicol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\NGordat.AspNet.Helpers\\NGordat.AspNet.Helpers.csproj",
+      "projectUniqueName": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\NGordat.AspNet.Helpers\\NGordat.AspNet.Helpers.csproj",
       "projectName": "NGordat.AspNet.Helpers",
-      "projectPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\NGordat.AspNet.Helpers\\NGordat.AspNet.Helpers.csproj",
-      "packagesPath": "C:\\Users\\n.gordat\\.nuget\\packages\\",
-      "outputPath": "D:\\Dev_ng\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\NGordat.AspNet.Helpers\\obj\\",
+      "projectPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\NGordat.AspNet.Helpers\\NGordat.AspNet.Helpers.csproj",
+      "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
+      "outputPath": "D:\\Dev_Services_Prives\\vue-arbbet\\connectors\\Arbbet.Python.Connectors\\NGordat.AspNet.Helpers\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\n.gordat\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -66,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

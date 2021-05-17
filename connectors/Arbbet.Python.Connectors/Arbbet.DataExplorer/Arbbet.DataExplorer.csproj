@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
+    <Content Remove="Pages\Home\Index.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,13 +52,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Home\" />
     <Folder Include="Styles\Theme\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="Pages\Home\Index.cshtml" />
     <None Include="Styles\Site\style.scss" />
     <None Include="Styles\Site\theme_reset.scss" />
   </ItemGroup>
@@ -80,4 +81,12 @@
   </Target>
   
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Home\Index.cshtml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Home\Index.cshtml" />
+  </ItemGroup>
 </Project>

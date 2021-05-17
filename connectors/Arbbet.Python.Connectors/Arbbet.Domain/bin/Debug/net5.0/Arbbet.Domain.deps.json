@@ -12,6 +12,14 @@
         },
         "runtime": {
           "Arbbet.Domain.dll": {}
+        },
+        "resources": {
+          "en/Arbbet.Domain.resources.dll": {
+            "locale": "en"
+          },
+          "fr/Arbbet.Domain.resources.dll": {
+            "locale": "fr"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore/5.0.5": {

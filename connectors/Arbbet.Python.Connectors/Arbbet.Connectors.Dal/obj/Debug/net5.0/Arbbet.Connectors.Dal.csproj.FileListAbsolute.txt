@@ -38,3 +38,5 @@ D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Dal\o
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Dal\obj\Debug\net5.0\ref\Arbbet.Connectors.Dal.dll
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Dal\obj\Debug\net5.0\Arbbet.Connectors.Dal.pdb
 D:\Dev_ng\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Dal\obj\Debug\net5.0\Arbbet.Connectors.Dal.genruntimeconfig.cache
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Dal\bin\Debug\net5.0\en\Arbbet.Domain.resources.dll
+D:\Dev_Services_Prives\vue-arbbet\connectors\Arbbet.Python.Connectors\Arbbet.Connectors.Dal\bin\Debug\net5.0\fr\Arbbet.Domain.resources.dll

@@ -73,7 +73,7 @@ var dashgrin = function () {
             let language = elm.data('language');
 
             elm.select2({
-                allowClear: allowClear ?? true,
+                allowClear: allowClear ?? false,
                 theme: theme ?? 'bootstrap4',
                 placeholder: placeholder ?? 'Select an item',
                 language: language ?? defaultLocale
@@ -95,6 +95,23 @@ var dashgrin = function () {
             time: 1000
         });
     }
+
+    /*Loading buttons */
+    // Déclare automatiquement la MaJ du texte d'affichage d'un boutton lors d'un clic.
+    jQuery('body').on('click', 'button', function (e) {
+        let attrValue = jQuery(this).attr('data-loading-text');
+        if (attrValue != undefined) {
+            jQuery(this).html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>' + attrValue);
+        }
+    });
+    // Déclare automatiquement la MaJ du texte d'affichage d'un input de type button lors d'un clic.
+    jQuery('body').on('click', 'input[type=button]', function (e) {
+        let attrValue = jQuery(this).attr('data-loading-text');
+        if (attrValue != undefined) {
+            jQuery(this).prop('value', '<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>' + attrValue);
+        }
+    });
+
 
     /*Tooltip*/
     if ($('[data-toggle="tooltip"]').length > 0)

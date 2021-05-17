@@ -141,4 +141,7 @@
   <data name="AppTitle" xml:space="preserve">
     <value>Arbbet</value>
   </data>
+  <data name="Id" xml:space="preserve">
+    <value>Identifier</value>
+  </data>
 </root>

@@ -17,10 +17,20 @@
                 <li class="breadcrumb-item @(currentBreadcrumb == nbOfBreadcrumb ? "active" : string.Empty)" aria-current="@(currentBreadcrumb == nbOfBreadcrumb ? "page" : null)">
                     @if (currentBreadcrumb != nbOfBreadcrumb)
                     {
-                        <a asp-page="@breadcrumb.Value.PageUrl">@breadcrumb.Value.Name</a>
+                        <a asp-page="@breadcrumb.Value.PageUrl">
+                            @if (!string.IsNullOrEmpty(breadcrumb.Value.Icon))
+                            {
+                                <i class="@breadcrumb.Value.Icon"></i>
+                            }
+                            @breadcrumb.Value.Name
+                        </a>
                     }
                     else
                     {
+                        @if (!string.IsNullOrEmpty(breadcrumb.Value.Icon) && nbOfBreadcrumb == 1)
+                        {
+                            <i class="@breadcrumb.Value.Icon"></i>
+                        }
                         @breadcrumb.Value.Name
                     }
                 </li>

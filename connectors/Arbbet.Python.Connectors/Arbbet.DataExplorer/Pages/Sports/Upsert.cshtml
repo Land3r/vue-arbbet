@@ -17,16 +17,16 @@
         </div>*@
     <!-- /Title -->
     <!-- Row -->
-    <div class="row">
-        <div class="col-xl-12">
-            <section class="hk-sec-wrapper">
-                <h5 class="hk-sec-title">
-                    <i class="@SiteNavigationProvider.GetPageIcon(this.Model.GetType())"></i>
-                    @ViewData["Title"]
-                </h5>
-                <div class="row">
-                    <div class="col-sm">
-                        <form method="post">
+    <form method="post">
+        <div class="row">
+            <div class="col-xl-12">
+                <section class="hk-sec-wrapper">
+                    <h5 class="hk-sec-title">
+                        <i class="@SiteNavigationProvider.GetPageIcon(this.Model.GetType())"></i>
+                        @ViewData["Title"]
+                    </h5>
+                    <div class="row">
+                        <div class="col-sm">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -43,58 +43,100 @@
                                     </div>
                                 </div>
                             </div>
-                            <h3>
-                                Unified Statuts
-                                @Html.Raw(UnifiedEntityHelper.GetUnifiedBadge(Model.Item.UnifiedType))
-                            </h3>
-                            <div class="row">
-                                @if (Model.Item?.UnifiedType == UnifiedType.Master)
-                                {
-                                    <div class="col">
-                                        <div class="form-group">
-                                            TODO: Lien vers les platforms specifics liés à ce mater
-                                        </div>
-                                    </div>
-                                }
-                                else if (Model.Item?.UnifiedType == UnifiedType.Platform)
-                                {
-                                    <div class="col">
-                                        <div class="form-group">
-                                            @if (Model.Item.UnifiedEntityId != null)
-                                            {
-                                                <a asp-page="Upsert" asp-route-id="@Model.Item.UnifiedEntityId">View Master</a>
-                                            }
-                                            else
-                                            {
-                                                <a href="Upsert">Set master</a>
-                                            }
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.Item.Platform)
-                                            <span>Faire un select</span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.Item.Platform_Id)
-                                            @Html.TextBoxFor(model => model.Item.Platform_Id, htmlAttributes: new { @class = "form-control"})
-                                        </div>
-                                    </div>
-                                }
-                            </div>
                             <div class="row">
                                 <div class="col-sm">
                                     <button class="btn btn-success" type="submit" asp-page-handler="@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")">@(Model.Meaning == PageMeaning.CREATE ? CommonLocalizer["Action.Create"]: CommonLocalizer["Action.Save"])</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
-    </div>
-    <!-- /Row -->
+        <!-- /Row -->
+        <!-- Row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <section class="hk-sec-wrapper">
+                    <h5 class="hk-sec-title">
+                        Unified Statuts
+                        @Html.Raw(UnifiedEntityHelper.GetUnifiedBadge(Model.Item.UnifiedType))
+                    </h5>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Item.UnifiedType)
+                                <select asp-for="Item.UnifiedType" asp-items="Html.GetEnumSelectList<UnifiedType>()" class="select2 form-control" data-placeholder="Select a type"></select>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                                <h6>@(Model.Item.UnifiedType == UnifiedType.Master ? "Related platform specific" : "Master")</h6>
+                                <div class="list-group">
+                                    @if (Model.UnifiedItems != null && Model.UnifiedItems.Count() > 0)
+                                    {
+                                        foreach (var unifiedItem in Model.UnifiedItems)
+                                        {
+                                            <a asp-route-id="@unifiedItem.Id" class="list-group-item list-group-item-action">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <span>@unifiedItem.Name</span>
+                                                    @if (unifiedItem.UnifiedType == UnifiedType.Platform)
+                                                    {
+                                                        @Html.Raw(PlatformHelper.GetPlatformBadge(unifiedItem.Platform?.Name))
+                                                    }
+                                                    else if (unifiedItem.UnifiedType == UnifiedType.Master)
+                                                    {
+                                                        @Html.Raw(UnifiedEntityHelper.GetUnifiedBadge(unifiedItem.UnifiedType))
+                                                    }
+                                                </div>
+                                            </a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="list-group-item disabled">No link yet</div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Item.Platform)
+                                <select asp-for="Item.PlatformId" asp-items="Model.PlatformSelectList" class="select2 form-control" data-placeholder="Select a platform"></select>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Item.Platform_Id)
+                                @Html.TextBoxFor(model => model.Item.Platform_Id, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    @if (Model.Item?.UnifiedType == UnifiedType.Platform)
+                    {
+                        <h6>Association</h6>
+                        <div class="row mb-15">
+                            <div class="col">
+                                @Html.LabelFor(model => model.Item.UnifiedEntityId)
+                                <select asp-for="Item.UnifiedEntityId" asp-items="Model.UnifiedEntitiesSelectList" class="select2 form-control" data-placeholder="Select an entity" aria-describedby="UnifiedEntitiesSelectListHelp"></select>
+                                <div id="UnifiedEntitiesSelectListHelp" class="form-text">Associate with the following master.</div>
+                            </div>
+
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="col-sm">
+                            <button class="btn btn-success" type="submit" asp-page-handler="@(Model.Meaning == PageMeaning.CREATE ? "Create": "Edit")">@(Model.Meaning == PageMeaning.CREATE ? CommonLocalizer["Action.Create"]: CommonLocalizer["Action.Save"])</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- /Row -->
+
+    </form>
 
 </div>

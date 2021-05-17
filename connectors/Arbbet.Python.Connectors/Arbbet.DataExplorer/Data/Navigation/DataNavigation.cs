@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Arbbet.DataExplorer.Data.Navigation
 {
-    [PageNavigation("Data", null, Icon = "fas fa-funnel-dollar", Order = 1, PageType = typeof(DataNavigation), ParentType = null, Badge = "Hoooot")]
+    [PageNavigation("Data", null, Icon = "fas fa-funnel-dollar", Order = 1, PageType = typeof(DataNavigation), ParentType = null)]
     public class DataNavigation : INavigationSection
     {
     }
